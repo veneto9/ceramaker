@@ -3,231 +3,605 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prof. Amaro Viana Neto | Saúde Coletiva e Epidemiologia</title>
+  <title>Ceramaker | Ferramentas 3D para Cerâmica Artesanal</title>
+  <meta name="description" content="Ferramentas inovadoras para ceramistas. Carimbos, rolos e cortadores 3D. Tecnologia que transforma tradição. Entrega em todo Brasil.">
+  <meta name="keywords" content="ferramentas para cerâmica, carimbos para argila, rolos texturizados, cortadores cerâmica, ferramentas ceramista, impressão 3D cerâmica">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --cor-principal: #b8541f;
+      --cor-secundaria: #964419;
+      --cor-terciaria: #f4e4d6;
+      --cor-texto: #333333;
+      --cor-fundo: #faf8f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--cor-texto);
+      background-color: var(--cor-fundo);
+      line-height: 1.6;
+    }
+
+    /* Header Hero */
+    .hero-header {
+      background: linear-gradient(135deg, var(--cor-principal) 0%, var(--cor-secundaria) 100%);
+      color: white;
+      padding: 120px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff10" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+      background-size: cover;
+    }
+
+    .hero-header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-header p {
+      font-size: 1.3rem;
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-cta {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+      color: white;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: white;
+      padding: 15px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--cor-texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--cor-principal);
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: var(--cor-principal);
+    }
+
+    /* Sections */
+    .secao {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .secao h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      color: var(--cor-principal);
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .secao h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, var(--cor-principal), var(--cor-secundaria));
+    }
+
+    /* Product Cards */
+    .produto-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .produto-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(184, 84, 31, 0.15);
+    }
+
+    .produto-card h3 {
+      color: var(--cor-secundaria);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .produto-card .icone {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .btn-saiba-mais {
+      background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+      color: white;
+      padding: 10px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 15px;
+      transition: transform 0.3s;
+    }
+
+    .btn-saiba-mais:hover {
+      transform: scale(1.05);
+      color: white;
+    }
+
+    /* Diferenciais */
+    .diferencial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .diferencial-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .diferencial-item .icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+    }
+
+    /* Como Funciona */
+    .processo-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: var(--cor-principal);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0 auto 20px;
+    }
+
+    /* Testimonials */
+    .depoimento-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+
+    .depoimento-card .quote {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .depoimento-card .author {
+      font-weight: 600;
+      color: var(--cor-principal);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+      color: white;
+      padding: 40px 20px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .footer-section a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-header p {
+        font-size: 1.1rem;
+      }
+      
+      nav {
+        gap: 15px;
+      }
+      
+      .secao h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      z-index: 999;
+      transition: transform 0.3s;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Amaro Neto</h1>
-    <p>Saúde Coletiva · Geografia · Gestão Pública da Saúde · Educação</p>
+  <header class="hero-header">
+    <h1>CERAMAKER</h1>
+    <p>Ferramentas 3D que revolucionam a cerâmica artesanal</p>
+    <div class="hero-cta">
+      <a href="https://wa.me/5521999999999?text=Olá! Gostaria de saber mais sobre as ferramentas Ceramaker" class="btn-whatsapp" target="_blank">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Fale Conosco no WhatsApp
+      </a>
+    </div>
   </header>
 
   <nav>
-    <a href="index.html">Início</a>
-    <a href="curriculo.html">📄 Currículo</a>
-    <a href="https://veneto9.github.io/gave/" target="_blank">🔗 Site GAVE</a>
-    <a href="https://github.com/veneto9" target="_blank">💻 GitHub</a>
+    <a href="#inicio">Início</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#como-funciona">Como Funciona</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#contato">Contato</a>
   </nav>
 
   <main>
-    <section class="secao">
-      <h2>Sobre Mim</h2>
-      <p>Sou Amaro Neto, doutorando em Saúde Coletiva (IESC/UFRJ), Sanitarista e Geógrafo. Mestre em Ensino das Ciências da Saúde, com especializações em Ciências Ambientais e Educação na Saúde para Preceptores do SUS.</p>
-      <p>Atuo como Sanitarista na Vigilância Epidemiológica em Barra do Piraí/RJ e professor, conectando saúde pública e território através da análise de dados espaciais em saúde. Meu trabalho integra educação e gestão pública, buscando formas criativas de atuação com foco na análise e comunicação de informações sobre doenças negligenciadas em Saúde Pública.</p>
+    <section id="produtos" class="secao">
+      <h2>🎨 Nossas Ferramentas</h2>
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="produto-card">
+            <div class="icone">🔷</div>
+            <h3>Carimbos 3D</h3>
+            <p>Padrões florais, geométricos e texturizados com precisão impossível de alcançar manualmente.</p>
+            <a href="#" class="btn-saiba-mais">Solicitar Catálogo</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="produto-card">
+            <div class="icone">🎭</div>
+            <h3>Rolos Texturizados</h3>
+            <p>Texturas naturais, abstratas e temáticas para criar superfícies únicas em suas peças.</p>
+            <a href="#" class="btn-saiba-mais">Ver Modelos</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="produto-card">
+            <div class="icone">✂️</div>
+            <h3>Cortadores</h3>
+            <p>Formas básicas, especiais e sets completos para cortes perfeitos e padronizados.</p>
+            <a href="#" class="btn-saiba-mais">Conhecer Opções</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="produto-card">
+            <div class="icone">📦</div>
+            <h3>Kits Temáticos</h3>
+            <p>Kits iniciante, profissional e personalizados com tudo que você precisa para começar.</p>
+            <a href="#" class="btn-saiba-mais">Escolher Kit</a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="secao">
-      <h2>📚 Projetos</h2>
-      <div class="projeto-card">
-        <h3>Scripts em R para análises Epidemiológicas</h3>
-        <p>Desenvolvimento de ferramentas em R para análise de dados epidemiológicos, facilitando a vigilância e tomada de decisões baseadas em evidências.</p>
-      </div>
-      <div class="projeto-card">
-        <h3>Geoprocessamento em Saúde</h3>
-        <p>Mapas e visualizações espaciais para análise da distribuição de doenças negligenciadas, identificando padrões e fatores de risco territoriais.</p>
-      </div>
-      <div class="projeto-card">
-        <h3>Território: análise e visualizações de indicadores</h3>
-        <p>Estudo de determinantes sociais e ambientais da saúde através da visualização de indicadores contextuais em diferentes territórios.</p>
-      </div>
-      <div class="projeto-card">
-        <h3>Análise espacial dos casos de Leptospirose no Estado do Rio de Janeiro</h3>
-        <p>Investigação dos padrões de distribuição da leptospirose no RJ, identificando fatores ambientais e sociais associados à incidência da doença.</p>
+    <section class="secao" style="background-color: white;">
+      <h2>✨ Nossos Diferenciais</h2>
+      <div class="diferencial-grid">
+        <div class="diferencial-item">
+          <div class="icon">🚀</div>
+          <h4>Tecnologia 3D Avançada</h4>
+          <p>Precisão milimétrica aplicada à tradição milenar da cerâmica.</p>
+        </div>
+        <div class="diferencial-item">
+          <div class="icon">👩‍🎨</div>
+          <h4>Feito por Ceramistas</h4>
+          <p>Desenvolvido e testado por quem entende do assunto.</p>
+        </div>
+        <div class="diferencial-item">
+          <div class="icon">🎯</div>
+          <h4>Resultados Profissionais</h4>
+          <p>Acabamento impossível de alcançar manualmente.</p>
+        </div>
+        <div class="diferencial-item">
+          <div class="icon">🛠️</div>
+          <h4>Personalização Total</h4>
+          <p>Criamos ferramentas sob medida para seu projeto.</p>
+        </div>
       </div>
     </section>
 
-    <section id="blog-section" class="container my-5">
-        <h2 class="text-center mb-4 custom-section-title">Últimas Notícias do Blog</h2>
-        <div id="blog-posts-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <p class="text-center w-100">Carregando últimas notícias...</p>
+    <section id="como-funciona" class="secao">
+      <h2>📋 Como Funciona</h2>
+      <div class="processo-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h4>Escolha</h4>
+          <p>Selecione a ferramenta ideal para seu projeto no nosso catálogo.</p>
         </div>
-    </section>
-    <section id="clipping-section" class="container my-5">
-        <h2 class="text-center mb-4 custom-section-title">Clipping de Notícias</h2>
-        <div id="clipping-posts-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-            <p class="text-center w-100">Carregando clipping...</p>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h4>Aplique</h4>
+          <p>Use a ferramenta na argila úmida com pressão suave e uniforme.</p>
         </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h4>Crie</h4>
+          <p>Veja padrões perfeitos surgindo em suas peças cerâmicas.</p>
+        </div>
+      </div>
     </section>
-    </main>
+
+    <section id="sobre" class="secao" style="background-color: var(--cor-terciaria);">
+      <h2>🏺 Nossa História</h2>
+      <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.8;">
+        Somos ceramistas apaixonados que descobriram na tecnologia 3D uma forma de revolucionar a arte milenar da cerâmica. 
+        Cada ferramenta Ceramaker nasce da experiência prática do ateliê, é testada por ceramistas reais e aperfeiçoada 
+        para entregar resultados impossíveis de alcançar manualmente.
+      </p>
+      <p style="max-width: 800px; margin: 20px auto 0; text-align: center; font-size: 1.1rem; font-weight: 600; color: var(--cor-principal);">
+        Nossa missão: democratizar técnicas avançadas e despertar o ceramista que há em cada pessoa.
+      </p>
+    </section>
+
+    <section id="depoimentos" class="secao">
+      <h2>💬 O Que Dizem Nossos Clientes</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="depoimento-card">
+            <p class="quote">"As ferramentas Ceramaker transformaram completamente meu trabalho. A precisão dos carimbos é incrível!"</p>
+            <p class="author">Maria Silva - Ateliê Cerâmica Viva</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="depoimento-card">
+            <p class="quote">"Consegui criar padrões que antes levavam horas em apenas minutos. Revolucionário!"</p>
+            <p class="author">João Santos - Ceramista Profissional</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="depoimento-card">
+            <p class="quote">"O kit iniciante foi perfeito para começar. Qualidade excepcional e suporte incrível."</p>
+            <p class="author">Ana Costa - Iniciante em Cerâmica</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" style="background: linear-gradient(135deg, rgba(184,84,31,0.1), rgba(150,68,25,0.1)); border-radius: 20px; text-align: center;">
+      <h2>🎯 Pronto para Revolucionar sua Cerâmica?</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 30px;">Entre em contato e descubra como nossas ferramentas podem transformar seu trabalho</p>
+      <a href="https://wa.me/5521999999999?text=Olá! Quero conhecer as ferramentas Ceramaker" class="btn-whatsapp" target="_blank" style="font-size: 1.1rem; padding: 15px 40px;">
+        Solicitar Catálogo Completo
+      </a>
+    </section>
+  </main>
 
   <footer>
-    <div>
-      <p>Amaro Neto | <a href="curriculo.html">Ver currículo</a></p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Ceramaker</h3>
+        <p>Ferramentas 3D que revolucionam a arte da cerâmica</p>
+        <p style="margin-top: 15px; opacity: 0.9;">© 2024 Ceramaker. Todos os direitos reservados.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Links Rápidos</h3>
+        <a href="#produtos">Produtos</a>
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#sobre">Sobre Nós</a>
+        <a href="#depoimentos">Depoimentos</a>
+      </div>
+      <div class="footer-section">
+        <h3>Produtos</h3>
+        <a href="#">Carimbos 3D</a>
+        <a href="#">Rolos Texturizados</a>
+        <a href="#">Cortadores</a>
+        <a href="#">Kits Temáticos</a>
+      </div>
+      <div class="footer-section" id="contato">
+        <h3>Contato</h3>
+        <a href="https://wa.me/5521999999999" target="_blank">📱 WhatsApp</a>
+        <a href="https://instagram.com/ceramaker" target="_blank">📸 @ceramaker</a>
+        <a href="mailto:contato@ceramaker.com.br">📧 contato@ceramaker.com.br</a>
+        <a href="#">📍 Rio de Janeiro, RJ</a>
+      </div>
     </div>
-    <section class="secao-contato">
-      <h2>🌐 Contato</h2>
-      <p>🐦 <a href="https://twitter.com/amaroveneto" target="_blank">@amaroveneto</a></p>
-      <p>📸 <a href="https://instagram.com/amarovneto" target="_blank">@amarovneto</a></p>
-      <p>📫 <a href="mailto:amaroneto@ufrj.br">amaroneto@ufrj.br</a></p>
-      <p>📍 Rio de Janeiro, Brasil</p>
-    </section>
+    <div class="footer-bottom">
+      <p>Desenvolvido com 💛 para ceramistas apaixonados</p>
+    </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/5521999999999?text=Olá! Vim pelo site e gostaria de mais informações sobre as ferramentas Ceramaker" class="whatsapp-float" target="_blank">
+    <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // Bloco 3: Código JavaScript para popular as Últimas Notícias do Blog (via RSS/Proxy)
-
-    // IMPORTANTE: Substitua esta URL pela URL real do seu feed RSS ou do serviço proxy (ex: RSS2JSON).
-    // Exemplo com um feed de teste (PODE NÃO FUNCIONAR DEVIDO A CORS SEM PROXY):
-    const rssFeedUrl = 'https://rss.blog.gov.bc.ca/districts/prince-george/'; // SUBSTITUA!
-    // Para usar com Substack, você precisará do feed RSS do seu Substack (ex: https://seunome.substack.com/feed)
-    // e provavelmente de um proxy como RSS2JSON (https://rss2json.com/) para converter para JSON e evitar CORS.
-    // Exemplo com RSS2JSON: `https://api.rss2json.com/v1/api.json?rss_url=https://seunome.substack.com/feed`
-
-    function formatDate(dateString) {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        try {
-            const date = new Date(dateString);
-            if (isNaN(date)) return 'Data inválida';
-            return date.toLocaleDateString('pt-BR', options);
-        } catch (e) {
-            return 'Data indisponível';
+    // Smooth scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
-    }
+      });
+    });
 
-    document.addEventListener('DOMContentLoaded', async () => {
-        const blogContainer = document.getElementById('blog-posts-container');
+    // Animação ao scroll (opcional)
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-        if (!blogContainer) {
-            console.error("Contêiner de notícias do blog com ID 'blog-posts-container' não encontrado.");
-            return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
         }
+      });
+    }, observerOptions);
 
-        blogContainer.innerHTML = '<p class="text-center w-100">Carregando últimas notícias...</p>';
-
-        try {
-            const response = await fetch(rssFeedUrl);
-            if (!response.ok) {
-                throw new Error(`Erro na requisição HTTP! Status: ${response.status} ao buscar ${rssFeedUrl}`);
-            }
-
-            const feedData = await response.json(); // Assumindo que o proxy retorna JSON
-
-            // Adapte 'feedData.items' conforme a estrutura do JSON retornado pelo seu proxy/feed
-            const posts = feedData.items || [];
-
-            if (posts.length === 0) {
-                blogContainer.innerHTML = '<p class="text-center w-100">Nenhuma notícia disponível no momento.</p>';
-                return;
-            }
-
-            blogContainer.innerHTML = ''; // Limpa a mensagem de carregamento
-
-            // Limita o número de posts exibidos (ex: os 3 mais recentes)
-            const postsToDisplay = posts.slice(0, 3);
-
-            postsToDisplay.forEach(post => {
-                const title = post.title || 'Sem Título';
-                const link = post.link || '#';
-                const pubDate = post.pubDate || post.isoDate; // Tentar pubDate ou isoDate
-                const date = pubDate ? formatDate(pubDate) : 'Data Desconhecida';
-                // Tentar extrair uma imagem. Muitos feeds RSS usam 'enclosure', 'media:thumbnail', ou a primeira <img> no 'content'
-                const imageUrl = post.thumbnail || (post.enclosure && post.enclosure.link) || 'https://via.placeholder.com/400x200/2C3E50/FFFFFF?text=Blog+GAVE'; // Placeholder
-
-                const cardHtml = `
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="${imageUrl}" class="card-img-top" alt="${title}" style="object-fit: cover; height: 200px;">
-                            <div class="card-body d-flex flex-column">
-                                <p class="card-text small text-muted mb-1">${date}</p>
-                                <h5 class="card-title mt-0">${title}</h5>
-                                <a href="${link}" class="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer">Ler mais</a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                blogContainer.innerHTML += cardHtml;
-            });
-
-        } catch (error) {
-            console.error("Erro ao carregar feed RSS:", error);
-            blogContainer.innerHTML = `<p class="text-center w-100 text-danger">Erro ao carregar notícias do blog. Verifique o console para detalhes (F12).</p><p class="text-center w-100 small text-muted">Certifique-se de que a URL do feed ('${rssFeedUrl}') está correta e acessível, possivelmente via um proxy RSS-to-JSON.</p>`;
-        }
+    // Aplicar animação aos cards
+    document.querySelectorAll('.produto-card, .depoimento-card, .diferencial-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
     });
   </script>
-
-  <script>
-    // Bloco 4: Código JavaScript para popular o Clipping de Notícias
-
-    // IMPORTANTE: Edite estes dados com suas notícias de clipping reais.
-    const clippingData = [
-        {
-            title: "Brasil enfrenta desafio no combate à Febre Amarela",
-            link: "https://www.example.com/noticia-febre-amarela", // Substitua pelo link real
-            sourceDate: "Fonte: G1 - 20/MAI/2024", // Adapte
-            imageUrl: "https://via.placeholder.com/400x200/34495E/FFFFFF?text=Clipping+1" // Opcional: imagem placeholder
-        },
-        {
-            title: "Pesquisa aponta aumento de casos de Tuberculose",
-            link: "https://www.example.com/noticia-tuberculose", // Substitua
-            sourceDate: "Fonte: Folha de S. Paulo - 18/MAI/2024", // Adapte
-            imageUrl: "https://via.placeholder.com/400x200/34495E/FFFFFF?text=Clipping+2" // Opcional
-        },
-        {
-            title: "Novos casos de Sarampo acendem alerta em capitais",
-            link: "https://www.example.com/noticia-sarampo", // Substitua
-            sourceDate: "Fonte: Estado de Minas - 15/MAI/2024", // Adapte
-            imageUrl: "https://via.placeholder.com/400x200/34495E/FFFFFF?text=Clipping+3" // Opcional
-        },
-        {
-            title: "Ministério da Saúde lança guia sobre Chikungunya",
-            link: "https://www.example.com/noticia-chikungunya", // Substitua
-            sourceDate: "Fonte: Ministério da Saúde - 10/MAI/2024", // Adapte
-            imageUrl: "https://via.placeholder.com/400x200/34495E/FFFFFF?text=Clipping+4" // Opcional
-        },
-        // Adicione mais itens de clipping aqui
-    ];
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const clippingContainer = document.getElementById('clipping-posts-container');
-
-        if (!clippingContainer) {
-            console.error("Contêiner de clipping com ID 'clipping-posts-container' não encontrado.");
-            return;
-        }
-
-        if (clippingData.length === 0) {
-            clippingContainer.innerHTML = '<p class="text-center w-100">Nenhum item de clipping disponível no momento.</p>';
-            return;
-        }
-
-        clippingContainer.innerHTML = ''; // Limpa a mensagem de carregamento
-
-        clippingData.forEach(item => {
-            const cardHtml = `
-                <div class="col">
-                    <div class="card h-100">
-                        ${item.imageUrl ? `<img src="${item.imageUrl}" class="card-img-top" alt="${item.title}" style="object-fit: cover; height: 150px;">` : ''}
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">${item.title}</h5>
-                            <p class="card-text small text-muted">${item.sourceDate}</p>
-                            <a href="${item.link}" class="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer">Ler Notícia</a>
-                        </div>
-                    </div>
-                </div>
-            `;
-            clippingContainer.innerHTML += cardHtml;
-        });
-    });
-  </script>
-
 </body>
 </html>
