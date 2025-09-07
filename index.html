@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ceramaker | Ferramentas para Cerâmica Artesanal</title>
-  <meta name="description" content="Ferramentas inovadoras para ceramistas. Carimbos, rolos e cortadores 3D. Tecnologia que transforma tradição. Entrega em todo Brasil.">
-  <meta name="keywords" content="ferramentas para cerâmica, carimbos para argila, rolos texturizados, cortadores cerâmica, ferramentas ceramista, impressão 3D cerâmica">
+  <meta name="description" content="Ferramentas inovadoras para ceramistas. Carimbos, rolos e cortadores para cerâmica. Tecnologia que transforma tradição. Entrega em todo Brasil.">
+  <meta name="keywords" content="ferramentas para cerâmica, carimbos para argila, rolos texturizados, cortadores cerâmica, ferramentas ceramista">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,6 +63,7 @@
       margin-bottom: 20px;
       position: relative;
       z-index: 1;
+      letter-spacing: 1px;
     }
 
     .hero-header p {
@@ -149,7 +150,7 @@
     .secao h2 {
       font-family: 'Poppins', sans-serif;
       font-size: 2.5rem;
-      color: var(--cor-principal);
+      color: #692e26;
       text-align: center;
       margin-bottom: 40px;
       position: relative;
@@ -163,7 +164,7 @@
       transform: translateX(-50%);
       width: 60px;
       height: 3px;
-      background: linear-gradient(to right, var(--cor-principal), var(--cor-secundaria));
+      background: linear-gradient(to right, #ebbd53, #a6492e);
     }
 
     /* Product Cards */
@@ -175,6 +176,9 @@
       box-shadow: 0 5px 20px rgba(0,0,0,0.08);
       transition: transform 0.3s, box-shadow 0.3s;
       text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .produto-card:hover {
@@ -194,6 +198,11 @@
       margin-bottom: 20px;
     }
 
+    .produto-card p {
+      flex-grow: 1;
+      margin-bottom: 15px;
+    }
+
     .btn-saiba-mais {
       background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
       color: white;
@@ -201,7 +210,7 @@
       border-radius: 25px;
       text-decoration: none;
       display: inline-block;
-      margin-top: 15px;
+      margin-top: auto;
       transition: transform 0.3s;
     }
 
@@ -270,17 +279,22 @@
       border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.08);
       margin-bottom: 20px;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .depoimento-card .quote {
       font-style: italic;
-      color: #666;
+      color: #999;
       margin-bottom: 15px;
     }
 
     .depoimento-card .author {
       font-weight: 600;
       color: var(--cor-principal);
+      opacity: 0.5;
     }
 
     /* Footer */
@@ -360,20 +374,54 @@
       z-index: 999;
       transition: transform 0.3s;
       text-decoration: none;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
     .whatsapp-float:hover {
       transform: scale(1.1);
       color: white;
+      animation: none;
     }
   </style>
 </head>
 <body>
   <header class="hero-header">
-    <h1>CERAMAKER</h1>
-    <p>Argilas, carimbos e ferramentas para a cerâmica artesanal</p>
+    <div class="logo-container" style="margin-bottom: 20px;">
+      <svg width="120" height="120" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Gargalo do vaso -->
+        <rect x="85" y="20" width="30" height="40" fill="#692e26" rx="3"/>
+        
+        <!-- Corpo do vaso -->
+        <path d="M 60 60 Q 50 90, 55 120 T 80 180 Q 100 190, 120 180 T 145 120 Q 150 90, 140 60 Z" 
+              fill="#ebbd53" stroke="#692e26" stroke-width="3"/>
+        
+        <!-- Decoração floral no topo -->
+        <g transform="translate(100,85)">
+          <path d="M 0,-10 Q -5,-5 -8,0 Q -5,5 0,10 Q 5,5 8,0 Q 5,-5 0,-10" fill="#692e26"/>
+          <circle cx="0" cy="0" r="3" fill="#a6492e"/>
+        </g>
+        
+        <!-- Faixas decorativas -->
+        <rect x="55" y="100" width="90" height="4" fill="#692e26"/>
+        <rect x="55" y="108" width="90" height="2" fill="#a6492e"/>
+        
+        <!-- Coração central -->
+        <g transform="translate(100,140)">
+          <path d="M 0,5 C -15,-10 -15,-15 -10,-15 C -5,-15 0,-10 0,-5 C 0,-10 5,-15 10,-15 C 15,-15 15,-10 0,5 Z" 
+                fill="#a6492e" stroke="#692e26" stroke-width="2"/>
+        </g>
+      </svg>
+    </div>
+    <h1 style="font-family: 'Poppins', sans-serif; color: #ebe5d9; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">CERAMAKER</h1>
+    <p>Argilas, carimbos e ferramentas para cerâmica artesanal</p>
     <div class="hero-cta">
-      <a href="https://wa.me/5521998898984?text=Olá! Gostaria de saber mais sobre arilas e ferramentas comercializados pela Ceramaker" class="btn-whatsapp" target="_blank">
+      <a href="https://wa.me/5521998898984?text=Olá! Gostaria de saber mais sobre argilas e ferramentas comercializadas pela Ceramaker" class="btn-whatsapp" target="_blank">
         <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
@@ -393,14 +441,14 @@
 
   <main>
     <section id="produtos" class="secao">
-      <h2>🎨 Nossas Ferramentas</h2>
+      <h2>🎨 Nossos Produtos</h2>
       <div class="row">
         <div class="col-md-6 col-lg-3">
           <div class="produto-card">
-            <div class="icone">🔷</div>
-            <h3>Carimbos 3D</h3>
+            <div class="icone">🪷</div>
+            <h3>Carimbos</h3>
             <p>Designs florais, geométricos e texturizados prontos para elevar suas peças a um novo patamar de qualidade.</p>
-            <a href="#" class="btn-saiba-mais">Solicitar Catálogo</a>
+            <a href="https://wa.me/5521998898984?text=Olá! Quero conhecer os carimbos Ceramaker" class="btn-saiba-mais">Solicitar Catálogo</a>
           </div>
         </div>
         <div class="col-md-6 col-lg-3">
@@ -408,23 +456,23 @@
             <div class="icone">🎭</div>
             <h3>Rolos Texturizados</h3>
             <p>Texturas naturais, abstratas e temáticas para criar superfícies únicas em suas peças.</p>
-            <a href="#" class="btn-saiba-mais">Ver Modelos</a>
+            <a href="https://wa.me/5521998898984?text=Olá! Quero conhecer os rolos texturizados Ceramaker" class="btn-saiba-mais">Ver Modelos</a>
           </div>
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="produto-card">
             <div class="icone">✂️</div>
             <h3>Cortadores</h3>
-            <p>Formas essenciais, criativas e kit's temáticos para cada projeto</p>
-            <a href="#" class="btn-saiba-mais">Conhecer Opções</a>
+            <p>Formas essenciais, criativas e kits temáticos para cada projeto.</p>
+            <a href="https://wa.me/5521998898984?text=Olá! Quero conhecer os cortadores Ceramaker" class="btn-saiba-mais">Conhecer Opções</a>
           </div>
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="produto-card">
-            <div class="icone">📦</div>
-            <h3>Kits Temáticos</h3>
-            <p>Kits iniciante, profissional e personalizados com tudo que você precisa para começar.</p>
-            <a href="#" class="btn-saiba-mais">Escolher Kit</a>
+            <div class="icone">🏺</div>
+            <h3>Argilas Especiais</h3>
+            <p>Argilas selecionadas de alta qualidade para diferentes técnicas e acabamentos.</p>
+            <a href="https://wa.me/5521998898984?text=Olá! Quero conhecer as argilas Ceramaker" class="btn-saiba-mais">Ver Tipos</a>
           </div>
         </div>
       </div>
@@ -435,23 +483,23 @@
       <div class="diferencial-grid">
         <div class="diferencial-item">
           <div class="icon">🚀</div>
-          <h4>Tecnologia 3D Avançada</h4>
-          <p>Unimos inovação e tradição para facilitar seu processo criativo.</p>
+          <h4>Inovação Aplicada</h4>
+          <p>Unimos tecnologia e tradição para facilitar seu processo criativo.</p>
         </div>
         <div class="diferencial-item">
           <div class="icon">👩‍🎨</div>
-          <h4>Paixão pela Ceraâmica</h4>
-          <p>Produtos testados por Ceramistas.</p>
+          <h4>Paixão pela Cerâmica</h4>
+          <p>Produtos desenvolvidos e testados por ceramistas.</p>
         </div>
         <div class="diferencial-item">
           <div class="icon">🎯</div>
-          <h4>Resultados Profissionais</h4>
-          <p>Resultados que valorizam o seu trabalho.</p>
+          <h4>Qualidade Consistente</h4>
+          <p>Resultados uniformes que valorizam seu trabalho.</p>
         </div>
         <div class="diferencial-item">
           <div class="icon">🛠️</div>
-          <h4>Carimbos e cortadores Personalizados. </h4>
-          <p>Podemos adaptar as ferramentas para suas necessidades.</p>
+          <h4>Personalização</h4>
+          <p>Podemos adaptar as ferramentas para suas necessidades específicas.</p>
         </div>
       </div>
     </section>
@@ -462,7 +510,7 @@
         <div class="step">
           <div class="step-number">1</div>
           <h4>Escolha</h4>
-          <p>Selecione a ferramenta ideal para seu projeto no nosso catálogo.</p>
+          <p>Selecione a ferramenta ideal para seu projeto em nosso catálogo.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
@@ -480,45 +528,41 @@
     <section id="sobre" class="secao" style="background-color: var(--cor-terciaria);">
       <h2>🏺 Nossa História</h2>
       <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.8;">
-        
-
-Ceramista, combino a experiência em cerâmica com tecnologia 3D para desenvolver ferramentas que facilitam o processo criativo. Tudo nasce e é testado no ateliê, garantindo praticidade e qualidade esperadas para nosso uso ou para atender clientes externos.
-
-       
+        Como ceramista, combino a experiência em cerâmica com tecnologia moderna para desenvolver ferramentas que facilitam o processo criativo. Tudo nasce e é testado no ateliê, garantindo a praticidade e qualidade esperadas tanto para uso próprio quanto para atender outros ceramistas.
       </p>
       <p style="max-width: 800px; margin: 20px auto 0; text-align: center; font-size: 1.1rem; font-weight: 600; color: var(--cor-principal);">
-        Nossa missão: democratizar materia prima, ferramentas, além de despertar o ceramista que há em cada pessoa.
+        Nossa missão: democratizar matéria-prima e ferramentas de qualidade, além de despertar o ceramista que há em cada pessoa.
       </p>
     </section>
 
     <section id="depoimentos" class="secao">
-      <h2>💬 O Que Dizem Nossos Clientes</h2>
+      <h2>💬 Depoimentos</h2>
       <div class="row">
         <div class="col-md-4">
           <div class="depoimento-card">
-            <p class="quote">"Em aguardo"</p>
-            <p class="author">Em aguardo</p>
+            <p class="quote">"Em breve"</p>
+            <p class="author">Aguardando depoimentos</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="depoimento-card">
-            <p class="quote">"Em aguardo"</p>
-            <p class="author">Em aguardo</p>
+            <p class="quote">"Em breve"</p>
+            <p class="author">Aguardando depoimentos</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="depoimento-card">
-            <p class="quote">"Em aguardo."</p>
-            <p class="author">Em aguardo</p>
+            <p class="quote">"Em breve"</p>
+            <p class="author">Aguardando depoimentos</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="secao" style="background: linear-gradient(135deg, rgba(184,84,31,0.1), rgba(150,68,25,0.1)); border-radius: 20px; text-align: center;">
-      <h2>Argila, carimbos e ferramentas para a cerâmica artesanal</h2>
-      <p style="font-size: 1.2rem; margin-bottom: 30px;">Entre em contato e descubra como nossas ferramentas podem transformar seu trabalho</p>
-      <a href="https://wa.me/5521998898984?text=Olá! Quero conhecer as ferramentas Ceramaker" class="btn-whatsapp" target="_blank" style="font-size: 1.1rem; padding: 15px 40px;">
+      <h2>🎯 Pronto para Elevar sua Arte?</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 30px;">Entre em contato e descubra como nossas ferramentas e argilas podem transformar seu trabalho</p>
+      <a href="https://wa.me/5521998898984?text=Olá! Quero conhecer os produtos Ceramaker" class="btn-whatsapp" target="_blank" style="font-size: 1.1rem; padding: 15px 40px;">
         Solicitar Catálogo Completo
       </a>
     </section>
@@ -528,7 +572,7 @@ Ceramista, combino a experiência em cerâmica com tecnologia 3D para desenvolve
     <div class="footer-content">
       <div class="footer-section">
         <h3>Ceramaker</h3>
-        <p>Argilas erramentas e Ferramentas especiais para sua arte em cerâmica</p>
+        <p>Argilas e ferramentas especiais para sua arte em cerâmica</p>
         <p style="margin-top: 15px; opacity: 0.9;">© 2024 Ceramaker. Todos os direitos reservados.</p>
       </div>
       <div class="footer-section">
@@ -540,10 +584,10 @@ Ceramista, combino a experiência em cerâmica com tecnologia 3D para desenvolve
       </div>
       <div class="footer-section">
         <h3>Produtos</h3>
-        <a href="#">Carimbos 3D</a>
+        <a href="#">Carimbos</a>
         <a href="#">Rolos Texturizados</a>
         <a href="#">Cortadores</a>
-        <a href="#">Kits Temáticos</a>
+        <a href="#">Argilas Especiais</a>
       </div>
       <div class="footer-section" id="contato">
         <h3>Contatos</h3>
@@ -554,12 +598,12 @@ Ceramista, combino a experiência em cerâmica com tecnologia 3D para desenvolve
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Desenvolvido com 💖 para ceramistas apaixonados</p>
+      <p>Desenvolvido com ❤️ para ceramistas apaixonados</p>
     </div>
   </footer>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/5521998898984?text=Olá! Vim pelo site e gostaria de mais informações sobre as ferramentas Ceramaker" class="whatsapp-float" target="_blank">
+  <a href="https://wa.me/5521998898984?text=Olá! Vim pelo site e gostaria de mais informações sobre os produtos Ceramaker" class="whatsapp-float" target="_blank">
     <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
     </svg>
@@ -582,7 +626,7 @@ Ceramista, combino a experiência em cerâmica com tecnologia 3D para desenvolve
       });
     });
 
-    // Animação ao scroll (opcional)
+    // Animação ao scroll
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
