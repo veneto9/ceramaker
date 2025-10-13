@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matéria‑prima (Argilas) | Ceramaker</title>
+  <meta name="description" content="Conheça as argilas que trabalhamos e veja a tabela visual de queima (cones x temperaturas) do fabricante. Links para detalhes de cada massa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--primary-color:#ebbd53;--secondary-color:#615b4e;--tertiary-color:#a6492e;--text-color:#692e26;--background-color:#ebe5d9}
+    body{font-family:'Inter',sans-serif;background:var(--background-color);color:var(--text-color)}
+    h1,h2,h3{font-family:'Poppins',sans-serif}
+    .container-main{max-width:1200px;margin:0 auto;padding:0 1rem}
+    .shadow-smooth{box-shadow:0 10px 25px -10px rgba(34,23,12,.25)}
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Topo -->
+  <header class="bg-[var(--background-color)] py-6 shadow-sm">
+    <div class="container-main flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 text-[var(--secondary-color)] font-semibold">
+        <img src="/Logo.png" alt="Ceramaker" class="h-8 w-auto">
+      </a>
+      <nav class="hidden sm:flex gap-3 text-sm">
+        <a href="/" class="hover:text-[var(--tertiary-color)]">Início</a><span>/</span>
+        <span class="opacity-70">Matéria‑prima</span>
+      </nav>
+      <a href="/pages/massa_ceramica.html" class="inline-flex items-center rounded-full bg-white text-[var(--tertiary-color)] border border-[var(--secondary-color)] px-4 py-2 text-sm hover:bg-[var(--primary-color)]/20">Voltar ao catálogo</a>
+    </div>
+  </header>
+
+  <!-- Intro + Cards resumidos -->
+  <section class="container-main py-8 grid md:grid-cols-2 gap-8 items-center">
+    <div>
+      <h1 class="text-3xl sm:text-4xl font-semibold text-[var(--tertiary-color)]">Matéria‑prima que trabalhamos</h1>
+      <p class="mt-3 text-[var(--secondary-color)]">Esta página reúne as massas cerâmicas que disponibilizamos. Abaixo você vê a <strong>tabela visual de queima oficial</strong> (forno elétrico) do fabricante Pascoal, com a evolução de cor/queima de 800 °C a 1300 °C.</p>
+      <p class="mt-3 text-sm text-[color:rgba(0,0,0,.65)]">Para detalhes e compra, entre em cada produto: Bianca, Creme, Marfim, Tabaco, Terracota e Preta (baixa).</p>
+      <div class="mt-4 flex flex-wrap gap-3 text-sm">
+        <a href="/pages/bianca.html" class="rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 hover:bg-[var(--secondary-color)]">Bianca</a>
+        <a href="/pages/creme.html" class="rounded-full bg-white text-[var(--tertiary-color)] border px-4 py-2 hover:bg-[var(--primary-color)]/20">Creme</a>
+        <a href="/pages/marfim.html" class="rounded-full bg-white text-[var(--tertiary-color)] border px-4 py-2 hover:bg-[var(--primary-color)]/20">Marfim</a>
+        <a href="/pages/tabaco.html" class="rounded-full bg-white text-[var(--tertiary-color)] border px-4 py-2 hover:bg-[var(--primary-color)]/20">Tabaco</a>
+        <a href="/pages/terracota.html" class="rounded-full bg-white text-[var(--tertiary-color)] border px-4 py-2 hover:bg-[var(--primary-color)]/20">Terracota</a>
+        <a href="/pages/preta_baixa.html" class="rounded-full bg-white text-[var(--tertiary-color)] border px-4 py-2 hover:bg-[var(--primary-color)]/20">Preta (baixa)</a>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl p-4 shadow-smooth">
+      <!-- IMAGEM PRINCIPAL ENVIADA PELO USUÁRIO -->
+      <img src="/images/argilas/argilas.jpg" alt="Tabela visual de queima Pascoal: massas x temperaturas" class="w-full h-auto rounded-xl" loading="lazy" decoding="async">
+      <figcaption class="mt-2 text-xs text-[color:rgba(0,0,0,.65)]">Tabela de referência visual – Pascoal Massas Cerâmicas (800 °C a 1300 °C). Usar como guia; faça testes no seu forno.</figcaption>
+    </div>
+  </section>
+
+  <!-- Observações técnicas curtas -->
+  <section class="container-main pb-12">
+    <div class="bg-white rounded-2xl p-6 shadow-smooth">
+      <h2 class="text-2xl text-[var(--tertiary-color)] mb-3">Notas técnicas rápidas</h2>
+      <ul class="list-disc pl-6 text-[var(--secondary-color)] text-sm space-y-1">
+        <li>Cones e temperaturas são aproximações; posição dos provetes e curva de queima afetam o resultado.</li>
+        <li>Retração/absorção variam por lote, espessura e chamote. Consulte a ficha de cada argila antes de queimar.</li>
+        <li>Para esmaltação em baixa, considerar biscoito entre 900–1000 °C; para grês/alta, 1220–1300 °C.</li>
+      </ul>
+      <div class="mt-6">
+        <a href="/pages/massa_ceramica.html" class="inline-flex items-center rounded-full bg-white text-[var(--tertiary-color)] border border-[var(--secondary-color)] px-5 py-3 text-sm hover:bg-[var(--primary-color)]/20">Voltar</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[var(--text-color)] text-[var(--background-color)]">
+    <div class="container-main px-4 py-8 text-sm flex items-center justify-between">
+      <span>© <span id="year"></span> Ceramaker</span>
+      <a class="hover:text-[var(--primary-color)]" href="https://instagram.com/ceramaker" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
