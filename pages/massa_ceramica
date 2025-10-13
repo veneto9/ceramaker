@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Argilas Especiais | Ceramaker – para diferentes técnicas e acabamentos</title>
+  <meta name="description" content="Argilas especiais selecionadas pela Ceramaker para diferentes técnicas de cerâmica artesanal: faiança, grés, porcelana, terracota e mais. Veja características, temperaturas de queima e aplicações." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind (CDN para protótipo). Em produção, gere seu CSS com o build do Tailwind. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clay: {
+              50: '#f7f3ef',
+              100: '#efe7df',
+              200: '#e3d3c2',
+              300: '#d7bda3',
+              400: '#cda98b',
+              500: '#b86b43', // cerâmica queimado
+              600: '#9c4f2c',
+              700: '#7e3f24',
+              800: '#5d2f1b',
+              900: '#3f2013'
+            },
+            sand: '#efe6da',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Poppins', 'Inter', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            smooth: '0 10px 25px -10px rgba(34, 23, 12, 0.25)'
+          },
+          borderRadius: {
+            '2xl': '1.25rem'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --primary-color: #ebbd53; /* Amarelo da logo */
+      --secondary-color: #615b4e; /* Marrom escuro */
+      --tertiary-color: #a6492e; /* Marrom avermelhado */
+      --text-color: #692e26; /* Cor do texto */
+      --background-color: #ebe5d9; /* Fundo creme */
+    }
+    body { font-family: 'Inter', sans-serif; background-color: var(--background-color); color: var(--text-color); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 600; }
+    .container-main { max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+    @media (min-width: 640px){ .container-main{ padding-left:1.5rem; padding-right:1.5rem; } }
+    @media (min-width: 1024px){ .container-main{ padding-left:2rem; padding-right:2rem; } }
+    /* Pequenas melhorias visuais */
+    .prose p { margin-top: .75rem }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Argilas Especiais – Ceramaker",
+    "url": "https://ceramaker.com.br/argilas-especiais",
+    "description": "Coleção de argilas especiais para cerâmica artesanal.",
+    "isPartOf": {"@type": "WebSite", "name": "Ceramaker", "url": "https://ceramaker.com.br"}
+  }
+  </script>
+</head>
+<body class="antialiased">
+  <!-- Header simples/Breadcrumb -->
+  <header class="bg-[var(--background-color)] py-6 shadow-sm">
+    <div class="container-main flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 text-[var(--secondary-color)] font-semibold">
+        <img src="/Logo.png" alt="Ceramaker" class="h-8 w-auto" />
+      </a>
+      <nav class="hidden sm:flex gap-6 text-sm">
+        <a href="/" class="hover:text-[var(--tertiary-color)]">Início</a>
+        <span class="opacity-50">/</span>
+        <span class="opacity-70">Argilas Especiais</span>
+      </nav>
+      <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-[var(--background-color)] px-4 py-2 text-sm shadow-md hover:bg-[var(--secondary-color)]">WhatsApp</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="container-main pt-10 pb-8">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="font-display text-3xl sm:text-4xl text-[var(--tertiary-color)]">Argilas Especiais</h1>
+        <p class="mt-3 text-lg text-[var(--secondary-color)]">Seleção curada para diferentes técnicas, temperaturas e acabamentos. Compare características, aplicações e encontre a argila ideal para seu processo.</p>
+        <div class="mt-5 flex gap-3">
+          <a href="#lista" class="rounded-full bg-[var(--tertiary-color)] text-white px-5 py-3 font-semibold shadow-smooth hover:bg-[var(--secondary-color)]">Ver Catálogo</a>
+          <a href="#faq" class="rounded-full bg-white text-[var(--tertiary-color)] px-5 py-3 border border-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20">Dúvidas Frequentes</a>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Filtros -->
+  <section class="container-main">
+    <div class="bg-white rounded-2xl p-4 shadow-smooth flex flex-wrap items-center gap-3">
+      <span class="text-sm text-[color:rgba(0,0,0,.55)]">Filtrar por:</span>
+      <button data-filter="" class="chip active px-3 py-1.5 rounded-full border bg-[var(--tertiary-color)] text-[var(--background-color)] text-sm">Todas</button>
+      <button data-filter="baixa" class="chip px-3 py-1.5 rounded-full border bg-white text-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20 text-sm transition-colors">Baixa temperatura</button>
+      <button data-filter="media" class="chip px-3 py-1.5 rounded-full border bg-white text-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20 text-sm transition-colors">Média temperatura</button>
+      <button data-filter="alta" class="chip px-3 py-1.5 rounded-full border bg-white text-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20 text-sm transition-colors">Alta temperatura</button>
+      <button data-filter="escultura" class="chip px-3 py-1.5 rounded-full border bg-white text-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20 text-sm transition-colors">Escultura</button>
+      <button data-filter="torno" class="chip px-3 py-1.5 rounded-full border bg-white text-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20 text-sm transition-colors">Torno</button>
+      <button data-filter="queima-reducao" class="chip px-3 py-1.5 rounded-full border bg-white text-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20 text-sm transition-colors">Redução</button>
+    </div>
+  </section>
+
+  <!-- Lista de Argilas -->
+  <main id="lista" class="container-main py-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Bianca -->
+    <article class="argila" data-tags="baixa torno">
+      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
+        <header class="mb-3">
+          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Bianca</h3>
+          <p class="text-sm text-[color:rgba(0,0,0,.55)]">Base clara | Lisa</p>
+        </header>
+        <img src="/images/argilas/Bianca-3.png" loading="lazy" decoding="async" alt="Argila Bianca – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4"/>
+        <dl class="grid grid-cols-2 gap-3 text-sm">
+          <div><dt class="text-[color:rgba(0,0,0,.55)]">Queima</dt><dd class="font-medium">Cone 06–04 (≈ 1000–1060°C)</dd></div>
+          <div><dt class="text-[color:rgba(0,0,0,.55)]">Uso</dt><dd class="font-medium">Torno / Modelagem</dd></div>
+        </dl>
+        <details class="mt-4 bg-[var(--primary-color)]/10 rounded-xl overflow-hidden">
+          <summary class="cursor-pointer px-4 py-2 font-semibold text-[var(--tertiary-color)]">Tabela técnica</summary>
+          <div>
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-[var(--secondary-color)]/25 text-[var(--background-color)]/90">
+                  <th class="px-3 py-2 text-left">&nbsp;</th>
+                  <th class="px-3 py-2 text-left">Secagem</th>
+                  <th class="px-3 py-2 text-left">900°</th>
+                  <th class="px-3 py-2 text-left">1.000°</th>
+                  <th class="px-3 py-2 text-left">1.240°</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-[var(--secondary-color)]/10"><td class="px-3 py-2 font-medium">Retração</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td></tr>
+                <tr class="bg-[var(--primary-color)]/20"><td class="px-3 py-2">&nbsp;</td><td class="px-3 py-2">5%</td><td class="px-3 py-2">7%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">15%</td></tr>
+                <tr class="bg-[var(--secondary-color)]/10"><td class="px-3 py-2 font-medium">Absorção</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td></tr>
+                <tr class="bg-[var(--primary-color)]/20"><td class="px-3 py-2">&nbsp;</td><td class="px-3 py-2">–</td><td class="px-3 py-2">11,40%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">0,90%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+          <span class="px-2 py-1 rounded-full bg-[var(--primary-color)]/20 text-[var(--tertiary-color)] border border-[var(--secondary-color)]/20">Baixa</span>
+          <span class="px-2 py-1 rounded-full bg-[var(--primary-color)]/20 text-[var(--tertiary-color)] border border-[var(--secondary-color)]/20">Torno</span>
+        </div>
+        <footer class="mt-6 flex items-center justify-between">
+          <a href="#contato" class="text-[var(--tertiary-color)] hover:underline">Solicitar amostra</a>
+          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
+        </footer>
+      </div>
+    </article>
+
+    <!-- Creme -->
+    <article class="argila" data-tags="media torno">
+      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
+        <header class="mb-3">
+          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Creme</h3>
+          <p class="text-sm text-[color:rgba(0,0,0,.55)]">Cor cremosa | Lisa | Versátil</p>
+        </header>
+        <img src="/images/argilas/Creme.png" loading="lazy" decoding="async" alt="Argila Creme – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4"/>
+        <dl class="grid grid-cols-2 gap-3 text-sm">
+          <div><dt class="text-[color:rgba(0,0,0,.55)]">Queima</dt><dd class="font-medium">900°–1300°</dd></div>
+          <div><dt class="text-[color:rgba(0,0,0,.55)]">Uso</dt><dd class="font-medium">Torno / Modelagem</dd></div>
+        </dl>
+        <details class="mt-4 bg-[var(--primary-color)]/10 rounded-xl overflow-hidden">
+          <summary class="cursor-pointer px-4 py-2 font-semibold text-[var(--tertiary-color)]">Tabela técnica</summary>
+          <div>
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-[var(--secondary-color)]/25 text-[var(--background-color)]/90">
+                  <th class="px-3 py-2 text-left">&nbsp;</th>
+                  <th class="px-3 py-2 text-left">Secagem</th>
+                  <th class="px-3 py-2 text-left">900°</th>
+                  <th class="px-3 py-2 text-left">1.000°</th>
+                  <th class="px-3 py-2 text-left">1.240°</th>
+                  <th class="px-3 py-2 text-left">1.300°</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-[var(--secondary-color)]/10"><td class="px-3 py-2 font-medium">Retração</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td></tr>
+                <tr class="bg-[var(--primary-color)]/20"><td class="px-3 py-2">Pura</td><td class="px-3 py-2">5%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">8%</td><td class="px-3 py-2">14%</td><td class="px-3 py-2">15%</td></tr>
+                <tr class="bg-[var(--primary-color)]/20"><td class="px-3 py-2">Com chamote</td><td class="px-3 py-2">3%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">6%</td><td class="px-3 py-2">12%</td><td class="px-3 py-2">13%</td></tr>
+                <tr class="bg-[var(--secondary-color)]/10"><td class="px-3 py-2 font-medium">Absorção</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td></tr>
+                <tr class="bg-[var(--primary-color)]/20"><td class="px-3 py-2">&nbsp;</td><td class="px-3 py-2">–</td><td class="px-3 py-2">9,20%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">0,70%</td><td class="px-3 py-2">0,20%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+          <span class="px-2 py-1 rounded-full bg-[var(--primary-color)]/20 text-[var(--tertiary-color)] border border-[var(--secondary-color)]/20">Média</span>
+          <span class="px-2 py-1 rounded-full bg-[var(--primary-color)]/20 text-[var(--tertiary-color)] border border-[var(--secondary-color)]/20">Torno</span>
+        </div>
+        <footer class="mt-6 flex items-center justify-between">
+          <a href="#contato" class="text-[var(--tertiary-color)] hover:underline">Solicitar amostra</a>
+          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
+        </footer>
+      </div>
+    </article>
+      
+    <!-- Tabaco -->
+    <article class="argila" data-tags="media torno">
+      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
+        <header class="mb-3">
+          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Tabaco</h3>
+          <p class="text-sm text-[color:rgba(0,0,0,.55)]">Base tabaco | Versátil</p>
+        </header>
+        <img src="/images/argilas/Tabaco-2.png" loading="lazy" decoding="async" alt="Argila Tabaco – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4"/>
+        <dl class="grid grid-cols-2 gap-3 text-sm">
+          <div><dt class="text-[color:rgba(0,0,0,.55)]">Queima</dt><dd class="font-medium">800°–1240°</dd></div>
+          <div><dt class="text-[color:rgba(0,0,0,.55)]">Uso</dt><dd class="font-medium">Torno / Modelagem / Escultura</dd></div>
+        </dl>
+        <details class="mt-4 bg-[var(--primary-color)]/10 rounded-xl overflow-hidden">
+          <summary class="cursor-pointer px-4 py-2 font-semibold text-[var(--tertiary-color)]">Tabela técnica</summary>
+          <div>
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-[var(--secondary-color)]/25 text-[var(--background-color)]/90">
+                  <th class="px-3 py-2 text-left">&nbsp;</th>
+                  <th class="px-3 py-2 text-left">Secagem</th>
+                  <th class="px-3 py-2 text-left">900°</th>
+                  <th class="px-3 py-2 text-left">1.000°</th>
+                  <th class="px-3 py-2 text-left">1.240°</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-[var(--secondary-color)]/10"><td class="px-3 py-2 font-medium">Retração</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td></tr>
+                <tr class="bg-[var(--primary-color)]/20"><td class="px-3 py-2">Pura</td><td class="px-3 py-2">5%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">9%</td><td class="px-3 py-2">14%</td></tr>
+                <tr class="bg-[var(--primary-color)]/20"><td class="px-3 py-2">Com chamote</td><td class="px-3 py-2">3%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">7%</td><td class="px-3 py-2">12%</td></tr>
+                <tr class="bg-[var(--secondary-color)]/10"><td class="px-3 py-2 font-medium">Absorção</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">10,80%</td><td class="px-3 py-2">1,40%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+          <span class="px-2 py-1 rounded-full bg-[var(--primary-color)]/20 text-[var(--tertiary-color)] border border-[var(--secondary-color)]/20">Média</span>
+          <span class="px-2 py-1 rounded-full bg-[var(--primary-color)]/20 text-[var(--tertiary-color)] border border-[var(--secondary-color)]/20">Torno</span>
+        </div>
+        <footer class="mt-6 flex items-center justify-between">
+          <a href="#contato" class="text-[var(--tertiary-color)] hover:underline">Solicitar amostra</a>
+          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
+        </footer>
+      </div>
+    </article>
+
+    <!-- Terracota -->
+    <article class="argila" data-tags="baixa escultura">
+      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
+        <header class="mb-3">
+          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Terracota</h3>
+          <p class="text-sm text-[color:rgba(0,0,0,.55)]">Vermelha | Granulosa | Escultura</p>
+        </header>
+        <img src="/images/argilas/Terracota-1.png" loading="lazy" decoding="async" alt="Argila Terracota – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4"/>
+        <dl class="grid grid-cols-2 gap-3 text-sm">
+          <div><dt class="text-[color:rgba(0,0,0,.55)]">Queima</dt><dd class="font-medium">Baixa a média</dd></div>
+          <div><dt class="text-[color:rgba(0,0,0,.55)]">Uso</dt><dd class="font-medium">Escultura / Placas</dd></div>
+        </dl>
+        <details class="mt-4 bg-[var(--primary-color)]/10 rounded-xl overflow-hidden">
+          <summary class="cursor-pointer px-4 py-2 font-semibold text-[var(--tertiary-color)]">Tabela técnica</summary>
+          <div>
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-[var(--secondary-color)]/25 text-[var(--background-color)]/90">
+                  <th class="px-3 py-2 text-left">&nbsp;</th>
+                  <th class="px-3 py-2 text-left">Secagem</th>
+                  <th class="px-3 py-2 text-left">900°</th>
+                  <th class="px-3 py-2 text-left">1.000°</th>
+                  <th class="px-3 py-2 text-left">1.240°</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-[var(--secondary-color)]/10"><td class="px-3 py-2 font-medium">Retração</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td></tr>
+                <tr class="bg-[var(--primary-color)]/20"><td class="px-3 py-2">Pura</td><td class="px-3 py-2">10%</td><td class="px-3 py-2">13%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">19%</td></tr>
+                <tr class="bg-[var(--primary-color)]/20"><td class="px-3 py-2">Com chamote</td><td class="px-3 py-2">8%</td><td class="px-3 py-2">11%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">17%</td></tr>
+                <tr class="bg-[var(--secondary-color)]/10"><td class="px-3 py-2 font-medium">Absorção</td><td class="px-3 py-2">–</td><td class="px-3 py-2">10,60%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">2,40%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+          <span class="px-2 py-1 rounded-full bg-[var(--primary-color)]/20 text-[var(--tertiary-color)] border border-[var(--secondary-color)]/20">Baixa</span>
+          <span class="px-2 py-1 rounded-full bg-[var(--primary-color)]/20 text-[var(--tertiary-color)] border border-[var(--secondary-color)]/20">Escultura</span>
+        </div>
+        <footer class="mt-6 flex items-center justify-between">
+          <a href="#contato" class="text-[var(--tertiary-color)] hover:underline">Solicitar amostra</a>
+          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
+        </footer>
+      </div>
+    </article>
+
+      
+    <!-- Marfim -->
+    <article class="argila" data-tags="media torno">
+      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
+        <header class="mb-3">
+          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Marfim</h3>
+          <p class="text-sm text-[color:rgba(0,0,0,.55)]">Clara | Lisa</p>
+        </header>
+        <img src="/images/argilas/Marfim.png" loading="lazy" decoding="async" alt="Argila Marfim – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4"/>
+        <dl class="grid grid-cols-2 gap-3 text-sm">
+          <div><dt class="text-[color:rgba(0,0,0,.55)]">Queima</dt><dd class="font-medium">900°–1300°</dd></div>
+          <div><dt class="text-[color:rgba(0,0,0,.55)]">Uso</dt><dd class="font-medium">Torno / Modelagem</dd></div>
+        </dl>
+        <details class="mt-4 bg-[var(--primary-color)]/10 rounded-xl overflow-hidden">
+          <summary class="cursor-pointer px-4 py-2 font-semibold text-[var(--tertiary-color)]">Tabela técnica</summary>
+          <div>
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-[var(--secondary-color)]/25 text-[var(--background-color)]/90">
+                  <th class="px-3 py-2 text-left">&nbsp;</th>
+                  <th class="px-3 py-2 text-left">Secagem</th>
+                  <th class="px-3 py-2 text-left">900°</th>
+                  <th class="px-3 py-2 text-left">1.000°</th>
+                  <th class="px-3 py-2 text-left">1.240°</th>
+                  <th class="px-3 py-2 text-left">1.300°</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-[var(--secondary-color)]/10"><td class="px-3 py-2 font-medium">Retração</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td></tr>
+                <tr class="bg-[var(--primary-color)]/20"><td class="px-3 py-2">Pura</td><td class="px-3 py-2">5%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">8%</td><td class="px-3 py-2">14%</td><td class="px-3 py-2">15%</td></tr>
+                <tr class="bg-[var(--primary-color)]/20"><td class="px-3 py-2">Com chamote</td><td class="px-3 py-2">3%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">6%</td><td class="px-3 py-2">12%</td><td class="px-3 py-2">13%</td></tr>
+                <tr class="bg-[var(--secondary-color)]/10"><td class="px-3 py-2 font-medium">Absorção</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">11,00%</td><td class="px-3 py-2">1,00%</td><td class="px-3 py-2">0,50%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+          <span class="px-2 py-1 rounded-full bg-[var(--primary-color)]/20 text-[var(--tertiary-color)] border border-[var(--secondary-color)]/20">Média</span>
+          <span class="px-2 py-1 rounded-full bg-[var(--primary-color)]/20 text-[var(--tertiary-color)] border border-[var(--secondary-color)]/20">Torno</span>
+        </div>
+        <footer class="mt-6 flex items-center justify-between">
+          <a href="#contato" class="text-[var(--tertiary-color)] hover:underline">Solicitar amostra</a>
+          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
+        </footer>
+      </div>
+    </article>
+
+    <!-- Preta (baixa temperatura) -->
+    <article class="argila" data-tags="baixa escultura">
+      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
+        <header class="mb-3">
+          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Preta (baixa temperatura)</h3>
+          <p class="text-sm text-[color:rgba(0,0,0,.55)]">Base escura | Efeito rústico</p>
+        </header>
+        <img src="/images/argilas/Preta-1.png" loading="lazy" decoding="async" alt="Argila Preta (baixa) – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4"/>
+        <dl class="grid grid-cols-2 gap-3 text-sm">
+          <div><dt class="text-[color:rgba(0,0,0,.55)]">Queima</dt><dd class="font-medium">Baixa temperatura</dd></div>
+          <div><dt class="text-[color:rgba(0,0,0,.55)]">Uso</dt><dd class="font-medium">Escultura / Placas</dd></div>
+        </dl>
+        <details class="mt-4 bg-[var(--primary-color)]/10 rounded-xl overflow-hidden">
+          <summary class="cursor-pointer px-4 py-2 font-semibold text-[var(--tertiary-color)]">Tabela técnica</summary>
+          <div>
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-[var(--secondary-color)]/25 text-[var(--background-color)]/90">
+                  <th class="px-3 py-2 text-left">&nbsp;</th>
+                  <th class="px-3 py-2 text-left">Secagem</th>
+                  <th class="px-3 py-2 text-left">900°</th>
+                  <th class="px-3 py-2 text-left">1.000°</th>
+                  <th class="px-3 py-2 text-left">1.240°</th>
+                  <th class="px-3 py-2 text-left">1.300°</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-[var(--secondary-color)]/10"><td class="px-3 py-2 font-medium">Retração</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td></tr>
+                <tr class="bg-[var(--primary-color)]/20"><td class="px-3 py-2">Com chamote</td><td class="px-3 py-2">8%</td><td class="px-3 py-2">11%</td><td class="px-3 py-2">13,50%</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td></tr>
+                <tr class="bg-[var(--secondary-color)]/10"><td class="px-3 py-2 font-medium">Absorção</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td><td class="px-3 py-2">–</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs">
+          <span class="px-2 py-1 rounded-full bg-[var(--primary-color)]/20 text-[var(--tertiary-color)] border border-[var(--secondary-color)]/20">Baixa</span>
+          <span class="px-2 py-1 rounded-full bg-[var(--primary-color)]/20 text-[var(--tertiary-color)] border border-[var(--secondary-color)]/20">Escultura</span>
+        </div>
+        <footer class="mt-6 flex items-center justify-between">
+          <a href="#contato" class="text-[var(--tertiary-color)] hover:underline">Solicitar amostra</a>
+          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
+        </footer>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Aviso de dados -->
+  <div class="container-main -mt-4 text-xs text-[color:rgba(0,0,0,.55)]">* Preencha retração e absorção com dados medidos dos seus testes.</div>
+
+  <!-- CTA seção -->
+  <section id="contato" class="container-main py-10">
+    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-smooth flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h2 class="font-display text-2xl text-[var(--tertiary-color)]">Quer ajuda para escolher?</h2>
+        <p class="text-[var(--secondary-color)] mt-1">Fale com a equipe Ceramaker no WhatsApp ou peça um kit de amostras.</p>
+      </div>
+      <div class="flex gap-3">
+        <a href="https://wa.me/5521998898984" class="rounded-full bg-[var(--tertiary-color)] text-white px-5 py-3 font-semibold shadow-smooth hover:bg-[var(--secondary-color)]">Falar no WhatsApp</a>
+        <a href="mailto:contato@ceramaker.com.br?subject=Kit%20de%20amostras%20–%20Argilas%20Especiais" class="rounded-full bg-white text-[var(--tertiary-color)] px-5 py-3 border border-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20">Pedir Amostras</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="container-main pb-16">
+    <h2 class="font-display text-2xl text-[var(--tertiary-color)] mb-4">Dúvidas Frequentes</h2>
+    <div class="space-y-3">
+      <details class="bg-white rounded-2xl p-4 shadow-smooth">
+        <summary class="cursor-pointer font-semibold text-[var(--tertiary-color)]">Qual a diferença entre faiança, grés e porcelana?</summary>
+        <p class="mt-2 text-[var(--secondary-color)]">Faiança é de baixa temperatura e porosa; grés é vitrificado em média/alta temperatura; porcelana tem alta pureza, retração maior e pode apresentar translucidez. Ajuste a faixa de queima e esmaltes conforme o tipo.</p>
+      </details>
+      <details class="bg-white rounded-2xl p-4 shadow-smooth">
+        <summary class="cursor-pointer font-semibold text-[var(--tertiary-color)]">Como escolher a argila ideal?</summary>
+        <p class="mt-2 text-[var(--secondary-color)]">Considere sua técnica (torno, placas, escultura), a temperatura do seu forno e o acabamento desejado. Verifique retração e absorção para compatibilidade com esmaltes.</p>
+      </details>
+      <details class="bg-white rounded-2xl p-4 shadow-smooth">
+        <summary class="cursor-pointer font-semibold text-[var(--tertiary-color)]">Vocês vendem em atacado?</summary>
+        <p class="mt-2 text-[var(--secondary-color)]">Sim. Entre em contato pelo WhatsApp para tabela de preços e logística.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer class="bg-[var(--text-color)] text-[var(--background-color)]">
+    <div class="container-main px-4 py-10 text-sm flex flex-col md:flex-row gap-6 md:items-center md:justify-between">
+      <p>© <span id="year"></span> Ceramaker. Argilas especiais e ferramentas para cerâmica.</p>
+      <nav class="flex gap-4">
+        <a class="hover:text-[var(--primary-color)]" href="/contato">Contato</a>
+        <a class="hover:text-[var(--primary-color)]" href="https://instagram.com/ceramaker" target="_blank" rel="noopener">Instagram</a>
+        <a class="hover:text-[var(--primary-color)]" href="/politica-de-privacidade">Privacidade</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Ano do rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Chips de filtro
+    const chips = document.querySelectorAll('.chip');
+    const cards = document.querySelectorAll('.argila');
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('bg-[var(--tertiary-color)]','text-[var(--background-color)]','active'));
+        chip.classList.add('bg-[var(--tertiary-color)]','text-[var(--background-color)]','active');
+        const tag = chip.dataset.filter;
+        cards.forEach(card => {
+          const tags = card.dataset.tags.split(' ');
+          const show = !tag || tag === '' || tags.includes(tag);
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
