@@ -13,23 +13,6 @@
 
   <!-- Tailwind (CDN para protótipo) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clay: { 50:'#f7f3ef',100:'#efe7df',200:'#e3d3c2',300:'#d7bda3',400:'#cda98b',500:'#b86b43',600:'#9c4f2c',700:'#7e3f24',800:'#5d2f1b',900:'#3f2013' },
-            sand: '#efe6da',
-          },
-          fontFamily: {
-            sans: ['Inter','system-ui','sans-serif'],
-            display: ['Poppins','Inter','system-ui','sans-serif'],
-          },
-          boxShadow: { smooth:'0 10px 25px -10px rgba(34,23,12,.25)' }
-        }
-      }
-    }
-  </script>
 
   <style>
     :root{
@@ -39,8 +22,8 @@
       --text-color:#692e26;      /* Texto */
       --background-color:#ebe5d9;/* Fundo creme */
     }
-    body{ font-family:'Inter',sans-serif; background:var(--background-color); color:var(--text-color) }
-    h1,h2,h3,h4{ font-family:'Poppins',sans-serif }
+    body{ font-family:'Inter',sans-serif; background:var(--background-color); color:var(--text-color); line-height:1.6 }
+    h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
     .container-main{ max-width:1280px; margin:0 auto; padding:0 1rem }
     @media (min-width:640px){ .container-main{ padding:0 1.5rem } }
     @media (min-width:1024px){ .container-main{ padding:0 2rem } }
@@ -55,35 +38,34 @@
     "name":"Argilas Especiais – Ceramaker",
     "description":"Coleção de argilas especiais para cerâmica artesanal.",
     "isPartOf":{"@type":"WebSite","name":"Ceramaker"},
-    "about":["argila","faiança","grés","porcelana","terracota","paper clay"]
+    "about":["argila","faiança","grés (massa_ceramica)","porcelana","terracota","paper clay"]
   }
   </script>
 </head>
 <body class="antialiased">
 
-  <!-- Header / Breadcrumb -->
-  <header class="bg-[var(--background-color)] py-6 shadow-sm">
-    <div class="container-main flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2 text-[var(--secondary-color)] font-semibold">
-        <img src="/Logo.png" alt="Ceramaker" class="h-20 sm:h-24 lg:h-28 w-auto">
-      </a>
-      <nav class="hidden sm:flex gap-3 text-sm">
-        <a href="/" class="hover:text-[var(--tertiary-color)]">Início</a>
-        <span class="opacity-50">/</span>
-        <span class="opacity-70">Argilas Especiais</span>
-      </nav>
-      <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-[var(--background-color)] px-4 py-2 text-sm shadow-md hover:bg-[var(--secondary-color)]">
-        WhatsApp
-      </a>
-    </div>
-  </header>
+  <!-- Header / Breadcrumb (estilo do index) -->
+  <header class="bg-[var(--background-color)] py-8 px-4 sm:px-6 lg:px-8 shadow-sm">
+    <div class="container-main flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="inline-block">
+          <!-- dobro do tamanho padrão do seu breadcrumb -->
+          <img src="/Logo.png" alt="Ceramaker" class="h-20 sm:h-24 lg:h-28 w-auto" loading="eager" decoding="async">
+        </a>
+      </div>
 
-  <!-- Hero -->
-  <section class="container-main pt-10 pb-8">
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      <div>
-        <h1 class="font-display text-3xl sm:text-4xl text-[var(--tertiary-color)]">Argilas Especiais</h1>
-        <p class="mt-3 text-lg text-[var(--secondary-color)]">
+      <!-- Chamada curta -->
+      <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+        <nav class="text-sm text-[var(--secondary-color)] flex items-center gap-2">
+          <a href="/" class="hover:text-[var(--tertiary-color)]">Início</a>
+          <span class="opacity-50">/</span>
+          <span class="opacity-70">Argilas Especiais</span>
+        </nav>
+        <h1 class="text-3xl sm:text-4xl font-bold text-[var(--secondary-color)] mt-2" style="text-wrap: balance;">
+          Argilas Especiais
+        </h1>
+        <p class="text-[var(--text-color)] text-lg mt-2 max-w-xl" style="text-wrap: pretty;">
           Seleção curada para diferentes técnicas, temperaturas e acabamentos. Compare características, aplicações e encontre a argila ideal para seu processo.
         </p>
         <div class="mt-5 flex gap-3">
@@ -91,11 +73,18 @@
           <a href="#faq" class="rounded-full bg-white text-[var(--tertiary-color)] px-5 py-3 border border-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20">Dúvidas Frequentes</a>
         </div>
       </div>
+
+      <!-- CTA WhatsApp -->
+      <div class="flex-shrink-0">
+        <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-[var(--background-color)] px-4 py-2 text-sm shadow-sm hover:bg-[var(--secondary-color)]">
+          WhatsApp
+        </a>
+      </div>
     </div>
-  </section>
+  </header>
 
   <!-- Filtros -->
-  <section class="container-main">
+  <section class="container-main mt-6">
     <div class="bg-white rounded-2xl p-4 shadow-smooth flex flex-wrap items-center gap-3">
       <span class="text-sm text-[color:rgba(0,0,0,.55)]">Filtrar por:</span>
       <button data-filter="" class="chip active px-3 py-1.5 rounded-full border bg-[var(--tertiary-color)] text-[var(--background-color)] text-sm">Todas</button>
@@ -115,13 +104,13 @@
     <article class="argila" data-tags="baixa torno">
       <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
         <header class="mb-3">
-          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Bianca</h3>
+          <h3 class="text-xl text-[var(--tertiary-color)] font-semibold">Bianca</h3>
           <p class="text-sm text-[color:rgba(0,0,0,.6)]">Base clara | Lisa | Versátil</p>
         </header>
         <img src="/images/argilas/Bianca-3.png" alt="Argila Bianca – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">Cone 06–04 (≈1000–1060°C) • Torno / Modelagem</p>
+        <p class="text-sm text-[var(--secondary-color)] mb-4">Temp. 800-1240°C • Torno / Modelagem / Beliscão </p>
         <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/bianca.html" class="text-[var(--tertiary-color)] hover:underline" rel="noopener">Saiba mais</a>
+          <a href="/pages/bianca.html" class="text-[var(--tertiary-color)] hover:underline">Saiba mais</a>
           <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
         </footer>
       </div>
@@ -131,13 +120,13 @@
     <article class="argila" data-tags="media torno">
       <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
         <header class="mb-3">
-          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Creme</h3>
+          <h3 class="text-xl text-[var(--tertiary-color)] font-semibold">Creme</h3>
           <p class="text-sm text-[color:rgba(0,0,0,.6)]">Cor cremosa | Lisa | Versátil</p>
         </header>
         <img src="/images/argilas/Creme.png" alt="Argila Creme – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">900°–1300°C • Torno / Modelagem</p>
+        <p class="text-sm text-[var(--secondary-color)] mb-4">800°–1300°C • Torno / Modelagem</p>
         <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/creme.html" class="text-[var(--tertiary-color)] hover:underline" rel="noopener">Saiba mais</a>
+          <a href="/pages/creme.html" class="text-[var(--tertiary-color)] hover:underline">Saiba mais</a>
           <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
         </footer>
       </div>
@@ -147,13 +136,13 @@
     <article class="argila" data-tags="media torno escultura">
       <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
         <header class="mb-3">
-          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Tabaco</h3>
+          <h3 class="text-xl text-[var(--tertiary-color)] font-semibold">Tabaco</h3>
           <p class="text-sm text-[color:rgba(0,0,0,.6)]">Base tabaco | Versátil</p>
         </header>
         <img src="/images/argilas/Tabaco-2.png" alt="Argila Tabaco – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
         <p class="text-sm text-[var(--secondary-color)] mb-4">800°–1240°C • Torno / Modelagem / Escultura</p>
         <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/tabaco.html" class="text-[var(--tertiary-color)] hover:underline" rel="noopener">Saiba mais</a>
+          <a href="/pages/tabaco.html" class="text-[var(--tertiary-color)] hover:underline">Saiba mais</a>
           <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
         </footer>
       </div>
@@ -163,13 +152,13 @@
     <article class="argila" data-tags="baixa escultura">
       <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
         <header class="mb-3">
-          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Terracota</h3>
+          <h3 class="text-xl text-[var(--tertiary-color)] font-semibold">Terracota</h3>
           <p class="text-sm text-[color:rgba(0,0,0,.6)]">Vermelha | Plasticidade | Escultura</p>
         </header>
         <img src="/images/argilas/Terracota-1.png" alt="Argila Terracota – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">Baixa a média • Escultura / Placas</p>
+        <p class="text-sm text-[var(--secondary-color)] mb-4">800-1240 • Escultura / Placas</p>
         <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/terracota.html" class="text-[var(--tertiary-color)] hover:underline" rel="noopener">Saiba mais</a>
+          <a href="/pages/terracota.html" class="text-[var(--tertiary-color)] hover:underline">Saiba mais</a>
           <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
         </footer>
       </div>
@@ -179,13 +168,13 @@
     <article class="argila" data-tags="media torno">
       <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
         <header class="mb-3">
-          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Marfim</h3>
+          <h3 class="text-xl text-[var(--tertiary-color)] font-semibold">Marfim</h3>
           <p class="text-sm text-[color:rgba(0,0,0,.6)]">Clara | Lisa</p>
         </header>
         <img src="/images/argilas/Marfim.png" alt="Argila Marfim – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
         <p class="text-sm text-[var(--secondary-color)] mb-4">900°–1300°C • Torno / Modelagem</p>
         <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/marfim.html" class="text-[var(--tertiary-color)] hover:underline" rel="noopener">Saiba mais</a>
+          <a href="/pages/marfim.html" class="text-[var(--tertiary-color)] hover:underline">Saiba mais</a>
           <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
         </footer>
       </div>
@@ -195,13 +184,13 @@
     <article class="argila" data-tags="baixa escultura">
       <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
         <header class="mb-3">
-          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Preta (baixa)</h3>
+          <h3 class="text-xl text-[var(--tertiary-color)] font-semibold">Preta (baixa)</h3>
           <p class="text-sm text-[color:rgba(0,0,0,.6)]">Base escura | Efeito rústico</p>
         </header>
         <img src="/images/argilas/Preta-1.png" alt="Argila Preta de baixa temperatura – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">Baixa temperatura • Escultura / Placas</p>
+        <p class="text-sm text-[var(--secondary-color)] mb-4">Baixa temperatura 800-1000 • Escultura / Placas</p>
         <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/preta_baixa.html" class="text-[var(--tertiary-color)] hover:underline" rel="noopener">Saiba mais</a>
+          <a href="/pages/preta_baixa.html" class="text-[var(--tertiary-color)] hover:underline">Saiba mais</a>
           <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
         </footer>
       </div>
@@ -218,8 +207,8 @@
   <section class="container-main py-10">
     <div class="bg-white rounded-2xl p-6 md:p-8 shadow-smooth flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
-        <h2 class="font-display text-2xl text-[var(--tertiary-color)]">Conheça outras tonalidades?</h2>
-        <p class="text-[var(--secondary-color)] mt-1">Outras tonalidades de massas cerâmicas mediante encomenda. Fale conosco.</p>
+        <h2 class="text-2xl text-[var(--tertiary-color)] font-extrabold">Conheça outras tonalidades!</h2>
+        <p class="text-[var(--secondary-color)] mt-1">A qualidade Pascoal massas cerâmicas. Fale conosco.</p>
       </div>
       <div class="flex gap-3">
         <a href="https://wa.me/5521998898984" class="rounded-full bg-[var(--tertiary-color)] text-white px-5 py-3 font-semibold shadow-smooth hover:bg-[var(--secondary-color)]">Falar no WhatsApp</a>
@@ -228,252 +217,329 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-<section id="faq" class="mx-auto max-w-3xl px-4 py-12">
-  <h2 class="text-2xl font-semibold tracking-tight text-neutral-900">Perguntas frequentes</h2>
-  <p class="mt-2 text-neutral-600">
-    Tudo o que você precisa para escolher sua <strong>massa cerâmica</strong>, preparar a superfície e decorar com segurança (engobes, underglaze, cera, resist, esgrafito e mais).
-  </p>
+  <!-- FAQ (estilo compatível com o index) -->
+<section id="faq" class="container-main py-12">
+  <div class="max-w-3xl mx-auto">
+    <header class="mb-6">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--tertiary-color)]">Perguntas frequentes</h2>
+      <p class="mt-2 text-[var(--secondary-color)]">
+        Tudo o que você precisa para escolher sua <strong>massa cerâmica</strong>, preparar a superfície e decorar com segurança
+        (engobes, underglaze, cera, resist, esgrafito e mais).
+      </p>
+    </header>
 
-  <div class="mt-8 space-y-3">
-    <!-- 1 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Qual a diferença entre faiança (baixa), grés e porcelana?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p><strong>Faiança</strong> (≈ 1.040–1.160 °C) é mais porosa e realça cores vivas; <strong>grés</strong> (≈ 1.200–1.280 °C) tem baixa absorção e alta resistência; <strong>porcelana</strong> (≈ 1.220–1.300+ °C) é de alta pureza, maior retração e pode ser translúcida.</p>
-      </div>
-    </details>
+    <div class="space-y-3">
+      <!-- 1 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth open:shadow">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Qual a diferença entre faiança (baixa), grés (massa cerâmica) e porcelana?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Faiança (≈ 1.040–1.160 °C) é mais porosa e realça cores vivas; grés (≈ 1.200–1.280 °C) tem baixa absorção e alta resistência;
+          porcelana (≈ 1.220–1.300+ °C) é de alta pureza, maior retração e pode ser translúcida.
+        </div>
+      </details>
 
-    <!-- 2 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Como escolher a massa ideal para torno, placas e escultura?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <ul class="list-disc pl-5 space-y-1">
-          <li><strong>Torno:</strong> massas plásticas e lisas (menos chamote).</li>
-          <li><strong>Placas/Escultura:</strong> massas com chamote (grão) para estabilidade.</li>
-          <li><strong>Acabamento:</strong> base clara = cores limpas; bases vermelha/escura = tons mais fechados.</li>
-        </ul>
-      </div>
-    </details>
+      <!-- 2 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Como escolher a massa ideal para torno, placas e escultura?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Torno: massas plásticas e lisas (menos chamote). Placas/escultura: massas com chamote para estabilidade.
+          Bases claras preservam cores “limpas”; vermelha/escura fecham a paleta.
+        </div>
+      </details>
 
-    <!-- 3 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">O que são cones e como se relacionam com a temperatura de queima?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Cones medem “calor acumulado” (temperatura + tempo). Ex.: cone 06 ≈ 999 °C (baixa), cone 6 ≈ 1.222 °C (média/alta), cone 10 ≈ 1.300 °C (alta).</p>
-      </div>
-    </details>
+      <!-- 3 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            O que são cones e como se relacionam com a temperatura de queima?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Cones medem “calor acumulado” (temperatura + tempo). Ex.: cone 06 ≈ 999 °C (baixa), cone 6 ≈ 1.222 °C (média/alta), cone 10 ≈ 1.300 °C (alta).
+        </div>
+      </details>
 
-    <!-- 4 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Quando usar argila com chamote (grog)?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Em placas, escultura e peças grandes: o chamote aumenta a estabilidade, reduz trincas/empeno e melhora a secagem. Para torno fino, prefira pouco ou nenhum chamote.</p>
-      </div>
-    </details>
+      <!-- 4 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Quando usar argila com chamote?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Em placas, escultura e peças grandes: aumenta estabilidade, reduz trincas/empeno e melhora a secagem.
+          Para torno fino, prefira pouca ou nenhuma chamote.
+        </div>
+      </details>
 
-    <!-- 5 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Como preparar a superfície para engobe/underglaze sem descascar?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Aplique em <em>ponto de couro</em> ou biscoito limpo; remova poeira, evite gordura e ajuste a viscosidade. Camadas finas e uniformes aderem melhor.</p>
-      </div>
-    </details>
+      <!-- 5 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Como preparar a superfície para engobe/underglaze sem descascar?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Aplique em ponto de couro ou biscoito limpo; remova poeira, evite gordura e ajuste viscosidade.
+          Camadas finas e uniformes aderem melhor.
+        </div>
+      </details>
 
-    <!-- 6 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Qual a diferença entre engobe, underglaze e slip colorido?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p><strong>Engobe/slip</strong> é barbotina pigmentada (mais “corpo” de argila); <strong>underglaze</strong> é formulação estável e concentrada para detalhes e camadas finas sob esmalte.</p>
-      </div>
-    </details>
+      <!-- 6 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Qual a diferença entre engobe, underglaze e slip colorido?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Engobe/slip é barbotina pigmentada (mais corpo de argila); underglaze é formulação estável para detalhes e camadas finas sob esmalte.
+        </div>
+      </details>
 
-    <!-- 7 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Esgrafito: qual o ponto ideal da peça e da camada colorida?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Melhor em ponto de couro firme com 1–3 camadas de engobe/underglaze já “assentadas”. Use ferramentas bem afiadas e limpe a rebarba para linhas nítidas.</p>
-      </div>
-    </details>
+      <!-- 7 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Esgrafito: qual o ponto ideal da peça e da camada colorida?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Melhor em ponto de couro firme, com 1–3 camadas já assentadas. Use ferramentas afiadas e limpe rebarbas para linhas nítidas.
+        </div>
+      </details>
 
-    <!-- 8 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Técnicas de <em>resist</em> (cera/fitas): quando e como aplicar?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Aplique sobre biscoito limpo; deixe secar bem antes do esmalte. A cera bloqueia esmalte em bordas/fundos e cria grafismos quando combinada com engobes.</p>
-      </div>
-    </details>
+      <!-- 8 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Técnicas de resist (cera/fitas): quando e como aplicar?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Aplique sobre biscoito limpo; deixe secar bem antes do esmalte. A cera bloqueia esmalte em bordas/fundos e cria grafismos com engobes.
+        </div>
+      </details>
 
-    <!-- 9 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Como evitar trincas na secagem e no biscoito?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Espessura uniforme, união com barbotina no couro, secagem lenta/à sombra e viradas periódicas. No biscoito, subidas moderadas e patamar para expulsão de água.</p>
-      </div>
-    </details>
+      <!-- 9 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Como evitar trincas na secagem e no biscoito?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Espessura uniforme, união com barbotina no couro, secagem lenta/à sombra e viradas periódicas.
+          No biscoito, subidas moderadas e patamar para expulsar água.
+        </div>
+      </details>
 
-    <!-- 10 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Biscoito: qual faixa prática e por quê?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Geralmente 900–1000 °C: elimina água/químicos sem vitrificar demais, deixando a peça receptiva ao esmalte e mais resistente ao manuseio.</p>
-      </div>
-    </details>
+      <!-- 10 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Biscoito: qual faixa prática e por quê?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Geralmente 900–1000 °C: elimina água/químicos sem vitrificar demais, deixando a peça receptiva ao esmalte e mais resistente ao manuseio.
+        </div>
+      </details>
 
-    <!-- 11 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Oxidação x redução: muda a cor e a maturação da massa?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Sim. Em redução (gás/madeira), óxidos e corantes reagem diferente, alterando cor do corpo e esmalte. Verifique se a sua massa tolera redução.</p>
-      </div>
-    </details>
+      <!-- 11 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Oxidação x redução: muda a cor e a maturação da massa?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Sim. Em redução (gás/madeira), óxidos e corantes reagem diferente, alterando cor do corpo e esmalte. Verifique se sua massa tolera redução.
+        </div>
+      </details>
 
-    <!-- 12 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Retração e absorção: como medir sem complicação?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Faça tiras de 100 mm; meça úmido/seco/queimado e calcule a variação. Absorção: pese seco, ferva/mergulhe, pese úmido e compute o ganho (%) de água.</p>
-      </div>
-    </details>
+      <!-- 12 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Retração e absorção: como medir sem complicação?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Faça tiras de 100 mm; meça úmido/seco/queimado e calcule a variação. Absorção: pese seco, ferva/mergulhe, pese úmido e compute o ganho (%) de água.
+        </div>
+      </details>
 
-    <!-- 13 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Compatibilidade esmalte × massa: como testar rápido?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Tira de teste com 1–3 demãos; observe <em>crazing</em> (trinca fina) e <em>shivering</em> (lascar). Ajuste espessura, curva ou escolha outro esmalte.</p>
-      </div>
-    </details>
+      <!-- 13 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Compatibilidade esmalte × massa: como testar rápido?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Tira de teste com 1–3 demãos; observe crazing (trinca fina) e shivering (lascar). Ajuste espessura, curva ou escolha outro esmalte.
+        </div>
+      </details>
 
-    <!-- 14 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Como a cor da massa influencia o resultado dos esmaltes?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Bases claras deixam cores “puras”; vermelhas/pretas escurecem e alteram matiz. Sempre teste o mesmo esmalte em massas diferentes.</p>
-      </div>
-    </details>
+      <!-- 14 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Como a cor da massa influencia o resultado dos esmaltes?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Bases claras deixam cores “puras”; vermelhas/pretas escurecem e alteram matiz. Sempre teste o mesmo esmalte em massas diferentes.
+        </div>
+      </details>
 
-    <!-- 15 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Underglaze em biscoito ou em couro: qual a melhor escolha?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Em couro: integração forte ao corpo, ideal para esgrafito. Em biscoito: controle de cor e detalhes finos. Ajuste diluição e tempo entre camadas.</p>
-      </div>
-    </details>
+      <!-- 15 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Underglaze em biscoito ou em couro: qual a melhor escolha?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Em couro: integração forte ao corpo, ideal para esgrafito. Em biscoito: controle de cor e detalhes finos. Ajuste diluição e tempo entre camadas.
+        </div>
+      </details>
 
-    <!-- 16 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Máscaras e estênceis: qual sequência evita borrões?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Aplique engobe/underglaze fino, remova o estêncil quando a superfície “apagar o brilho úmido”. Se for esmaltar, sele a área com demão fina antes.</p>
-      </div>
-    </details>
+      <!-- 16 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Máscaras e estênceis: qual sequência evita borrões?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Aplique camada fina, remova o estêncil quando “apagar o brilho úmido”. Se for esmaltar, sele a área com demão fina antes.
+        </div>
+      </details>
 
-    <!-- 17 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Como planejar a curva de queima para reduzir empenos?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Subidas moderadas, patamares em 100–200 °C e na inversão do quartzo (~573 °C), resfriamento controlado e suporte plano para placas.</p>
-      </div>
-    </details>
+      <!-- 17 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Como planejar a curva de queima para reduzir empenos?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Subidas moderadas, patamares em 100–200 °C e na inversão do quartzo (~573 °C), resfriamento controlado e suporte plano para placas.
+        </div>
+      </details>
 
-    <!-- 18 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">O que considerar para peças utilitárias (contato com alimento)?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Baixa absorção da massa (vitrificação), esmaltes estáveis na temperatura de uso e ausência de crazing visível após ciclos térmicos.</p>
-      </div>
-    </details>
+      <!-- 18 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            O que considerar para peças utilitárias (contato com alimento)?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Baixa absorção (vitrificação), esmaltes estáveis na temperatura de uso e ausência de crazing visível após ciclos térmicos.
+        </div>
+      </details>
 
-    <!-- 19 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Por que algumas massas “sugam” o esmalte e outras não?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Depende do ponto de maturação e da absorção do corpo. Ajuste a densidade/viscosidade do esmalte, o tempo de imersão e a temperatura de queima.</p>
-      </div>
-    </details>
+      <!-- 19 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Por que algumas massas “sugam” o esmalte e outras não?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Depende do ponto de maturação e da absorção do corpo. Ajuste densidade/viscosidade do esmalte, tempo de imersão e temperatura de queima.
+        </div>
+      </details>
 
-    <!-- 20 -->
-    <details class="group rounded-2xl border border-neutral-200 p-5 open:shadow-sm">
-      <summary class="flex cursor-pointer list-none items-center justify-between">
-        <span class="text-base font-medium text-neutral-900">Como ler a tabela do fabricante sem se enganar?</span>
-        <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 text-neutral-500 transition group-open:rotate-45">+</span>
-      </summary>
-      <div class="mt-4 text-neutral-700">
-        <p>Trate como referência: há variações por lote, posição do provete e curva. Confirme com cones e com seus próprios testes de ateliê.</p>
-      </div>
-    </details>
-  </div>
+      <!-- 20 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Como ler a tabela do fabricante sem se enganar?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Trate como referência: há variações por lote, posição do provete e curva. Confirme com cones e com seus próprios testes.
+        </div>
+      </details>
+    </div>
 
-  <!-- CTA do FAQ -->
-  <div class="mt-6 flex flex-wrap gap-3">
-    <a href="https://wa.me/5521998898984?text=Tenho%20d%C3%BAvidas%20sobre%20argilas%20e%20decora%C3%A7%C3%A3o" target="_blank" rel="noopener"
-       class="inline-flex items-center gap-2 rounded-full px-5 py-3 bg-[var(--tertiary-color)] text-white font-semibold hover:bg-[var(--secondary-color)]">
-      WhatsApp
-    </a>
-    <a href="/pages/massa_ceramica.html"
-       class="inline-flex items-center rounded-full px-5 py-3 bg-white text-[var(--tertiary-color)] border font-semibold hover:bg-[var(--primary-color)]/20">
-      Ver catálogo de argilas
-    </a>
+    <!-- CTA da FAQ -->
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href="https://wa.me/5521998898984?text=Tenho%20d%C3%BAvidas%20sobre%20argilas%20e%20decora%C3%A7%C3%A3o" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 rounded-full px-5 py-3 bg-[var(--tertiary-color)] text-white font-semibold hover:bg-[var(--secondary-color)]">
+        WhatsApp
+      </a>
+      <a href="/pages/massa_ceramica.html"
+         class="inline-flex items-center rounded-full px-5 py-3 bg-white text-[var(--tertiary-color)] border font-semibold hover:bg-[var(--primary-color)]/20">
+        Ver catálogo de argilas
+      </a>
+    </div>
   </div>
 </section>
 
+  <!-- Rodapé (coeso com o index) -->
+  <footer class="bg-[var(--text-color)] text-[var(--background-color)] py-12 px-4 sm:px-6 lg:px-8 shadow-inner">
+    <div class="container-main grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="flex flex-col gap-2">
+        <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Ceramaker</h3>
+        <p class="text-[0.80rem] opacity-90">Argilas e ferramentas especiais para sua arte em cerâmica.</p>
+        <p class="text-[0.60rem] opacity-70 mt-4">© <span id="year"></span> Ceramaker. Todos os direitos reservados.</p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Links Rápidos</h3>
+        <a href="/" class="text-[0.85rem] hover:underline transition-all duration-200">Início</a>
+        <a href="/#produtos" class="text-[0.85rem] hover:underline transition-all duration-200">Produtos</a>
+        <a href="/#sobre" class="text-[0.85rem] hover:underline transition-all duration-200">Sobre Nós</a>
+        <a href="/#contato" class="text-[0.85rem] hover:underline transition-all duration-200">Contato</a>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Produtos</h3>
+        <a href="/pages/massa_ceramica.html" class="text-[0.80rem] hover:underline transition-all duration-200">Argilas / Massas cerâmicas</a>
+        <a href="#" class="text-[0.80rem] hover:underline transition-all duration-200">Carimbos</a>
+        <a href="#" class="text-[0.80rem] hover:underline transition-all duration-200">Rolos Texturizados</a>
+        <a href="#" class="text-[0.80rem] hover:underline transition-all duration-200">Cortadores</a>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Contatos</h3>
+        <a href="https://wa.me/5521998898984" class="text-[0.70rem] flex items-center gap-2 hover:underline transition-all duration-200" target="_blank">📱 WhatsApp</a>
+        <a href="https://instagram.com/ceramaker" class="text-[0.70rem] flex items-center gap-2 hover:underline transition-all duration-200" target="_blank">Instagram 📸 @cerammaker</a>
+        <a href="mailto:studioceramaker@gmail.com" class="text-[0.70rem] flex items-center gap-2 hover:underline transition-all duration-200">studioceramaker@gmail.com</a>
+        <div class="text-[0.70rem] flex items-center gap-2">Volta Redonda/RJ</div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script>
@@ -489,12 +555,26 @@
         chip.classList.add('bg-[var(--tertiary-color)]','text-[var(--background-color)]','active');
         const tag = chip.dataset.filter;
         cards.forEach(card => {
-          const tags = card.dataset.tags.split(' ');
+          const tags = (card.dataset.tags || '').split(' ').filter(Boolean);
           const show = !tag || tag === '' || tags.includes(tag);
           card.style.display = show ? '' : 'none';
         });
       });
     });
   </script>
+  <script>
+  // Acessibilidade: permite abrir/fechar com Enter/Espaço no <summary>
+  document.querySelectorAll('#faq details > summary').forEach((sum) => {
+    sum.setAttribute('role','button');
+    sum.setAttribute('tabindex','0');
+    sum.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        sum.parentElement.open = !sum.parentElement.open;
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
