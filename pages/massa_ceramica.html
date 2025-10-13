@@ -101,120 +101,267 @@
     </div>
   </section>
 
-  <!-- Filtros -->
-  <section class="container-main">
-    <div class="bg-white rounded-2xl p-4 shadow-smooth flex flex-wrap items-center gap-3">
-      <span class="text-sm text-[color:rgba(0,0,0,.55)]">Filtrar por:</span>
-      <button data-filter="" class="chip active px-3 py-1.5 rounded-full border bg-[var(--tertiary-color)] text-[var(--background-color)] text-sm">Todas</button>
-      <button data-filter="baixa" class="chip px-3 py-1.5 rounded-full border bg-white text-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20 text-sm transition-colors">Baixa temperatura</button>
-      <button data-filter="media" class="chip px-3 py-1.5 rounded-full border bg-white text-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20 text-sm transition-colors">Média temperatura</button>
-      <button data-filter="alta" class="chip px-3 py-1.5 rounded-full border bg-white text-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20 text-sm transition-colors">Alta temperatura</button>
-      <button data-filter="escultura" class="chip px-3 py-1.5 rounded-full border bg-white text-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20 text-sm transition-colors">Escultura</button>
-      <button data-filter="torno" class="chip px-3 py-1.5 rounded-full border bg-white text-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20 text-sm transition-colors">Torno</button>
-      <button data-filter="queima-reducao" class="chip px-3 py-1.5 rounded-full border bg-white text-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20 text-sm transition-colors">Redução</button>
-    </div>
-  </section>
+  <!-- FAQ – Argilas (simples, objetivo e bonito) -->
+<section id="faq-argilas" class="container-main py-10">
+  <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--tertiary-color)] mb-6">
+    Dúvidas Frequentes sobre Argilas
+  </h2>
 
-  <!-- Lista de Argilas -->
-  <main id="lista" class="container-main py-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Bianca -->
-    <article class="argila" data-tags="baixa torno">
-      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
-        <header class="mb-3">
-          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Bianca</h3>
-          <p class="text-sm text-[color:rgba(0,0,0,.6)]">Base clara | Lisa | Versátil</p>
-        </header>
-        <img src="/images/argilas/Bianca-3.png" alt="Argila Bianca – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">Cone 06–04 (≈1000–1060°C) • Torno / Modelagem</p>
-        <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/bianca.html" class="text-[var(--tertiary-color)] hover:underline" rel="noopener">Saiba mais</a>
-          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
-        </footer>
-      </div>
-    </article>
+  <!-- grid responsivo: 1 coluna no mobile, 2 colunas >= lg -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <!-- 1 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Como saber se devo usar baixa, média ou alta temperatura?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Baixa (≈950–1100 °C) é porosa e fácil para escultura/ensino; média (≈1120–1200 °C) dá mais resistência; alta/grés (≈1220–1300 °C) vitrifica melhor e reduz absorção.
+      </p>
+    </details>
 
-    <!-- Creme -->
-    <article class="argila" data-tags="media torno">
-      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
-        <header class="mb-3">
-          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Creme</h3>
-          <p class="text-sm text-[color:rgba(0,0,0,.6)]">Cor cremosa | Lisa | Versátil</p>
-        </header>
-        <img src="/images/argilas/Creme.png" alt="Argila Creme – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">900°–1300°C • Torno / Modelagem</p>
-        <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/creme.html" class="text-[var(--tertiary-color)] hover:underline" rel="noopener">Saiba mais</a>
-          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
-        </footer>
-      </div>
-    </article>
-      
-    <!-- Tabaco -->
-    <article class="argila" data-tags="media torno">
-      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
-        <header class="mb-3">
-          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Tabaco</h3>
-          <p class="text-sm text-[color:rgba(0,0,0,.6)]">Base tabaco | Versátil</p>
-        </header>
-        <img src="/images/argilas/Tabaco-2.png" alt="Argila Tabaco – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">800°–1240°C • Torno / Modelagem / Escultura</p>
-        <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/tabaco.html" class="text-[var(--tertiary-color)] hover:underline" rel="noopener">Saiba mais</a>
-          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
-        </footer>
-      </div>
-    </article>
+    <!-- 2 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        O que é “cone” e como se relaciona com a temperatura?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Cones são padrões que amolecem/entortam a certa energia de queima. Eles “traduzem” temperatura + tempo. Ex.: cone 06 (~999 °C baixa) e cone 10 (~1300 °C alta).
+      </p>
+    </details>
 
-    <!-- Terracota -->
-    <article class="argila" data-tags="baixa escultura">
-      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
-        <header class="mb-3">
-          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Terracota</h3>
-          <p class="text-sm text-[color:rgba(0,0,0,.6)]">Vermelha | Plasticidade | Escultura</p>
-        </header>
-        <img src="/images/argilas/Terracota-1.png" alt="Argila Terracota – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">Baixa a média • Escultura / Placas</p>
-        <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/terracota.html" class="text-[var(--tertiary-color)] hover:underline" rel="noopener">Saiba mais</a>
-          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
-        </footer>
-      </div>
-    </article>
+    <!-- 3 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Diferença prática entre faiança, grés e porcelana?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Faiança: baixa, mais porosa. Grés: média/alta, denso e resistente. Porcelana: alta pureza, alta retração e possível translucidez.
+      </p>
+    </details>
 
-      
-    <!-- Marfim -->
-    <article class="argila" data-tags="media torno">
-      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
-        <header class="mb-3">
-          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Marfim</h3>
-          <p class="text-sm text-[color:rgba(0,0,0,.6)]">Clara | Lisa</p>
-        </header>
-        <img src="/images/argilas/Marfim.png" alt="Argila Marfim – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">900°–1300°C • Torno / Modelagem</p>
-        <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/marfim.html" class="text-[var(--tertiary-color)] hover:underline" rel="noopener">Saiba mais</a>
-          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
-        </footer>
-      </div>
-    </article>
+    <!-- 4 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Quando usar argila com chamote (grão)?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Em escultura/placas e peças grandes: melhora a estabilidade, reduz empeno e trinca. Para torno fino, prefira pouca ou nenhuma chamote.
+      </p>
+    </details>
 
-    <!-- Preta (baixa temperatura) -->
-    <article class="argila" data-tags="baixa escultura">
-      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
-        <header class="mb-3">
-          <h3 class="font-display text-xl text-[var(--tertiary-color)]">Preta (baixa)</h3>
-          <p class="text-sm text-[color:rgba(0,0,0,.6)]">Base escura | Efeito rústico</p>
-        </header>
-        <img src="/images/argilas/Preta-1.png" alt="Argila Preta de baixa temperatura – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">Baixa temperatura • Escultura / Placas</p>
-        <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/preta_baixa.html" class="text-[var(--tertiary-color)] hover:underline" rel="noopener">Saiba mais</a>
-          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
-        </footer>
-      </div>
-    </article>
+    <!-- 5 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        O que significam retração e absorção?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Retração é o encolhimento na secagem/queima. Absorção é a água que o corpo ainda retém após queimar. Quanto menor a absorção, mais denso/vitrificado.
+      </p>
+    </details>
 
-  </main>
+    <!-- 6 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Como medir retração na prática?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Faça um provete de 100 mm, seque/queime e meça de novo. Retração(%) = (100 − medida final). Compare com a ficha técnica.
+      </p>
+    </details>
+
+    <!-- 7 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Qual argila escolher para torno vs. escultura?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Torno: massas plásticas e lisas. Escultura/placas: massas com chamote e granulometria maior para segurar forma e reduzir trincas.
+      </p>
+    </details>
+
+    <!-- 8 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Posso misturar argilas diferentes?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Pode, mas muda faixa de queima, retração e cor. Misture bem e teste antes. Evite combinar massas com retrações muito diferentes na mesma peça.
+      </p>
+    </details>
+
+    <!-- 9 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Como testar uma argila nova no meu forno?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Faça provetes, marque composição e curva, queime em 1000/1100/1200/1240 °C (ou seus cones) e registre cor, vitrificação, trincas e cobertura de esmalte.
+      </p>
+    </details>
+
+    <!-- 10 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Quando fazer biscoito? Em que temperatura?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Para esmaltação controlada: biscoite em ~900–1000 °C. Já para alta/grés, o biscoito pode ser mais baixo, mas consistente e uniforme.
+      </p>
+    </details>
+
+    <!-- 11 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Cor da argila influencia os esmaltes?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Sim. Corpos clarinhos realçam cores “puras”; vermelhos/pretos escurecem e alteram tons. Sempre teste o mesmo esmalte em bases diferentes.
+      </p>
+    </details>
+
+    <!-- 12 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Granulometria influencia no resultado?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Sim. Grão mais grosso dá estrutura e textura (bom p/ escultura/placas). Grão fino dá melhor acabamento e plasticidade (bom p/ torno fino).
+      </p>
+    </details>
+
+    <!-- 13 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Como evitar rachaduras na secagem?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Espessura uniforme, secagem lenta/à sombra, virar as peças, cobrir com plástico e unir partes com barbotina no ponto couro.
+      </p>
+    </details>
+
+    <!-- 14 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Como armazenar ou recuperar argila seca?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Armazene vedado. Para recuperar, fatie, umedeça, deixe repousar 24–48 h e <em>sove</em> bem antes de usar para homogeneizar.
+      </p>
+    </details>
+
+    <!-- 15 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Como planejar a curva de queima para reduzir empenos?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Subidas moderadas, patamares para expulsar água/quartz inversion, resfriamento controlado e suporte adequado das peças/placas.
+      </p>
+    </details>
+
+    <!-- 16 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Compatibilidade esmalte/corpo: como checar?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Teste tira de esmalte com diferentes espessuras; observe crazing (trincas finas) e shivering (lascar). Ajuste curva, esmalte ou argila.
+      </p>
+    </details>
+
+    <!-- 17 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Engobe e underglaze funcionam em qualquer argila?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Funcionam, mas a base altera a cor final. Aplique em couro/verde-seco; para biscoito, ajuste consistência e faça teste.
+      </p>
+    </details>
+
+    <!-- 18 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Oxidação vs. redução: muda o resultado?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Sim. Em redução (fornos a gás/madeira), óxidos reagem diferente, alterando cores e maturação. Verifique se sua argila tolera essa atmosfera.
+      </p>
+    </details>
+
+    <!-- 19 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        O que observar para peças utilitárias (alimento)?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Baixa absorção (vitrificação), esmaltes estáveis na temperatura de trabalho e ausência de crazing visível.
+      </p>
+    </details>
+
+    <!-- 20 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Por que algumas argilas “sugam” esmalte?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        É ponto de maturação: corpos mais porosos absorvem mais. Ajuste viscosidade do esmalte, tempo de imersão e temperatura de queima.
+      </p>
+    </details>
+
+    <!-- 21 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Como ler a tabela do fabricante sem erro?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Use como referência: há tolerância por lote, posição do provete e curva. Confirme com cones e seus próprios testes.
+      </p>
+    </details>
+
+    <!-- 22 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Quando usar paper clay?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Em montagens, reparos e peças finas: melhora união e reduz trincas. Siga a faixa de queima indicada da base.
+      </p>
+    </details>
+
+    <!-- 23 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Como prever choque térmico e aumentar resistência?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        Paredes uniformes, bordas arredondadas, esmaltes compatíveis e curvas de resfriamento mais lentas reduzem tensão.
+      </p>
+    </details>
+
+    <!-- 24 -->
+    <details class="bg-white rounded-2xl p-4 shadow-smooth">
+      <summary class="cursor-pointer font-semibold text-[var(--secondary-color)]">
+        Preciso sempre seguir a mesma curva do fabricante?
+      </summary>
+      <p class="mt-2 text-sm text-[var(--text-color)]">
+        É um ótimo ponto de partida. Adapte à sua realidade de forno/peça e valide com cones e provetes.
+      </p>
+    </details>
+  </div>
+
+  <!-- CTA secundário -->
+  <div class="mt-6 flex flex-wrap gap-3">
+    <a href="https://wa.me/5521998898984?text=Tenho%20d%C3%BAvidas%20sobre%20argilas" target="_blank" rel="noopener"
+       class="inline-flex items-center gap-2 rounded-full px-5 py-3 bg-[var(--tertiary-color)] text-white font-semibold hover:bg-[var(--secondary-color)]">
+      WhatsApp
+    </a>
+    <a href="/pages/massa_ceramica.html"
+       class="inline-flex items-center rounded-full px-5 py-3 bg-white text-[var(--tertiary-color)] border font-semibold hover:bg-[var(--primary-color)]/20">
+      Ver catálogo de argilas
+    </a>
+  </div>
+</section>
 
   <!-- Aviso de dados -->
   <div class="container-main -mt-4 text-xs text-[color:rgba(0,0,0,.55)]">* Preencha retração e absorção com dados medidos dos seus testes.</div>
