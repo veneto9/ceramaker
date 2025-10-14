@@ -35,94 +35,90 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    :root{
-      --primary-color:#ebbd53;
-      --secondary-color:#615b4e;
-      --tertiary-color:#a6492e;
-      --text-color:#692e26;
-      --background-color:#ebe5d9;
-    }
+   /* === BASE TIPOGRÁFICA IGUAL À PÁGINA DE ARGILAS ===
+   1rem ≈ 10.4px (65% de 16px) */
+html { font-size: 65%; }
 
-/* 1) Igualar a escala da página: rem ≈ 10.4px (como na Argilas) */
-html { font-size: 70%; }
+/* Fonte, cores — como já estão */
+:root{
+  --primary-color:#ebbd53;
+  --secondary-color:#615b4e;
+  --tertiary-color:#a6492e;
+  --text-color:#692e26;
+  --background-color:#ebe5d9;
+}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--background-color);
+  color:var(--text-color);
+  line-height:1.6;
+}
+h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
 
-/* 2) Hero: reduzir um pouco a faixa para não “gritar” em telas grandes */
+/* === LARGURA DO SITE (MESMA DA ARGILAS) ===
+   80rem com raiz 65% ≈ 832px de largura máxima visual */
+.container-main{
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width:640px){
+  .container-main{ padding-left: 1.5rem; padding-right: 1.5rem }
+}
+@media (min-width:1024px){
+  .container-main{ padding-left: 2rem; padding-right: 2rem }
+}
+
+/* === HERO (tipos na mesma “pegada” da Argilas) === */
 .hero-title{
   font-weight: 700;
   color: var(--secondary-color);
-  /* antes: clamp(1.75rem, 2vw + 1rem, 2.25rem) */
-  font-size: clamp(1.5rem, 1.6vw + 0.8rem, 1.9rem);
+  /* Argilas usa text-3xl/4xl em 65% de raiz; clamp ajustado */
+  font-size: clamp(1.5rem, 1.1vw + 1rem, 1.875rem);
   line-height: 1.2;
 }
 .hero-sub{
-  /* antes: clamp(1rem, .6vw + .9rem, 1.125rem) */
-  font-size: clamp(0.95rem, 0.5vw + 0.8rem, 1.05rem);
+  /* ~text-base → text-lg da Argilas em 65% */
+  font-size: clamp(0.95rem, 0.5vw + 0.8rem, 1.0625rem);
 }
 
-/* 3) Ícones daquela seção “O que oferecemos” estavam maiores que o resto. 
-      Baixei 1rem para alinhar com a escala dos cards da Argilas. */
+/* Logo do hero próximo de h-24/h-28 da Argilas (6rem–7rem) */
+.hero-logo{
+  height: clamp(5.5rem, 7vw, 6.75rem);
+  width: auto;
+}
+
+/* Botão principal no mesmo “peso” dos CTAs internos da Argilas */
+.btn-main{
+  padding: 0.75rem 1.25rem; /* py-3 px-5 */
+  border-radius: 9999px;
+  background: var(--tertiary-color);
+  color: var(--background-color);
+  font-weight: 700;
+  font-size: 0.875rem;      /* text-sm na base 65% */
+}
+
+/* Nav com altura mais enxuta, combinando com os chips/controles */
+nav .h-14{ height: 3rem; }  /* ≈ 31px visuais com raiz 65% */
+.main-nav a{ font-weight: 600; font-size: 1rem } /* ~text-base (10.4px*1rem) */
+
+/* Ícones da seção “O que oferecemos” menores como nos cards */
 .feature-icon{ width: 4.5rem; height: 4.5rem; }
 
-/* 4) Barra de navegação: altura um pouco menor para casar com a página interna */
-nav .h-14{ height: 3rem; } /* 3rem * 10.4px ≈ 31px */
+/* Sombra suave usada na Argilas */
+.shadow-smooth{ box-shadow: 0 0.625rem 1.5625rem -0.625rem rgba(34,23,12,.25) }
 
-
-    /* Tipografia base = 100% (16px) */
-    body{
-      font-family:'Inter',sans-serif;
-      background:var(--background-color);
-      color:var(--text-color);
-      line-height:1.6;
-      font-size: 1rem;
-    }
-    h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
-
-    /* LARGURA-ALVO: mesma da interna (~832px) */
-    .container-main{
-      max-width: 52rem;         /* 52rem * 16px = 832px */
-      margin-inline: auto;
-      padding-inline: 1rem;
-    }
-    @media (min-width:640px){ .container-main{ padding-inline:1.25rem } }
-    @media (min-width:1024px){ .container-main{ padding-inline:1.5rem } }
-
-    .shadow-smooth{ box-shadow:0 10px 25px -10px rgba(34,23,12,.25) }
-
-    /* Herói dimensionado para não “estourar” dentro de 52rem */
-    .hero-title{
-      font-weight:700;
-      color:var(--secondary-color);
-      font-size:clamp(1.75rem, 2vw + 1rem, 2.25rem); /* ~28px a ~36px */
-      line-height:1.2;
-    }
-    .hero-sub{
-      font-size:clamp(1rem, .6vw + .9rem, 1.125rem); /* 16px–18px */
-    }
-    .hero-logo{
-      height:clamp(5.5rem, 7vw, 6.75rem);  /* ~88px–108px */
-      width:auto;
-    }
-
-    .btn-main{
-      padding:.625rem 1rem;     /* ~10px 16px */
-      border-radius:9999px;
-      background:var(--tertiary-color);
-      color:var(--background-color);
-      font-weight:700;
-      font-size:.95rem;
-    }
-
-    .feature-icon{ width:5.5rem; height:5.5rem; } /* ~88px */
-
-    .main-nav a{ font-weight:600; font-size:1rem } /* base = 16px */
-
-    /* Acessibilidade: skip link */
-    .sr-only{
-      position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0
-    }
-    .focus\:not-sr-only:focus{
-      position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal
-    }
+/* Acessibilidade: skip link (mantém) */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border-width:0
+}
+.focus\:not-sr-only:focus{
+  position:static;width:auto;height:auto;padding:inherit;margin:inherit;
+  overflow:visible;clip:auto;white-space:normal
+}
   </style>
 </head>
 <body class="antialiased">
