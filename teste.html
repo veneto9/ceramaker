@@ -97,6 +97,10 @@
 
     /* Barra de navegação igual visualmente à interna */
     .main-nav a{ font-weight:600; font-size:1rem } /* ~text-base */
+
+    /* Acessibilidade (skip link) */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+    .focus\:not-sr-only:focus{position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal}
   </style>
 </head>
 <body class="antialiased">
@@ -346,7 +350,7 @@
       <div id="contato">
         <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Contatos</h3>
         <a href="https://wa.me/5521998898984" class="text-[0.70rem] flex items-center gap-2 hover:underline" target="_blank">📱 WhatsApp</a>
-        <a href="https://instagram.com/cerammaker" class="text-[0.70rem] flex items-center gap-2 hover:underline" target="_blank" rel="noopener">📷 Instagram @cerammaker</a>
+        <a href="https://instagram.com/cerammaker" class="text-[0.70rem] flex items-center gap-2 hover:underline" target="_blank" rel="noopener">📷 Instagram @ceramaker</a>
         <a href="mailto:studioceramaker@gmail.com" class="text-[0.70rem] flex items-center gap-2 hover:underline">studioceramaker@gmail.com</a>
         <div class="text-[0.70rem] flex items-center gap-2">Volta Redonda/RJ</div>
       </div>
