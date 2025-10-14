@@ -13,22 +13,42 @@
 
   <!-- Tailwind (CDN para protótipo) -->
   <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --primary-color:#ebbd53;   /* Amarelo da marca */
+    --secondary-color:#615b4e; /* Marrom escuro */
+    --tertiary-color:#a6492e;  /* Marrom avermelhado */
+    --text-color:#692e26;      /* Texto */
+    --background-color:#ebe5d9;/* Fundo creme */
+  }
 
-  <style>
-    :root{
-      --primary-color:#ebbd53;   /* Amarelo da marca */
-      --secondary-color:#615b4e; /* Marrom escuro */
-      --tertiary-color:#a6492e;  /* Marrom avermelhado */
-      --text-color:#692e26;      /* Texto */
-      --background-color:#ebe5d9;/* Fundo creme */
-    }
-    body{ font-family:'Inter',sans-serif; background:var(--background-color); color:var(--text-color); line-height:1.6 }
-    h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
-    .container-main{ max-width:1280px; margin:0 auto; padding:0 1rem }
-    @media (min-width:640px){ .container-main{ padding:0 1.5rem } }
-    @media (min-width:1024px){ .container-main{ padding:0 2rem } }
-    .shadow-smooth{ box-shadow:0 10px 25px -10px rgba(34,23,12,.25) }
-  </style>
+  /* Escala tipográfica global: reduz todo o site sem zoom/transform */
+  html { font-size: 65%; }  /* 65% de 16px = ~10.4px; ajuste fino aqui (ex.: 70%) */
+
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--background-color);
+    color:var(--text-color);
+    line-height:1.6;
+  }
+
+  h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
+
+  /* Use rem para o container para acompanhar a escala global */
+  .container-main{
+    max-width: 80rem;    /* era 1280px; com html=65% vira ~832px visuais */
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  @media (min-width:640px){ .container-main{ padding:0 1.5rem } }
+  @media (min-width:1024px){ .container-main{ padding:0 2rem } }
+
+  /* Sombra em rem (opcional; acompanha a escala visual) */
+  .shadow-smooth{
+    /* 0 10px 25px -10px -> em rem (10/16=0.625, 25/16=1.5625) */
+    box-shadow: 0 0.625rem 1.5625rem -0.625rem rgba(34,23,12,.25);
+  }
+</style>
 
   <!-- SEO estruturado (opcional) -->
   <script type="application/ld+json">
