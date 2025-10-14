@@ -13,36 +13,42 @@
 
   <!-- Tailwind (CDN para protótipo) -->
   <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --primary-color:#ebbd53;   /* Amarelo da marca */
+    --secondary-color:#615b4e; /* Marrom escuro */
+    --tertiary-color:#a6492e;  /* Marrom avermelhado */
+    --text-color:#692e26;      /* Texto */
+    --background-color:#ebe5d9;/* Fundo creme */
+  }
 
-  <style>
-    :root{
-      --primary-color:#ebbd53;   /* Amarelo da marca */
-      --secondary-color:#615b4e; /* Marrom escuro */
-      --tertiary-color:#a6492e;  /* Marrom avermelhado */
-      --text-color:#692e26;      /* Texto */
-      --background-color:#ebe5d9;/* Fundo creme */
-    }
-    body{ font-family:'Inter',sans-serif; background:var(--background-color); color:var(--text-color); line-height:1.6 }
-    h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
-    .container-main{ max-width:1280px; margin:0 auto; padding:0 1rem }
-    @media (min-width:640px){ .container-main{ padding:0 1.5rem } }
-    @media (min-width:1024px){ .container-main{ padding:0 2rem } }
-    .shadow-smooth{ box-shadow:0 10px 25px -10px rgba(34,23,12,.25) }
-  </style>
+  /* Escala tipográfica global: reduz todo o site sem zoom/transform */
+  html { font-size: 65%; }  /* 65% de 16px = ~10.4px; ajuste fino aqui (ex.: 70%) */
 
-  <!-- Escala 65% sem soltar o rodapé:
-       - Escala só o wrapper #page-scale
-       - Compensa a altura visual com min-height: calc(100vh / 0.65)
-  -->
-  <style>
-    html, body { height: 100%; overflow-x: hidden; }
-    @media (min-width:1024px){
-      #page-scale{
-        transform: scale(0.65);
-        transform-origin: top center;
-      }
-    }
-  </style>
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--background-color);
+    color:var(--text-color);
+    line-height:1.6;
+  }
+
+  h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
+
+  /* Use rem para o container para acompanhar a escala global */
+  .container-main{
+    max-width: 80rem;    /* era 1280px; com html=65% vira ~832px visuais */
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  @media (min-width:640px){ .container-main{ padding:0 1.5rem } }
+  @media (min-width:1024px){ .container-main{ padding:0 2rem } }
+
+  /* Sombra em rem (opcional; acompanha a escala visual) */
+  .shadow-smooth{
+    /* 0 10px 25px -10px -> em rem (10/16=0.625, 25/16=1.5625) */
+    box-shadow: 0 0.625rem 1.5625rem -0.625rem rgba(34,23,12,.25);
+  }
+</style>
 
   <!-- SEO estruturado (opcional) -->
   <script type="application/ld+json">
@@ -56,12 +62,10 @@
   }
   </script>
 </head>
-
 <body class="antialiased">
-<div id="page-scale" class="flex flex-col min-h-[calc(100vh/0.65)]">
 
   <!-- Header / Breadcrumb (estilo do index) -->
-  <header class="bg-[var(--background-color)] py-8 px-4 sm:px-6 lg:px-8 shadow-sm">
+  <header class="bg-[var(--background-color)] py-8 px-4 sm:px-6 lg:px-8 shadow-none">
     <div class="container-main flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
       <!-- Logo -->
       <div class="flex-shrink-0">
@@ -113,7 +117,7 @@
     </div>
   </section>
 
- <!-- ============================
+  <!-- ============================
      LISTA DE ARGILAS (TODAS AJUSTADAS)
 ================================ -->
 
@@ -341,27 +345,6 @@
 
 </main>
 
-<script>
-  (function () {
-    document.addEventListener('click', function (e) {
-      const btn = e.target.closest('.gallery button[data-src]');
-      if (!btn) return;
-      const gallery = btn.closest('.gallery');
-      const targetId = gallery?.getAttribute('data-target');
-      if (!targetId) return;
-      const mainImg = document.getElementById(targetId);
-      if (!mainImg) return;
-
-      const newSrc = btn.getAttribute('data-src');
-      const newAlt = btn.getAttribute('data-alt') || mainImg.alt;
-      if (newSrc) {
-        mainImg.src = newSrc;
-        mainImg.alt = newAlt;
-      }
-    }, false);
-  })();
-</script>
-
   <!-- Nota técnica curta -->
   <div class="container-main -mt-4 text-xs text-[color:rgba(0,0,0,.55)]">
     * Preencha retração e absorção com dados medidos dos seus testes.
@@ -393,7 +376,6 @@
     </header>
 
     <div class="space-y-3">
-      <!-- …(FAQ igual ao seu conteúdo anterior)—mantido sem alterações… -->
       <!-- 1 -->
       <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth open:shadow">
         <summary class="flex cursor-pointer items-center justify-between list-none">
@@ -407,9 +389,260 @@
           porcelana (≈ 1.220–1.300+ °C) é de alta pureza, maior retração e pode ser translúcida.
         </div>
       </details>
-      <!-- (restante das 2–20 perguntas exatamente como estavam) -->
+
+      <!-- 2 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Como escolher a massa ideal para torno, placas e escultura?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Torno: massas plásticas e lisas (menos chamote). Placas/escultura: massas com chamote para estabilidade.
+          Bases claras preservam cores “limpas”; vermelha/escura fecham a paleta.
+        </div>
+      </details>
+
+      <!-- 3 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            O que são cones e como se relacionam com a temperatura de queima?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Cones medem “calor acumulado” (temperatura + tempo). Ex.: cone 06 ≈ 999 °C (baixa), cone 6 ≈ 1.222 °C (média/alta), cone 10 ≈ 1.300 °C (alta).
+        </div>
+      </details>
+
+      <!-- 4 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Quando usar argila com chamote?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Em placas, escultura e peças grandes: aumenta estabilidade, reduz trincas/empeno e melhora a secagem.
+          Para torno fino, prefira pouca ou nenhuma chamote.
+        </div>
+      </details>
+
+      <!-- 5 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Como preparar a superfície para engobe/underglaze sem descascar?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Aplique em ponto de couro ou biscoito limpo; remova poeira, evite gordura e ajuste viscosidade.
+          Camadas finas e uniformes aderem melhor.
+        </div>
+      </details>
+
+      <!-- 6 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Qual a diferença entre engobe, underglaze e slip colorido?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Engobe/slip é barbotina pigmentada (mais corpo de argila); underglaze é formulação estável para detalhes e camadas finas sob esmalte.
+        </div>
+      </details>
+
+      <!-- 7 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Esgrafito: qual o ponto ideal da peça e da camada colorida?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Melhor em ponto de couro firme, com 1–3 camadas já assentadas. Use ferramentas afiadas e limpe rebarbas para linhas nítidas.
+        </div>
+      </details>
+
+      <!-- 8 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Técnicas de resist (cera/fitas): quando e como aplicar?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Aplique sobre biscoito limpo; deixe secar bem antes do esmalte. A cera bloqueia esmalte em bordas/fundos e cria grafismos com engobes.
+        </div>
+      </details>
+
+      <!-- 9 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Como evitar trincas na secagem e no biscoito?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Espessura uniforme, união com barbotina no couro, secagem lenta/à sombra e viradas periódicas.
+          No biscoito, subidas moderadas e patamar para expulsar água.
+        </div>
+      </details>
+
+      <!-- 10 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Biscoito: qual faixa prática e por quê?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Geralmente 900–1000 °C: elimina água/químicos sem vitrificar demais, deixando a peça receptiva ao esmalte e mais resistente ao manuseio.
+        </div>
+      </details>
+
+      <!-- 11 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Oxidação x redução: muda a cor e a maturação da massa?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Sim. Em redução (gás/madeira), óxidos e corantes reagem diferente, alterando cor do corpo e esmalte. Verifique se sua massa tolera redução.
+        </div>
+      </details>
+
+      <!-- 12 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Retração e absorção: como medir sem complicação?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Faça tiras de 100 mm; meça úmido/seco/queimado e calcule a variação. Absorção: pese seco, ferva/mergulhe, pese úmido e compute o ganho (%) de água.
+        </div>
+      </details>
+
+      <!-- 13 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Compatibilidade esmalte × massa: como testar rápido?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Tira de teste com 1–3 demãos; observe crazing (trinca fina) e shivering (lascar). Ajuste espessura, curva ou escolha outro esmalte.
+        </div>
+      </details>
+
+      <!-- 14 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Como a cor da massa influencia o resultado dos esmaltes?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Bases claras deixam cores “puras”; vermelhas/pretas escurecem e alteram matiz. Sempre teste o mesmo esmalte em massas diferentes.
+        </div>
+      </details>
+
+      <!-- 15 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Underglaze em biscoito ou em couro: qual a melhor escolha?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Em couro: integração forte ao corpo, ideal para esgrafito. Em biscoito: controle de cor e detalhes finos. Ajuste diluição e tempo entre camadas.
+        </div>
+      </details>
+
+      <!-- 16 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Máscaras e estênceis: qual sequência evita borrões?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Aplique camada fina, remova o estêncil quando “apagar o brilho úmido”. Se for esmaltar, sele a área com demão fina antes.
+        </div>
+      </details>
+
+      <!-- 17 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Como planejar a curva de queima para reduzir empenos?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Subidas moderadas, patamares em 100–200 °C e na inversão do quartzo (~573 °C), resfriamento controlado e suporte plano para placas.
+        </div>
+      </details>
+
+      <!-- 18 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            O que considerar para peças utilitárias (contato com alimento)?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Baixa absorção (vitrificação), esmaltes estáveis na temperatura de uso e ausência de crazing visível após ciclos térmicos.
+        </div>
+      </details>
+
+      <!-- 19 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Por que algumas massas “sugam” o esmalte e outras não?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Depende do ponto de maturação e da absorção do corpo. Ajuste densidade/viscosidade do esmalte, tempo de imersão e temperatura de queima.
+        </div>
+      </details>
+
+      <!-- 20 -->
+      <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+        <summary class="flex cursor-pointer items-center justify-between list-none">
+          <span class="text-base font-medium text-[var(--secondary-color)]">
+            Como ler a tabela do fabricante sem se enganar?
+          </span>
+          <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+        </summary>
+        <div class="mt-4 text-[var(--text-color)] text-sm">
+          Trate como referência: há variações por lote, posição do provete e curva. Confirme com cones e com seus próprios testes.
+        </div>
+      </details>
     </div>
 
+    <!-- CTA da FAQ -->
     <div class="mt-6 flex flex-wrap gap-3">
       <a href="https://wa.me/5521998898984?text=Tenho%20d%C3%BAvidas%20sobre%20argilas%20e%20decora%C3%A7%C3%A3o" target="_blank" rel="noopener"
          class="inline-flex items-center gap-2 rounded-full px-5 py-3 bg-[var(--tertiary-color)] text-white font-semibold hover:bg-[var(--secondary-color)]">
@@ -423,8 +656,8 @@
   </div>
 </section>
 
-  <!-- Rodapé -->
-  <footer class="mt-auto bg-[var(--text-color)] text-[var(--background-color)] py-12 px-4 sm:px-6 lg:px-8 shadow-inner">
+  <!-- Rodapé (coeso com o index) -->
+  <footer class="bg-[var(--text-color)] text-[var(--background-color)] py-12 px-4 sm:px-6 lg:px-8 shadow-inner">
     <div class="container-main grid grid-cols-1 md:grid-cols-4 gap-8">
       <div class="flex flex-col gap-2">
         <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Ceramaker</h3>
@@ -454,8 +687,6 @@
       </div>
     </div>
   </footer>
-
-</div><!-- /#page-scale -->
 
   <!-- Scripts -->
   <script>
