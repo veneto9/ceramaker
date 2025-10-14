@@ -25,7 +25,44 @@
     .shadow-smooth{box-shadow:0 10px 25px -10px rgba(34,23,12,.25)}
   </style>
 
-  <!-- Structured data -->
+  <!-- Overrides para o “look desktop” (sem depender de zoom) -->
+  <style>
+    :root{
+      --cmk-body-base: 17px;
+      --cmk-shadow: 0 14px 34px -12px rgba(34,23,12,.28);
+    }
+    img[decoding="async"]{ content-visibility:auto; contain-intrinsic-size:800px 600px; }
+
+    @media (min-width:1280px){
+      .container-main{ max-width:1400px; }
+      html{ font-size:var(--cmk-body-base); }
+      .hero-title{ font-size:clamp(2.5rem, 2vw + 2rem, 3.5rem); line-height:1.15; }
+      .hero-copy{ max-width:62ch; }
+      #heroImg{ height:30rem !important; object-fit:contain; }
+      section.container-main:first-of-type .grid img{ height:30rem; object-fit:contain; }
+      .shadow-smooth{ box-shadow:var(--cmk-shadow); }
+      table thead th{ padding-block:.9rem; font-size:.95rem; }
+      header nav a, header nav span{ opacity:.85; } header nav a:hover{ opacity:1; }
+      /* bloco de amostra única */
+      #amostra-unica img{ max-height:580px; object-fit:contain; }
+      #amostra-unica figcaption{ font-size:.82rem; }
+    }
+    @media (min-width:1536px){
+      .container-main{ max-width:1600px; }
+      #heroImg{ height:34rem !important; }
+      section.container-main:first-of-type .grid img{ height:34rem; }
+      #amostra-unica img{ max-height:640px; }
+      #amostra-unica figcaption{ font-size:.9rem; }
+    }
+    .shadow-smooth{ box-shadow:var(--cmk-shadow); }
+    a.rounded-full, button.rounded-full{ min-height:42px; }
+    img{ max-width:100%; height:auto; }
+    @media (min-width:1280px){
+      h1:not(.hero-title){ font-size:clamp(2rem, 1.4vw + 1.6rem, 3rem); }
+    }
+  </style>
+
+  <!-- Structured data (com só 2 imagens: pacote + amostra única) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -36,10 +73,7 @@
     "category":"Massas/Argilas",
     "image":[
       "/images/argilas/Creme.png",
-      "/images/site/produto/creme/47.jpg",
-      "/images/site/produto/creme/48.jpg",
-      "/images/site/produto/creme/49.jpg",
-      "/images/site/produto/creme/51.jpg"
+      "/images/site/produto/creme/amostras-creme.jpg"
     ],
     "offers":{"@type":"Offer","availability":"https://schema.org/InStock","priceCurrency":"BRL"},
     "additionalProperty":[
@@ -56,7 +90,7 @@
   <header class="bg-[var(--background-color)] py-6 shadow-sm">
     <div class="container-main flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 text-[var(--secondary-color)] font-semibold">
-        <img src="/Logo.png" alt="Ceramaker" class="h-20 sm:h-24 lg:h-28 w-auto">
+        <img src="/Logo.png" alt="Ceramaker" class="h-20 sm:h-24 lg:h-28 w-auto" width="160" height="112">
       </a>
 
       <nav class="hidden sm:flex gap-2 text-sm text-[var(--secondary-color)]">
@@ -78,9 +112,9 @@
   <section class="container-main pt-10 pb-6">
     <div class="grid md:grid-cols-2 gap-8 items-center">
       <div>
-        <h1 class="text-3xl sm:text-4xl text-[var(--tertiary-color)]">Argila Creme</h1>
+        <h1 class="hero-title text-3xl sm:text-4xl text-[var(--tertiary-color)]">Argila Creme</h1>
         <p class="mt-3 text-lg text-[var(--secondary-color)]">Cor cremosa • Lisa • Versátil</p>
-        <p class="mt-2 text-[var(--secondary-color)]">
+        <p class="hero-copy mt-2 text-[var(--secondary-color)]">
           Faixa de queima <strong>900–1300°C</strong>. Indicada para <strong>torno e modelagem</strong>, com excelente acabamento
           e boa resposta à esmaltação em média/alta temperatura.
         </p>
@@ -97,8 +131,8 @@
       </div>
 
       <div class="bg-white rounded-2xl p-3 shadow-smooth">
-        <img src="/images/argilas/Creme.png" alt="Argila Creme – bloco de 10kg"
-             class="w-full h-80 object-cover rounded-xl" loading="lazy" decoding="async">
+        <img id="heroImg" src="/images/argilas/Creme.png" alt="Argila Creme – pacote 10kg"
+             class="w-full h-80 object-cover rounded-xl" loading="lazy" decoding="async" width="960" height="960">
       </div>
     </div>
   </section>
@@ -177,50 +211,25 @@
     </div>
   </section>
 
-  <!-- Amostras de cor -->
-  <section class="container-main py-8" id="amostras-temperatura">
+  <!-- Amostra única das queimas -->
+  <section class="container-main py-8" id="amostra-unica">
     <div class="bg-white rounded-2xl p-6 shadow-smooth">
-      <h2 class="text-xl text-[var(--tertiary-color)] mb-3">Amostras por temperatura de queima</h2>
-      <p class="text-sm text-[var(--secondary-color)] mb-4">
-        Visualize a variação de cor da Argila Creme em diferentes temperaturas.
+      <h2 class="text-xl text-[var(--tertiary-color)] mb-3">Amostra de queima (imagem única)</h2>
+      <figure class="bg-white rounded-2xl p-3 shadow-smooth">
+        <img
+          src="/images/site/produto/creme/amostras-creme.jpg"
+          alt="Amostra única representando as tonalidades da Argila Creme nas queimas de 900°C, 1000°C, 1240°C e 1300°C"
+          class="w-full object-contain rounded-xl"
+          loading="lazy" decoding="async" width="1200" height="800">
+        <figcaption class="text-center text-xs text-[color:rgba(0,0,0,.65)] mt-2">
+          Representação visual das tonalidades nas queimas de <strong>900°C</strong>, <strong>1000°C</strong>, <strong>1240°C</strong> e <strong>1300°C</strong>.
+        </figcaption>
+      </figure>
+      <p class="mt-3 text-xs text-[color:rgba(0,0,0,.65)]">
+        Imagem apenas para referência, pode haver variações pelo tipo de forno. Faça testes com a sua curva de queima e esmaltes.
       </p>
-
-      <div class="flex flex-wrap gap-2 mb-5" role="tablist" aria-label="Temperaturas de queima">
-        <button data-temp="900" class="tab-temp rounded-full px-4 py-2 text-sm border border-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20" role="tab" aria-selected="true">900°C</button>
-        <button data-temp="1000" class="tab-temp rounded-full px-4 py-2 text-sm border border-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20" role="tab" aria-selected="false">1000°C</button>
-        <button data-temp="1240" class="tab-temp rounded-full px-4 py-2 text-sm border border-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20" role="tab" aria-selected="false">1240°C</button>
-        <button data-temp="1300" class="tab-temp rounded-full px-4 py-2 text-sm border border-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20" role="tab" aria-selected="false">1300°C</button>
-      </div>
-
-      <div class="relative bg-white rounded-2xl p-3 shadow-smooth">
-        <img id="sampleImage" src="/images/site/produto/creme/47.jpg" alt="Amostra de cor da Argila Creme em 900°C" class="w-full max-h-[460px] object-contain rounded-xl" loading="lazy" decoding="async">
-        <button id="prevBtn" class="absolute left-3 top-1/2 -translate-y-1/2 px-3 py-2 rounded-full bg-[var(--background-color)]/90 shadow-smooth text-[var(--text-color)]" aria-label="Imagem anterior">‹</button>
-        <button id="nextBtn" class="absolute right-3 top-1/2 -translate-y-1/2 px-3 py-2 rounded-full bg-[var(--background-color)]/90 shadow-smooth text-[var(--text-color)]" aria-label="Próxima imagem">›</button>
-      </div>
-
-      <div id="dots" class="flex items-center gap-2 justify-center mt-3"></div>
-      <p id="legend" class="text-center text-xs text-[color:rgba(0,0,0,.65)] mt-2"></p>
     </div>
   </section>
-
-  <script>
-    const samples = {
-      "900":  ["/images/site/produto/creme/47.jpg"],
-      "1000": ["/images/site/produto/creme/48.jpg"],
-      "1240": ["/images/site/produto/creme/49.jpg", "/images/site/produto/creme/50.jpg"],
-      "1300": ["/images/site/produto/creme/51.jpg", "/images/site/produto/creme/52.jpg"]
-    };
-    let currentTemp="900",currentIndex=0;
-    const imgEl=document.getElementById("sampleImage"),legendEl=document.getElementById("legend"),dotsEl=document.getElementById("dots"),prevBtn=document.getElementById("prevBtn"),nextBtn=document.getElementById("nextBtn");
-    function setActiveTab(t){document.querySelectorAll(".tab-temp").forEach(b=>{const a=b.dataset.temp===t;b.classList.toggle("bg-[var(--tertiary-color)]",a);b.classList.toggle("text-white",a);b.classList.toggle("border-[var(--tertiary-color)]",a);b.setAttribute("aria-selected",a?"true":"false");});}
-    function renderDots(){dotsEl.innerHTML="";const n=samples[currentTemp].length;prevBtn.style.display=n>1?"block":"none";nextBtn.style.display=n>1?"block":"none";for(let i=0;i<n;i++){const b=document.createElement("button");b.className="w-2.5 h-2.5 rounded-full "+(i===currentIndex?"bg-[var(--tertiary-color)]":"bg-[var(--secondary-color)]/40");b.addEventListener("click",()=>{currentIndex=i;updateImage();});dotsEl.appendChild(b);}}
-    function updateImage(){const s=samples[currentTemp][currentIndex];imgEl.src=s;imgEl.alt=`Amostra de cor da Argila Creme em ${currentTemp}°C (imagem ${currentIndex+1})`;legendEl.textContent=`Temperatura: ${currentTemp}°C — imagem ${currentIndex+1}/${samples[currentTemp].length}`;renderDots();}
-    document.querySelectorAll(".tab-temp").forEach(b=>b.addEventListener("click",()=>{currentTemp=b.dataset.temp;currentIndex=0;setActiveTab(currentTemp);updateImage();}));
-    prevBtn.addEventListener("click",()=>{const n=samples[currentTemp].length;currentIndex=(currentIndex-1+n)%n;updateImage();});
-    nextBtn.addEventListener("click",()=>{const n=samples[currentTemp].length;currentIndex=(currentIndex+1)%n;updateImage();});
-    window.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")prevBtn.click();if(e.key==="ArrowRight")nextBtn.click();});
-    setActiveTab(currentTemp);updateImage();
-  </script>
 
   <!-- Dicas -->
   <section class="container-main py-8">
@@ -293,7 +302,6 @@
   </footer>
 
   <script>
-    // Atualiza o ano no rodapé
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
