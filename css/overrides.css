@@ -1,0 +1,90 @@
+/* ===========================
+   Ceramaker — overrides globais para desktop
+   Foco: leitura confortável em telas largas (≥1280px)
+   Mantém mobile intacto; só amplia em telas grandes.
+   =========================== */
+
+/* ---------- base leve ---------- */
+:root{
+  /* se quiser ajustar escala global, mexa aqui (desktop) */
+  --cmk-body-base: 17px;   /* era ~16px; sobe levemente em desktop */
+  --cmk-shadow: 0 14px 34px -12px rgba(34,23,12,.28);
+}
+
+/* melhora render de imagens grandes sem jumping */
+img[decoding="async"]{
+  content-visibility: auto;
+  contain-intrinsic-size: 800px 600px; /* hint pro navegador */
+}
+
+/* ==================== ≥1280px (desktop “normal”) ==================== */
+@media (min-width: 1280px){
+
+  /* largura de conteúdo (respira, mas não vira “linha infinita”) */
+  .container-main{ max-width: 1400px; }
+
+  /* fonte base um tico maior */
+  html{ font-size: var(--cmk-body-base); }
+
+  /* título do herói: escala fluida ~40→56px */
+  .hero-title{
+    font-size: clamp(2.5rem, 2vw + 2rem, 3.5rem);
+    line-height: 1.15;
+  }
+
+  /* parágrafo do herói: largura ideal de leitura */
+  .hero-copy{ max-width: 62ch; }
+
+  /* imagem do pacote no herói — use #heroImg se existir;
+     se não existir, fallback tenta pegar a imagem do grid do herói */
+  #heroImg{ height: 30rem !important; object-fit: contain; }
+  section.container-main:first-of-type .grid img{
+    height: 30rem;
+    object-fit: contain;
+  }
+
+  /* cartões com sombra mais “firme” (igual ao print) */
+  .shadow-smooth{ box-shadow: var(--cmk-shadow); }
+
+  /* Tabela técnica: cabeçalho mais legível */
+  table thead th{ padding-block: .9rem; font-size: .95rem; }
+
+  /* Breadcrumbs discretos */
+  header nav a, header nav span{ opacity:.85; }
+  header nav a:hover{ opacity:1; }
+
+  /* Galeria de amostras */
+  #amostras-temperatura #sampleImage{ max-height: 580px; }
+  #amostras-temperatura .tab-temp{ padding:.6rem 1rem; font-size:.95rem; }
+  #legend{ font-size:.82rem; }
+}
+
+/* ==================== ≥1536px (ultrawide / 2K) ==================== */
+@media (min-width: 1536px){
+
+  .container-main{ max-width: 1600px; }
+
+  /* herói ainda mais confortável */
+  #heroImg{ height: 34rem !important; }
+  section.container-main:first-of-type .grid img{ height: 34rem; }
+
+  /* amostras ainda maiores */
+  #amostras-temperatura #sampleImage{ max-height: 640px; }
+  #amostras-temperatura .tab-temp{ padding:.65rem 1.05rem; font-size:.98rem; }
+  #legend{ font-size:.9rem; }
+}
+
+/* ==================== extras gentis (valem pra qualquer largura) ==================== */
+/* Dá um upgrade de sombra, sutil, no site todo */
+.shadow-smooth{ box-shadow: var(--cmk-shadow); }
+
+/* Botões: área de toque um pouquinho maior sem mudar o visual */
+a.rounded-full, button.rounded-full{ min-height: 42px; }
+
+/* Evita que imagens muito altas “estourem” cartões estreitos */
+img{ max-width: 100%; height: auto; }
+
+/* Caso algum título não receba a classe hero-title, tornamos h1 mais forte em desktop */
+@media (min-width: 1280px){
+  h1:not(.hero-title){ font-size: clamp(2rem, 1.4vw + 1.6rem, 3rem); }
+}
