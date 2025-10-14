@@ -13,22 +13,42 @@
 
   <!-- Tailwind (CDN para protótipo) -->
   <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --primary-color:#ebbd53;   /* Amarelo da marca */
+    --secondary-color:#615b4e; /* Marrom escuro */
+    --tertiary-color:#a6492e;  /* Marrom avermelhado */
+    --text-color:#692e26;      /* Texto */
+    --background-color:#ebe5d9;/* Fundo creme */
+  }
 
-  <style>
-    :root{
-      --primary-color:#ebbd53;   /* Amarelo da marca */
-      --secondary-color:#615b4e; /* Marrom escuro */
-      --tertiary-color:#a6492e;  /* Marrom avermelhado */
-      --text-color:#692e26;      /* Texto */
-      --background-color:#ebe5d9;/* Fundo creme */
-    }
-    body{ font-family:'Inter',sans-serif; background:var(--background-color); color:var(--text-color); line-height:1.6 }
-    h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
-    .container-main{ max-width:1280px; margin:0 auto; padding:0 1rem }
-    @media (min-width:640px){ .container-main{ padding:0 1.5rem } }
-    @media (min-width:1024px){ .container-main{ padding:0 2rem } }
-    .shadow-smooth{ box-shadow:0 10px 25px -10px rgba(34,23,12,.25) }
-  </style>
+  /* Escala tipográfica global: reduz todo o site sem zoom/transform */
+  html { font-size: 65%; }  /* 65% de 16px = ~10.4px; ajuste fino aqui (ex.: 70%) */
+
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--background-color);
+    color:var(--text-color);
+    line-height:1.6;
+  }
+
+  h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
+
+  /* Use rem para o container para acompanhar a escala global */
+  .container-main{
+    max-width: 80rem;    /* era 1280px; com html=65% vira ~832px visuais */
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  @media (min-width:640px){ .container-main{ padding:0 1.5rem } }
+  @media (min-width:1024px){ .container-main{ padding:0 2rem } }
+
+  /* Sombra em rem (opcional; acompanha a escala visual) */
+  .shadow-smooth{
+    /* 0 10px 25px -10px -> em rem (10/16=0.625, 25/16=1.5625) */
+    box-shadow: 0 0.625rem 1.5625rem -0.625rem rgba(34,23,12,.25);
+  }
+</style>
 
   <!-- SEO estruturado (opcional) -->
   <script type="application/ld+json">
@@ -45,7 +65,7 @@
 <body class="antialiased">
 
   <!-- Header / Breadcrumb (estilo do index) -->
-  <header class="bg-[var(--background-color)] py-8 px-4 sm:px-6 lg:px-8 shadow-sm">
+  <header class="bg-[var(--background-color)] py-8 px-4 sm:px-6 lg:px-8 shadow-none">
     <div class="container-main flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
       <!-- Logo -->
       <div class="flex-shrink-0">
@@ -97,106 +117,233 @@
     </div>
   </section>
 
-  <!-- Lista de Argilas -->
-  <main id="lista" class="container-main py-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- ============================
+     LISTA DE ARGILAS (TODAS AJUSTADAS)
+================================ -->
 
-    <!-- Bianca -->
-    <article class="argila" data-tags="baixa torno">
-      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
-        <header class="mb-3">
-          <h3 class="text-xl text-[var(--tertiary-color)] font-semibold">Bianca</h3>
-          <p class="text-sm text-[color:rgba(0,0,0,.6)]">Base clara | Lisa | Versátil</p>
-        </header>
-        <img src="/images/argilas/Bianca-3.png" alt="Argila Bianca – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">Temp. 800-1240°C • Torno / Modelagem / Beliscão </p>
-        <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/bianca.html" class="text-[var(--tertiary-color)] hover:underline">Saiba mais</a>
-          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
-        </footer>
-      </div>
-    </article>
+<main id="main-content" class="container-main py-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    <!-- Creme -->
-    <article class="argila" data-tags="media torno">
-      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
-        <header class="mb-3">
-          <h3 class="text-xl text-[var(--tertiary-color)] font-semibold">Creme</h3>
-          <p class="text-sm text-[color:rgba(0,0,0,.6)]">Cor cremosa | Lisa | Versátil</p>
-        </header>
-        <img src="/images/argilas/Creme.png" alt="Argila Creme – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">800°–1300°C • Torno / Modelagem</p>
-        <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/creme.html" class="text-[var(--tertiary-color)] hover:underline">Saiba mais</a>
-          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
-        </footer>
-      </div>
-    </article>
+<!-- Bianca -->
+<article class="argila" data-tags="baixa torno" id="card-bianca">
+  <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
+    <header class="mb-3">
+      <h3 class="text-xl font-semibold">
+        <a href="/pages/bianca.html" class="text-[var(--tertiary-color)] hover:underline" aria-label="Ver detalhes da argila Bianca">Bianca</a>
+      </h3>
+      <p class="text-sm text-[color:rgba(0,0,0,.6)]">
+        <a href="/pages/bianca.html" class="hover:underline" aria-label="Ver descrição completa da argila Bianca">Base clara | Lisa | Versátil</a>
+      </p>
+    </header>
 
-    <!-- Tabaco -->
-    <article class="argila" data-tags="media torno escultura">
-      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
-        <header class="mb-3">
-          <h3 class="text-xl text-[var(--tertiary-color)] font-semibold">Tabaco</h3>
-          <p class="text-sm text-[color:rgba(0,0,0,.6)]">Base tabaco | Versátil</p>
-        </header>
-        <img src="/images/argilas/Tabaco-2.png" alt="Argila Tabaco – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">800°–1240°C • Torno / Modelagem / Escultura</p>
-        <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/tabaco.html" class="text-[var(--tertiary-color)] hover:underline">Saiba mais</a>
-          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
-        </footer>
-      </div>
-    </article>
+    <a href="/pages/bianca.html" aria-label="Abrir página de detalhes da argila Bianca" class="block relative">
+      <img id="img-bianca" 
+           src="/images/argilas/Bianca-3.png" 
+           alt="Argila Bianca – bloco de 10kg"
+           class="w-full h-44 object-cover rounded-xl shadow mb-4 transition-all duration-700 ease-in-out" 
+           loading="lazy" decoding="async" />
+    </a>
 
-    <!-- Terracota -->
-    <article class="argila" data-tags="baixa escultura">
-      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
-        <header class="mb-3">
-          <h3 class="text-xl text-[var(--tertiary-color)] font-semibold">Terracota</h3>
-          <p class="text-sm text-[color:rgba(0,0,0,.6)]">Vermelha | Plasticidade | Escultura</p>
-        </header>
-        <img src="/images/argilas/Terracota-1.png" alt="Argila Terracota – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">800-1240 • Escultura / Placas</p>
-        <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/terracota.html" class="text-[var(--tertiary-color)] hover:underline">Saiba mais</a>
-          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
-        </footer>
-      </div>
-    </article>
+    <p class="text-sm text-[var(--secondary-color)] my-4">
+      Temp. 800-1240°C • Torno / Modelagem / Beliscão
+    </p>
 
-    <!-- Marfim -->
-    <article class="argila" data-tags="media torno">
-      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
-        <header class="mb-3">
-          <h3 class="text-xl text-[var(--tertiary-color)] font-semibold">Marfim</h3>
-          <p class="text-sm text-[color:rgba(0,0,0,.6)]">Clara | Lisa</p>
-        </header>
-        <img src="/images/argilas/Marfim.png" alt="Argila Marfim – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">900°–1300°C • Torno / Modelagem</p>
-        <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/marfim.html" class="text-[var(--tertiary-color)] hover:underline">Saiba mais</a>
-          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
-        </footer>
-      </div>
-    </article>
+    <footer class="mt-auto flex items-center justify-between">
+      <a href="/pages/bianca.html" class="text-[var(--tertiary-color)] hover:underline" aria-label="Saiba mais sobre a argila Bianca">Saiba mais</a>
+      <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]" target="_blank" rel="noopener" aria-label="Comprar argila Bianca via WhatsApp">Comprar</a>
+    </footer>
+  </div>
+</article>
 
-    <!-- Preta (baixa) -->
-    <article class="argila" data-tags="baixa escultura">
-      <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
-        <header class="mb-3">
-          <h3 class="text-xl text-[var(--tertiary-color)] font-semibold">Preta (baixa)</h3>
-          <p class="text-sm text-[color:rgba(0,0,0,.6)]">Base escura | Efeito rústico</p>
-        </header>
-        <img src="/images/argilas/Preta-1.png" alt="Argila Preta de baixa temperatura – bloco de 10kg" class="w-full h-44 object-cover rounded-xl shadow mb-4" loading="lazy" decoding="async" />
-        <p class="text-sm text-[var(--secondary-color)] mb-4">Baixa temperatura 800-1000 • Escultura / Placas</p>
-        <footer class="mt-auto flex items-center justify-between">
-          <a href="/pages/preta_baixa.html" class="text-[var(--tertiary-color)] hover:underline">Saiba mais</a>
-          <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]">Comprar</a>
-        </footer>
-      </div>
-    </article>
+<script>
+  // Carrossel simples: troca automática entre duas imagens
+  document.addEventListener("DOMContentLoaded", () => {
+    const img = document.getElementById("img-bianca");
+    const imagens = [
+      "/images/argilas/Bianca-3.png",
+      "/images/argilas/Bianca-2.png"
+    ];
+    let index = 0;
 
-  </main>
+    setInterval(() => {
+      index = (index + 1) % imagens.length;
+      img.classList.add("opacity-0");
+      setTimeout(() => {
+        img.src = imagens[index];
+        img.classList.remove("opacity-0");
+      }, 500);
+    }, 3500);
+  });
+</script>
+
+<style>
+  #img-bianca { transition: opacity 0.6s ease; }
+  #img-bianca.opacity-0 { opacity: 0; }
+</style>
+
+<!-- Creme -->
+<article class="argila" data-tags="media torno" id="card-creme">
+  <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
+    <header class="mb-3">
+      <h3 class="text-xl font-semibold">
+        <a href="/pages/creme.html" class="text-[var(--tertiary-color)] hover:underline" aria-label="Ver detalhes da argila Creme">Creme</a>
+      </h3>
+      <p class="text-sm text-[color:rgba(0,0,0,.6)]">
+        <a href="/pages/creme.html" class="hover:underline" aria-label="Ver descrição completa da argila Creme">Cor cremosa | Lisa | Versátil</a>
+      </p>
+    </header>
+
+    <a href="/pages/creme.html" aria-label="Abrir página de detalhes da argila Creme" class="block relative">
+      <img id="img-creme" src="/images/argilas/Creme.png" alt="Argila Creme – bloco de 10kg"
+           class="w-full h-44 object-cover rounded-xl shadow mb-4 carousel-fade" loading="lazy" decoding="async" />
+    </a>
+
+    <p class="text-sm text-[var(--secondary-color)] my-4">800°–1300°C • Torno / Modelagem</p>
+
+    <footer class="mt-auto flex items-center justify-between">
+      <a href="/pages/creme.html" class="text-[var(--tertiary-color)] hover:underline" aria-label="Saiba mais sobre a argila Creme">Saiba mais</a>
+      <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]" target="_blank" rel="noopener" aria-label="Comprar argila Creme via WhatsApp">Comprar</a>
+    </footer>
+  </div>
+</article>
+
+<!-- Tabaco -->
+<article class="argila" data-tags="media torno escultura" id="card-tabaco">
+  <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
+    <header class="mb-3">
+      <h3 class="text-xl font-semibold">
+        <a href="/pages/tabaco.html" class="text-[var(--tertiary-color)] hover:underline" aria-label="Ver detalhes da argila Tabaco">Tabaco</a>
+      </h3>
+      <p class="text-sm text-[color:rgba(0,0,0,.6)]">
+        <a href="/pages/tabaco.html" class="hover:underline" aria-label="Ver descrição completa da argila Tabaco">Base tabaco | Versátil</a>
+      </p>
+    </header>
+
+    <a href="/pages/tabaco.html" aria-label="Abrir página de detalhes da argila Tabaco" class="block relative">
+      <img id="img-tabaco" src="/images/argilas/Tabaco-2.png" alt="Argila Tabaco – bloco de 10kg"
+           class="w-full h-44 object-cover rounded-xl shadow mb-4 carousel-fade" loading="lazy" decoding="async" />
+    </a>
+
+    <p class="text-sm text-[var(--secondary-color)] my-4">800°–1240°C • Torno / Modelagem / Escultura</p>
+
+    <footer class="mt-auto flex items-center justify-between">
+      <a href="/pages/tabaco.html" class="text-[var(--tertiary-color)] hover:underline" aria-label="Saiba mais sobre a argila Tabaco">Saiba mais</a>
+      <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]" target="_blank" rel="noopener" aria-label="Comprar argila Tabaco via WhatsApp">Comprar</a>
+    </footer>
+  </div>
+</article>
+
+<!-- Terracota -->
+<article class="argila" data-tags="baixa escultura" id="card-terracota">
+  <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
+    <header class="mb-3">
+      <h3 class="text-xl font-semibold">
+        <a href="/pages/terracota.html" class="text-[var(--tertiary-color)] hover:underline" aria-label="Ver detalhes da argila Terracota">Terracota</a>
+      </h3>
+      <p class="text-sm text-[color:rgba(0,0,0,.6)]">
+        <a href="/pages/terracota.html" class="hover:underline" aria-label="Ver descrição completa da argila Terracota">Vermelha | Plasticidade | Escultura</a>
+      </p>
+    </header>
+
+    <a href="/pages/terracota.html" aria-label="Abrir página de detalhes da argila Terracota" class="block relative">
+      <img id="img-terracota" src="/images/argilas/Terracota-1.png" alt="Argila Terracota – bloco de 10kg"
+           class="w-full h-44 object-cover rounded-xl shadow mb-4 carousel-fade" loading="lazy" decoding="async" />
+    </a>
+
+    <p class="text-sm text-[var(--secondary-color)] my-4">800-1240 • Escultura / Placas</p>
+
+    <footer class="mt-auto flex items-center justify-between">
+      <a href="/pages/terracota.html" class="text-[var(--tertiary-color)] hover:underline" aria-label="Saiba mais sobre a argila Terracota">Saiba mais</a>
+      <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]" target="_blank" rel="noopener" aria-label="Comprar argila Terracota via WhatsApp">Comprar</a>
+    </footer>
+  </div>
+</article>
+
+<!-- Marfim -->
+<article class="argila" data-tags="media torno" id="card-marfim">
+  <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
+    <header class="mb-3">
+      <h3 class="text-xl font-semibold">
+        <a href="/pages/marfim.html" class="text-[var(--tertiary-color)] hover:underline" aria-label="Ver detalhes da argila Marfim">Marfim</a>
+      </h3>
+      <p class="text-sm text-[color:rgba(0,0,0,.6)]">
+        <a href="/pages/marfim.html" class="hover:underline" aria-label="Ver descrição completa da argila Marfim">Clara | Lisa</a>
+      </p>
+    </header>
+
+    <a href="/pages/marfim.html" aria-label="Abrir página de detalhes da argila Marfim" class="block relative">
+      <img id="img-marfim" src="/images/argilas/Marfim.png" alt="Argila Marfim – bloco de 10kg"
+           class="w-full h-44 object-cover rounded-xl shadow mb-4 carousel-fade" loading="lazy" decoding="async" />
+    </a>
+
+    <p class="text-sm text-[var(--secondary-color)] my-4">900°–1300°C • Torno / Modelagem</p>
+
+    <footer class="mt-auto flex items-center justify-between">
+      <a href="/pages/marfim.html" class="text-[var(--tertiary-color)] hover:underline" aria-label="Saiba mais sobre a argila Marfim">Saiba mais</a>
+      <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]" target="_blank" rel="noopener" aria-label="Comprar argila Marfim via WhatsApp">Comprar</a>
+    </footer>
+  </div>
+</article>
+
+<!-- Preta (baixa) -->
+<article class="argila" data-tags="baixa escultura" id="card-preta-baixa">
+  <div class="bg-white rounded-2xl p-6 shadow-smooth h-full flex flex-col">
+    <header class="mb-3">
+      <h3 class="text-xl font-semibold">
+        <a href="/pages/preta_baixa.html" class="text-[var(--tertiary-color)] hover:underline" aria-label="Ver detalhes da argila Preta (baixa)">Preta (baixa)</a>
+      </h3>
+      <p class="text-sm text-[color:rgba(0,0,0,.6)]">
+        <a href="/pages/preta_baixa.html" class="hover:underline" aria-label="Ver descrição completa da argila Preta (baixa)">Base escura | Efeito rústico</a>
+      </p>
+    </header>
+
+    <a href="/pages/preta_baixa.html" aria-label="Abrir página de detalhes da argila Preta (baixa)" class="block relative">
+      <img id="img-preta" src="/images/argilas/Preta-1.png" alt="Argila Preta de baixa temperatura – bloco de 10kg"
+           class="w-full h-44 object-cover rounded-xl shadow mb-4 carousel-fade" loading="lazy" decoding="async" />
+    </a>
+
+    <p class="text-sm text-[var(--secondary-color)] my-4">Baixa temperatura 800-1000 • Escultura / Placas</p>
+
+    <footer class="mt-auto flex items-center justify-between">
+      <a href="/pages/preta_baixa.html" class="text-[var(--tertiary-color)] hover:underline" aria-label="Saiba mais sobre a argila Preta (baixa)">Saiba mais</a>
+      <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm hover:bg-[var(--secondary-color)]" target="_blank" rel="noopener" aria-label="Comprar argila Preta (baixa) via WhatsApp">Comprar</a>
+    </footer>
+  </div>
+</article>
+
+<style>
+  .carousel-fade { transition: opacity .6s ease; }
+  .is-fading { opacity: 0; }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const carrosseis = [
+      { id: "img-creme",    imagens: ["/images/argilas/Creme.png",     "/images/argilas/Creme1.png"] },
+      { id: "img-tabaco",   imagens: ["/images/argilas/Tabaco-2.png",  "/images/argilas/Tabaco-2.png"] },
+      { id: "img-terracota",imagens: ["/images/argilas/Terracota-1.png","/images/argilas/Terracota-1.png"] },
+      { id: "img-marfim",   imagens: ["/images/argilas/Marfim.png",    "/images/argilas/Marfim.png"] },
+      { id: "img-preta",    imagens: ["/images/argilas/Preta-1.png",   "/images/argilas/Preta-1.png"] }
+    ];
+    const intervalo = 3500;
+
+    carrosseis.forEach(({ id, imagens }) => {
+      const el = document.getElementById(id);
+      if (!el || !imagens || imagens.length < 2) return;
+
+      let i = 0;
+      setInterval(() => {
+        i = (i + 1) % imagens.length;
+        el.classList.add("is-fading");
+        setTimeout(() => {
+          el.src = imagens[i];
+          el.classList.remove("is-fading");
+        }, 500);
+      }, intervalo);
+    });
+  });
+</script>
+
+</main>
 
   <!-- Nota técnica curta -->
   <div class="container-main -mt-4 text-xs text-[color:rgba(0,0,0,.55)]">
