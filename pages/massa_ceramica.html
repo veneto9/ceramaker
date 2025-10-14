@@ -656,37 +656,56 @@
   </div>
 </section>
 
-  <!-- Rodapé (coeso com o index) -->
-  <footer class="bg-[var(--text-color)] text-[var(--background-color)] py-12 px-4 sm:px-6 lg:px-8 shadow-inner">
-    <div class="container-main grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div class="flex flex-col gap-2">
-        <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Ceramaker</h3>
-        <p class="text-[0.80rem] opacity-90">Argilas e ferramentas especiais para sua arte em cerâmica.</p>
-        <p class="text-[0.60rem] opacity-70 mt-4">© <span id="year"></span> Ceramaker. Todos os direitos reservados.</p>
+    
+<!-- Footer -->
+<footer class="py-12">
+  <div class="container-main">
+    <!-- Cartão escuro (bordô) que contém tudo -->
+    <div class="bg-[var(--text-color)] text-[var(--background-color)] rounded-3xl p-8">
+
+      <!-- Colunas -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Ceramaker</h3>
+          <p class="text-[0.80rem] opacity-90">Argilas e ferramentas especiais para ceramistas.</p>
+          <p class="text-[0.60rem] opacity-70 mt-4">© 2025 Ceramaker. Todos os direitos reservados.</p>
+        </div>
+
+        <div>
+          <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Links Rápidos</h3>
+          <a href="#produtos" class="text-[0.85rem] hover:underline block">Produtos</a>
+          <a href="#como-funciona" class="text-[0.85rem] hover:underline block">Como Funciona</a>
+          <a href="#sobre" class="text-[0.85rem] hover:underline block">Sobre Nós</a>
+          <a href="#contato" class="text-[0.85rem] hover:underline block">Contato</a>
+        </div>
+
+        <div>
+          <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Produtos</h3>
+          <a href="/pages/massa_ceramica.html" class="text-[0.80rem] hover:underline block">Argilas / Massas cerâmicas</a>
+          <a href="#" class="text-[0.80rem] hover:underline block">Carimbos</a>
+          <a href="#" class="text-[0.80rem] hover:underline block">Rolos Texturizados</a>
+          <a href="#" class="text-[0.80rem] hover:underline block">Cortadores</a>
+        </div>
+
+        <div id="contato">
+          <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Contatos</h3>
+          <a href="https://wa.me/5521998898984" class="text-[0.70rem] flex items-center gap-2 hover:underline" target="_blank" rel="noopener">📱 WhatsApp</a>
+          <a href="https://instagram.com/cerammaker" class="text-[0.70rem] flex items-center gap-2 hover:underline" target="_blank" rel="noopener">📷 Instagram @cerammaker</a>
+          <a href="mailto:studioceramaker@gmail.com" class="text-[0.70rem] flex items-center gap-2 hover:underline">studioceramaker@gmail.com</a>
+          <div class="text-[0.70rem] flex items-center gap-2">Volta Redonda/RJ</div>
+        </div>
       </div>
-      <div class="flex flex-col gap-2">
-        <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Links Rápidos</h3>
-        <a href="/" class="text-[0.85rem] hover:underline transition-all duration-200">Início</a>
-        <a href="/#produtos" class="text-[0.85rem] hover:underline transition-all duration-200">Produtos</a>
-        <a href="/#sobre" class="text-[0.85rem] hover:underline transition-all duration-200">Sobre Nós</a>
-        <a href="/#contato" class="text-[0.85rem] hover:underline transition-all duration-200">Contato</a>
-      </div>
-      <div class="flex flex-col gap-2">
-        <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Produtos</h3>
-        <a href="/pages/massa_ceramica.html" class="text-[0.80rem] hover:underline transition-all duration-200">Argilas / Massas cerâmicas</a>
-        <a href="#" class="text-[0.80rem] hover:underline transition-all duration-200">Carimbos</a>
-        <a href="#" class="text-[0.80rem] hover:underline transition-all duration-200">Rolos Texturizados</a>
-        <a href="#" class="text-[0.80rem] hover:underline transition-all duration-200">Cortadores</a>
-      </div>
-      <div class="flex flex-col gap-2">
-        <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Contatos</h3>
-        <a href="https://wa.me/5521998898984" class="text-[0.70rem] flex items-center gap-2 hover:underline transition-all duration-200" target="_blank">📱 WhatsApp</a>
-        <a href="https://instagram.com/cerammaker" class="text-[0.70rem] flex items-center gap-2 hover:underline transition-all duration-200" target="_blank">Instagram @cerammaker</a>
-        <a href="mailto:studioceramaker@gmail.com" class="text-[0.70rem] flex items-center gap-2 hover:underline transition-all duration-200">studioceramaker@gmail.com</a>
-        <div class="text-[0.70rem] flex items-center gap-2">Volta Redonda/RJ</div>
-      </div>
+
+      <!-- Texto final centralizado (sem linha) -->
+     <p class="mt-6 text-center text-[1rem] font-semibold text-[var(--primary-color)]">
+  Desenvolvido com ❤️ para ceramistas apaixonados
+</p>
+      </p>
     </div>
-  </footer>
+  </div>
+</footer>
+
+  </main>
 
   <!-- Scripts -->
   <script>
