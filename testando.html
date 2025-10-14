@@ -1,5 +1,4 @@
-# Create an improved version of the uploaded HTML with accessibility, performance, and semantic tweaks.
-content = r"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -347,7 +346,15 @@ h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
         </a>
       </div>
     </section>
+ 
+ <div class="container-main mt-6 text-center text-[0.74rem] opacity-80">
+      Desenvolvido com ❤️ para ceramistas apaixonados
+    </div>
+  </footer>
+ 
   </main>
+
+    
 
   <!-- Footer -->
   <footer class="py-12">
@@ -382,20 +389,8 @@ h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
         </div>
       </div>
 
-<!-- Mapa compacto (opcional) dentro do casulo — menor -->
-<div class="mt-6 rounded-3xl overflow-hidden shadow-smooth bg-white h-36 sm:h-44">
-  <iframe
-    title="Localização Ceramaker - Volta Redonda/RJ"
-    src="https://www.google.com/maps/embed?pb=[SEU_EMBED]"
-    width="100%" height="100%" style="border:0;" loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
-  </iframe>
-</div>
 
-    <div class="container-main mt-6 text-center text-[0.74rem] opacity-80">
-      Desenvolvido com ❤️ para ceramistas apaixonados
-    </div>
-  </footer>
+
 
   <!-- Botão flutuante WhatsApp -->
   <a href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Vim%20pelo%20site%20Ceramaker"
@@ -424,7 +419,3 @@ h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
   </script>
 </body>
 </html>
-"""
-with open("/mnt/data/teste-ajustado.html", "w", encoding="utf-8") as f:
-    f.write(content)
-"/mnt/data/teste-ajustado.html"
