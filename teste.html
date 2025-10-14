@@ -43,6 +43,30 @@
       --background-color:#ebe5d9;
     }
 
+/* 1) Igualar a escala da página: rem ≈ 10.4px (como na Argilas) */
+html { font-size: 70%; }
+
+/* 2) Hero: reduzir um pouco a faixa para não “gritar” em telas grandes */
+.hero-title{
+  font-weight: 700;
+  color: var(--secondary-color);
+  /* antes: clamp(1.75rem, 2vw + 1rem, 2.25rem) */
+  font-size: clamp(1.5rem, 1.6vw + 0.8rem, 1.9rem);
+  line-height: 1.2;
+}
+.hero-sub{
+  /* antes: clamp(1rem, .6vw + .9rem, 1.125rem) */
+  font-size: clamp(0.95rem, 0.5vw + 0.8rem, 1.05rem);
+}
+
+/* 3) Ícones daquela seção “O que oferecemos” estavam maiores que o resto. 
+      Baixei 1rem para alinhar com a escala dos cards da Argilas. */
+.feature-icon{ width: 4.5rem; height: 4.5rem; }
+
+/* 4) Barra de navegação: altura um pouco menor para casar com a página interna */
+nav .h-14{ height: 3rem; } /* 3rem * 10.4px ≈ 31px */
+
+
     /* Tipografia base = 100% (16px) */
     body{
       font-family:'Inter',sans-serif;
@@ -290,20 +314,21 @@
       </div>
     </section>
 
-    <!-- Sobre -->
-    <section id="sobre" class="bg-[var(--secondary-color)] text-[var(--background-color)]">
-      <div class="container-main py-10">
-        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-4">Nossa História</h2>
-        <div class="max-w-2xl mx-auto space-y-4">
-          <p class="text-[0.95rem] sm:text-[1.05rem] leading-relaxed [text-align:justify] [text-justify:inter-word] [hyphens:auto]">
-            Entre tecnologia e gestão, encontramos na argila um caminho. Cada ferramenta nasce de uma necessidade real no ateliê.
-          </p>
-          <p class="text-[0.95rem] sm:text-[1.05rem] font-semibold leading-relaxed [text-align:justify] [text-justify:inter-word] [hyphens:auto]">
-            Missão: democratizar matéria-prima e ferramentas de qualidade.
-          </p>
-        </div>
-      </div>
-    </section>
+    <!-- Sobre Nós Section (alinhado e tipografia ajustada) -->
+<section id="sobre" class="bg-[var(--secondary-color)] text-[var(--background-color)] rounded-3xl my-8 shadow-xl">
+  <div class="container-main px-6 sm:px-10 py-8 sm:py-10">
+    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-4"> Nossa História</h2>
+
+    <div class="max-w-2xl mx-auto space-y-4">
+      <p class="text-[0.95rem] sm:text-[1.05rem] leading-relaxed [text-align:justify] [text-justify:inter-word] [hyphens:auto]">
+Após anos entre tecnologia e gestão, encontrei na argila o que sempre busquei. No ateliê, desenvolvo ferramentas que nascem da necessidade real - cada cortador, textura ou carimbo resolve problemas que enfrentei trabalhando com cerâmica.
+      </p>
+      <p class="text-[0.95rem] sm:text-[1.05rem] font-semibold leading-relaxed [text-align:justify] [text-justify:inter-word] [hyphens:auto]">
+        Nossa missão: Democratizar matéria-prima e ferramentas de qualidade para quem entende que criar deveria ser mais acessível.
+      </p>
+    </div>
+  </div>
+</section>
 
     <!-- CTA final -->
     <section class="container-main">
