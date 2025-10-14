@@ -1,0 +1,431 @@
+# Create an improved version of the uploaded HTML with accessibility, performance, and semantic tweaks.
+content = r"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ceramaker — Ferramentas para Cerâmica</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+
+  <!-- Meta -->
+  <meta name="description" content="Ferramentas e argilas para cerâmica artesanal: carimbos, rolos, cortadores e massas cerâmicas de qualidade.">
+  <meta name="keywords" content="ferramentas para cerâmica, carimbos, rolos texturizados, cortadores, argilas, massas cerâmicas">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ceramaker.com.br">
+  <meta property="og:title" content="Ceramaker — Ferramentas para Cerâmica Artesanal">
+  <meta property="og:description" content="Argilas, carimbos, rolos e cortadores personalizados para sua arte.">
+  <meta property="og:image" content="https://ceramaker.com.br/Logo.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Ceramaker">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://ceramaker.com.br/teste.html">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+/* === BASE TIPOGRÁFICA (mesma da página de Argilas) ===
+   1rem ≈ 10.4px (65% de 16px) */
+html { font-size: 65%; }
+
+/* Fonte e cores (tokens do projeto) */
+:root{
+  --primary-color:#ebbd53;
+  --secondary-color:#615b4e;   /* “chumbo” do site */
+  --tertiary-color:#a6492e;
+  --text-color:#692e26;
+  --background-color:#ebe5d9;
+}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--background-color);
+  color:var(--text-color);
+  line-height:1.6;
+}
+h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
+
+/* === LARGURA DO SITE (mesma da Argilas) ===
+   80rem com raiz 65% ≈ 832px de largura máxima visual */
+.container-main{
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width:640px){
+  .container-main{ padding-left: 1.5rem; padding-right: 1.5rem }
+}
+@media (min-width:1024px){
+  .container-main{ padding-left: 2rem; padding-right: 2rem }
+}
+
+/* HERO (coerente com Argilas) */
+.hero-title{
+  font-weight: 700;
+  color: var(--secondary-color);
+  font-size: clamp(1.5rem, 1.1vw + 1rem, 1.875rem);
+  line-height: 1.2;
+}
+.hero-sub{
+  font-size: clamp(0.95rem, 0.5vw + 0.8rem, 1.0625rem);
+}
+.hero-logo{
+  height: clamp(5.5rem, 7vw, 6.75rem);
+  width: auto;
+}
+
+/* Botão principal */
+.btn-main{
+  padding: 0.75rem 1.25rem; /* py-3 px-5 */
+  border-radius: 9999px;
+  background: var(--tertiary-color);
+  color: var(--background-color);
+  font-weight: 700;
+  font-size: 0.875rem;      /* text-sm na base 65% */
+}
+
+/* Nav: casulo + barra chumbo confinada */
+.main-nav a{ font-weight: 600; font-size: 1rem } /* ~text-base */
+.nav-height{ height: 3rem; } /* ≈ 31px visuais */
+
+/* Ícones “O que oferecemos” */
+.feature-icon{ width: 4.5rem; height: 4.5rem; }
+
+/* Sombra suave */
+.shadow-smooth{ box-shadow: 0 0.625rem 1.5625rem -0.625rem rgba(34,23,12,.25) }
+
+/* Acessibilidade: skip link */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border-width:0
+}
+.focus\:not-sr-only:focus{
+  position:static;width:auto;height:auto;padding:inherit;margin:inherit;
+  overflow:visible;clip:auto;white-space:normal
+}
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Sentinela de build para conferência rápida:
+       Pesquise por esta string no HTML publicado -->
+  <!-- build: 2025-10-14T01:15-03 -->
+
+  <!-- Skip link -->
+  <a href="#main-content"
+     class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[var(--tertiary-color)] focus:text-white focus:rounded">
+    Pular para o conteúdo principal
+  </a>
+
+  <!-- HEADER + HERO -->
+  <header class="bg-[var(--background-color)] py-7">
+    <div class="container-main flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10">
+      <!-- Logo -->
+      <div class="flex items-center gap-4">
+        <img src="/Logo.png" alt="Logotipo Ceramaker" class="hero-logo" loading="eager" decoding="async">
+        <span class="sr-only">Ceramaker</span>
+      </div>
+
+      <!-- Headline + CTA -->
+      <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+        <h1 class="hero-title" style="text-wrap:balance">Ferramentas para Cerâmica Artesanal</h1>
+        <p class="hero-sub mt-2 max-w-xl" style="text-wrap:pretty">
+          Argilas de alta temperatura, carimbos e cortadores personalizados para sua arte.
+        </p>
+        <a
+          href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20argilas%20e%20ferramentas%20da%20Ceramaker"
+          class="btn-main inline-flex items-center gap-2 mt-4 hover:bg-[var(--secondary-color)] transition-colors"
+          target="_blank" rel="noopener" aria-label="Falar no WhatsApp"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Ícone do WhatsApp">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347"/>
+          </svg>
+          Fale Conosco no WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Navegação (barra chumbo confinada ao container) -->
+    <nav class="mt-6 sticky top-0 z-40" aria-label="Navegação principal">
+      <div class="container-main">
+        <div class="nav-height flex items-center justify-center rounded-2xl bg-[var(--secondary-color)] text-[var(--background-color)] px-4">
+          <div class="main-nav flex items-center gap-6">
+            <a href="#produtos" class="hover:text-[var(--primary-color)]">Produtos</a>
+            <a href="#como-funciona" class="hover:text-[var(--primary-color)]">Como Funciona</a>
+            <a href="#sobre" class="hover:text-[var(--primary-color)]">Sobre</a>
+            <a href="#contato" class="hover:text-[var(--primary-color)]">Contato</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- O que oferecemos -->
+    <section class="container-main">
+      <div class="bg-white rounded-3xl py-10 px-6 sm:px-8 my-8 shadow-smooth">
+        <div class="text-center mb-6">
+          <h2 class="text-2xl sm:text-3xl text-[var(--tertiary-color)] font-extrabold">O que oferecemos</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- 1 -->
+          <div class="flex flex-col items-center text-center">
+            <div class="feature-icon mb-4 rounded-full bg-[var(--background-color)] shadow-md p-2 flex items-center justify-center">
+              <img src="/images/ui/oferecemos-inovacao.png" width="72" height="72" alt="Ícone de impressora 3D representando inovação aplicada"
+                   class="w-full h-full object-contain"
+                   onerror="this.onerror=null;this.src='/Logo.png'" loading="lazy" decoding="async">
+            </div>
+            <h4 class="font-semibold text-lg text-[var(--secondary-color)] mb-1">Inovação Aplicada</h4>
+            <p class="text-sm text-[var(--text-color)]">Tecnologia que facilita seu processo criativo.</p>
+          </div>
+          <!-- 2 -->
+          <div class="flex flex-col items-center text-center">
+            <div class="feature-icon mb-4 rounded-full bg-[var(--background-color)] shadow-md p-2 flex items-center justify-center">
+              <img src="/images/ui/oferecemos-ceramica.png" width="72" height="72" alt="Ícone de cerâmica representando prática artesanal"
+                   class="w-full h-full object-contain"
+                   onerror="this.onerror=null;this.src='/Logo.png'" loading="lazy" decoding="async">
+            </div>
+            <h4 class="font-semibold text-lg text-[var(--secondary-color)] mb-1">Paixão pela Cerâmica</h4>
+            <p class="text-sm text-[var(--text-color)]">Produtos criados e testados por ceramistas.</p>
+          </div>
+          <!-- 3 -->
+          <div class="flex flex-col items-center text-center">
+            <div class="feature-icon mb-4 rounded-full bg-[var(--background-color)] shadow-md p-2 flex items-center justify-center">
+              <img src="/images/ui/oferecemos-qualidade.png" width="72" height="72" alt="Ícone de selo representando qualidade consistente"
+                   class="w-full h-full object-contain"
+                   onerror="this.onerror=null;this.src='/Logo.png'" loading="lazy" decoding="async">
+            </div>
+            <h4 class="font-semibold text-lg text-[var(--secondary-color)] mb-1">Qualidade Consistente</h4>
+            <p class="text-sm text-[var(--text-color)]">Resultados uniformes que valorizam seu trabalho.</p>
+          </div>
+          <!-- 4 -->
+          <div class="flex flex-col items-center text-center">
+            <div class="feature-icon mb-4 rounded-full bg-[var(--background-color)] shadow-md p-2 flex items-center justify-center">
+              <img src="/images/ui/oferecemos-personalizacao.png" width="72" height="72" alt="Ícone de engrenagem e lápis representando personalização"
+                   class="w-full h-full object-contain"
+                   onerror="this.onerror=null;this.src='/Logo.png'" loading="lazy" decoding="async">
+            </div>
+            <h4 class="font-semibold text-lg text-[var(--secondary-color)] mb-1">Personalização</h4>
+            <p class="text-sm text-[var(--text-color)]">Ferramentas adaptadas às suas necessidades.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produtos -->
+    <section id="produtos" class="container-main py-6 my-6">
+      <div class="text-center mb-5">
+        <h2 class="text-2xl sm:text-3xl text-[var(--tertiary-color)] font-extrabold mb-2">Produtos</h2>
+        <p class="text-base sm:text-lg text-[var(--secondary-color)]">Transforme ideias em realidade.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Argilas -->
+        <article class="bg-white rounded-xl shadow-smooth p-6 flex flex-col text-center hover:shadow-lg transition-shadow">
+          <figure class="w-full h-40 sm:h-44 mb-4 overflow-hidden rounded-xl">
+            <img src="/images/site/produtos/argilas.png" width="640" height="360" alt="Argilas e massas cerâmicas Ceramaker"
+                 class="w-full h-full object-cover" loading="lazy" decoding="async">
+          </figure>
+          <h3 class="text-lg font-semibold mb-2 text-[var(--tertiary-color)]">Argilas / Massas cerâmicas</h3>
+          <p class="text-sm text-[var(--text-color)] mb-4 flex-grow">Argilas Pascoal para diversas técnicas.</p>
+          <a href="/pages/massa_ceramica.html"
+             class="inline-flex justify-center px-4 py-2 rounded-full font-bold text-sm bg-[var(--tertiary-color)] text-[var(--background-color)] hover:bg-[var(--secondary-color)] transition-colors">
+            Ver Tipos
+          </a>
+        </article>
+
+        <!-- Carimbos -->
+        <article class="bg-white rounded-xl shadow-smooth p-6 flex flex-col text-center hover:shadow-lg transition-shadow">
+          <figure class="w-full h-40 sm:h-44 mb-4 overflow-hidden rounded-xl">
+            <img src="/images/site/produtos/carimbos.png" width="640" height="360" alt="Carimbos para cerâmica Ceramaker"
+                 class="w-full h-full object-cover" loading="lazy" decoding="async">
+          </figure>
+          <h3 class="text-lg font-semibold mb-2 text-[var(--tertiary-color)]">Carimbos</h3>
+          <p class="text-sm text-[var(--text-color)] mb-4 flex-grow">Florais, geométricos e kits autorais.</p>
+          <a href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20carimbos%20Ceramaker"
+             class="inline-flex justify-center px-4 py-2 rounded-full font-bold text-sm bg-[var(--tertiary-color)] text-[var(--background-color)] hover:bg-[var(--secondary-color)]"
+             target="_blank" rel="noopener">Solicitar Catálogo</a>
+        </article>
+
+        <!-- Rolos -->
+        <article class="bg-white rounded-xl shadow-smooth p-6 flex flex-col text-center hover:shadow-lg transition-shadow">
+          <figure class="w-full h-40 sm:h-44 mb-4 overflow-hidden rounded-xl">
+            <img src="/images/site/produtos/rolos.png" width="640" height="360" alt="Rolos texturizados Ceramaker"
+                 class="w-full h-full object-cover" loading="lazy" decoding="async">
+          </figure>
+          <h3 class="text-lg font-semibold mb-2 text-[var(--tertiary-color)]">Rolos Texturizados</h3>
+          <p class="text-sm text-[var(--text-color)] mb-4 flex-grow">Texturas naturais e temáticas.</p>
+          <a href="https://wa.me/5521998898984?text=Quero%20ver%20os%20rolos%20texturizados"
+             class="inline-flex justify-center px-4 py-2 rounded-full font-bold text-sm bg-[var(--tertiary-color)] text-[var(--background-color)] hover:bg-[var(--secondary-color)]"
+             target="_blank" rel="noopener">Ver Modelos</a>
+        </article>
+
+        <!-- Cortadores -->
+        <article class="bg-white rounded-xl shadow-smooth p-6 flex flex-col text-center hover:shadow-lg transition-shadow">
+          <figure class="w-full h-40 sm:h-44 mb-4 overflow-hidden rounded-xl">
+            <img src="/images/site/produtos/cortadores.png" width="640" height="360" alt="Cortadores para cerâmica Ceramaker"
+                 class="w-full h-full object-cover" loading="lazy" decoding="async">
+          </figure>
+          <h3 class="text-lg font-semibold mb-2 text-[var(--tertiary-color)]">Cortadores</h3>
+          <p class="text-sm text-[var(--text-color)] mb-4 flex-grow">Formas essenciais e criativas.</p>
+          <a href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20cortadores%20Ceramaker"
+             class="inline-flex justify-center px-4 py-2 rounded-full font-bold text-sm bg-[var(--tertiary-color)] text-[var(--background-color)] hover:bg-[var(--secondary-color)]"
+             target="_blank" rel="noopener">Conhecer Opções</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Como funciona (lista ordenada acessível) -->
+    <section id="como-funciona" class="container-main py-8 my-8">
+      <div class="text-center mb-5">
+        <h2 class="text-2xl sm:text-3xl text-[var(--tertiary-color)] font-extrabold mb-2">Dicas de uso dos cortadores</h2>
+        <p class="text-base sm:text-lg text-[var(--secondary-color)]">
+          Use a argila no ponto ideal, mantenha o cortador limpo entre cortes e aplique pressão uniforme.
+        </p>
+      </div>
+      <ol class="grid grid-cols-1 md:grid-cols-3 gap-6" aria-label="Passos de uso do cortador">
+        <li class="bg-white rounded-xl shadow-smooth p-6 text-center">
+          <div class="bg-[var(--primary-color)] text-[var(--tertiary-color)] w-12 h-12 mx-auto rounded-full font-bold text-xl flex items-center justify-center mb-3" aria-hidden="true">1</div>
+          <h4 class="text-lg font-semibold text-[var(--tertiary-color)] mb-1">Escolha</h4>
+          <p class="text-sm text-[var(--text-color)]">Selecione a ferramenta ideal no catálogo.</p>
+        </li>
+        <li class="bg-white rounded-xl shadow-smooth p-6 text-center">
+          <div class="bg-[var(--primary-color)] text-[var(--tertiary-color)] w-12 h-12 mx-auto rounded-full font-bold text-xl flex items-center justify-center mb-3" aria-hidden="true">2</div>
+          <h4 class="text-lg font-semibold text-[var(--tertiary-color)] mb-1">Aplique</h4>
+          <p class="text-sm text-[var(--text-color)]">Use na argila úmida com pressão uniforme.</p>
+        </li>
+        <li class="bg-white rounded-xl shadow-smooth p-6 text-center">
+          <div class="bg-[var(--primary-color)] text-[var(--tertiary-color)] w-12 h-12 mx-auto rounded-full font-bold text-xl flex items-center justify-center mb-3" aria-hidden="true">3</div>
+          <h4 class="text-lg font-semibold text-[var(--tertiary-color)] mb-1">Crie</h4>
+          <p class="text-sm text-[var(--text-color)]">Veja padrões precisos surgindo nas peças.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Sobre Nós (barra chumbo confinada) -->
+    <section id="sobre" class="my-8">
+      <div class="container-main">
+        <div class="px-6 sm:px-10 py-8 sm:py-10 rounded-3xl shadow-xl bg-[var(--secondary-color)] text-[var(--background-color)]">
+          <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-4">Nossa História</h2>
+          <div class="max-w-2xl mx-auto space-y-4">
+            <p class="text-[0.95rem] sm:text-[1.05rem] leading-relaxed [text-align:justify] [text-justify:inter-word] [hyphens:auto]">
+              Após anos entre tecnologia e gestão, encontrei na argila o que sempre busquei. No ateliê, desenvolvo ferramentas que nascem da necessidade real — cada cortador, textura ou carimbo resolve problemas que enfrentei trabalhando com cerâmica.
+            </p>
+            <p class="text-[0.95rem] sm:text-[1.05rem] font-semibold leading-relaxed [text-align:justify] [text-justify:inter-word] [hyphens:auto]">
+              Nossa missão: Democratizar matéria-prima e ferramentas de qualidade para quem entende que criar deveria ser mais acessível.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="container-main">
+      <div class="bg-white rounded-3xl py-10 px-6 sm:px-8 text-center my-8 shadow-smooth">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--tertiary-color)] mb-3">Pronto para elevar sua arte?</h2>
+        <p class="text-base sm:text-[1.0625rem] text-[var(--secondary-color)] mb-6 max-w-2xl mx-auto">
+          Fale com a gente e veja como nossas argilas e ferramentas podem transformar sua produção.
+        </p>
+        <a href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20produtos%20Ceramaker"
+           class="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 text-sm sm:text-base font-bold text-[var(--background-color)] bg-[var(--tertiary-color)] rounded-full hover:bg-[var(--secondary-color)] transition-colors"
+           target="_blank" rel="noopener" aria-label="Solicitar catálogo completo">
+          Solicitar Catálogo Completo
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12">
+    <div class="container-main">
+      <!-- Cartão escuro confinando o conteúdo do rodapé -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 bg-[var(--text-color)] text-[var(--background-color)] rounded-3xl p-8">
+        <div>
+          <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Ceramaker</h3>
+          <p class="text-[0.80rem] opacity-90">Argilas e ferramentas especiais para ceramistas.</p>
+          <p class="text-[0.60rem] opacity-70 mt-4">© 2025 Ceramaker. Todos os direitos reservados.</p>
+        </div>
+        <div>
+          <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Links Rápidos</h3>
+          <a href="#produtos" class="text-[0.85rem] hover:underline block">Produtos</a>
+          <a href="#como-funciona" class="text-[0.85rem] hover:underline block">Como Funciona</a>
+          <a href="#sobre" class="text-[0.85rem] hover:underline block">Sobre Nós</a>
+          <a href="#contato" class="text-[0.85rem] hover:underline block">Contato</a>
+        </div>
+        <div>
+          <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Produtos</h3>
+          <a href="/pages/massa_ceramica.html" class="text-[0.80rem] hover:underline block">Argilas / Massas cerâmicas</a>
+          <a href="#" class="text-[0.80rem] hover:underline block">Carimbos</a>
+          <a href="#" class="text-[0.80rem] hover:underline block">Rolos Texturizados</a>
+          <a href="#" class="text-[0.80rem] hover:underline block">Cortadores</a>
+        </div>
+        <div id="contato">
+          <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Contatos</h3>
+          <a href="https://wa.me/5521998898984" class="text-[0.70rem] flex items-center gap-2 hover:underline" target="_blank" rel="noopener">📱 WhatsApp</a>
+          <a href="https://instagram.com/ceramaker" class="text-[0.70rem] flex items-center gap-2 hover:underline" target="_blank" rel="noopener">📷 Instagram @ceramaker</a>
+          <a href="mailto:studioceramaker@gmail.com" class="text-[0.70rem] flex items-center gap-2 hover:underline">studioceramaker@gmail.com</a>
+          <div class="text-[0.70rem] flex items-center gap-2">Volta Redonda/RJ</div>
+        </div>
+      </div>
+
+      <!-- Mapa compacto (opcional) dentro do casulo -->
+      <div class="mt-6 rounded-3xl overflow-hidden shadow-smooth bg-white">
+        <!-- Substitua o SRC abaixo pelo embed do seu endereço no Google Maps -->
+        <iframe
+          title="Localização Ceramaker - Volta Redonda/RJ"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58839.88633303166!2d-44.169!3d-22.505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9e803b1c3c7b9f%3A0x9a6d44a3f2f3c8f!2sVolta%20Redonda%20-%20RJ!5e0!3m2!1spt-BR!2sBR!4v1690000000000"
+          width="100%" height="220" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="container-main mt-6 text-center text-[0.74rem] opacity-80">
+      Desenvolvido com ❤️ para ceramistas apaixonados
+    </div>
+  </footer>
+
+  <!-- Botão flutuante WhatsApp -->
+  <a href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Vim%20pelo%20site%20Ceramaker"
+     class="fixed bottom-6 right-6 z-50 bg-[var(--tertiary-color)] text-[var(--background-color)] p-4 rounded-full shadow-lg hover:scale-110 transition-transform"
+     target="_blank" rel="noopener" aria-label="Abrir conversa no WhatsApp">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="img" aria-label="Ícone do WhatsApp">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347"/>
+    </svg>
+  </a>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Ceramaker",
+    "image":"https://ceramaker.com.br/Logo.png",
+    "description":"Ferramentas e argilas para cerâmica artesanal.",
+    "url":"https://ceramaker.com.br",
+    "telephone":"+5521998898984",
+    "email":"studioceramaker@gmail.com",
+    "address":{"@type":"PostalAddress","addressLocality":"Volta Redonda","addressRegion":"RJ","addressCountry":"BR"},
+    "sameAs":["https://instagram.com/ceramaker","https://wa.me/5521998898984"],
+    "priceRange":"$$"
+  }
+  </script>
+</body>
+</html>
+"""
+with open("/mnt/data/teste-ajustado.html", "w", encoding="utf-8") as f:
+    f.write(content)
+"/mnt/data/teste-ajustado.html"
