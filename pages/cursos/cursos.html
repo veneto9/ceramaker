@@ -1,0 +1,500 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Studio Ceramaker – Escola & Atelier de Cerâmica Contemporânea | Ceramaker</title>
+  <meta name="description" content="Studio Ceramaker: escola e atelier de cerâmica contemporânea em Volta Redonda/RJ. Cursos, oficinas, workshops e vivências para iniciantes e praticantes, com foco em criação autoral, técnica e experimentação." />
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (CDN para protótipo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root{
+      --primary-color:#ebbd53;   /* Amarelo da marca */
+      --secondary-color:#615b4e; /* Marrom escuro */
+      --tertiary-color:#a6492e;  /* Marrom avermelhado */
+      --text-color:#692e26;      /* Texto */
+      --background-color:#ebe5d9;/* Fundo creme */
+    }
+
+    html { font-size: 90%; }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--background-color);
+      color:var(--text-color);
+      line-height:1.6;
+    }
+
+    h1,h2,h3,h4{ font-family:'Poppins',sans-serif; font-weight:600 }
+
+    .container-main{
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    @media (min-width:640px){ .container-main{ padding:0 1.5rem } }
+    @media (min-width:1024px){ .container-main{ padding:0 2rem } }
+
+    .shadow-smooth{
+      box-shadow: 0 0.625rem 1.5625rem -0.625rem rgba(34,23,12,.25);
+    }
+  </style>
+
+  <!-- SEO estruturado -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"EducationalOrganization",
+    "name":"Studio Ceramaker – Escola & Atelier de Cerâmica",
+    "description":"Escola e atelier de cerâmica contemporânea com cursos, oficinas e workshops para iniciantes e praticantes, em Volta Redonda/RJ.",
+    "url":"https://ceramaker.com.br/",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Volta Redonda",
+      "addressRegion":"RJ",
+      "addressCountry":"BR"
+    },
+    "sameAs":[
+      "https://instagram.com/cerammaker",
+      "https://wa.me/5521998898984"
+    ]
+  }
+  </script>
+</head>
+<body class="antialiased">
+
+  <!-- Header -->
+  <header class="bg-[var(--background-color)] py-8 px-4 sm:px-6 lg:px-8 shadow-none">
+    <div class="container-main flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="inline-block">
+          <img src="/Logo.png" alt="Ceramaker" class="h-20 sm:h-24 lg:h-28 w-auto" loading="eager" decoding="async">
+        </a>
+      </div>
+
+      <!-- Chamada curta -->
+      <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+        <nav class="text-sm text-[var(--secondary-color)] flex items-center gap-2">
+          <a href="/" class="hover:text-[var(--tertiary-color)]">Início</a>
+          <span class="opacity-50">/</span>
+          <span class="opacity-70">Studio Ceramaker</span>
+        </nav>
+        <h1 class="text-3xl sm:text-4xl font-bold text-[var(--secondary-color)] mt-2" style="text-wrap: balance;">
+          Studio Ceramaker – Escola & Atelier de Cerâmica
+        </h1>
+        <p class="text-[var(--text-color)] text-lg mt-2 max-w-xl" style="text-wrap: pretty;">
+          Um espaço para aprender, criar e experimentar cerâmica contemporânea, unindo técnica, autoria e processo manual.
+        </p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href="#cursos" class="rounded-full bg-[var(--tertiary-color)] text-white px-5 py-3 font-semibold shadow-smooth hover:bg-[var(--secondary-color)]">
+            Ver cursos e oficinas
+          </a>
+          <a href="#sobre" class="rounded-full bg-white text-[var(--tertiary-color)] px-5 py-3 border border-[var(--secondary-color)] hover:bg-[var(--primary-color)]/20">
+            Conhecer o Studio
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA WhatsApp -->
+      <div class="flex-shrink-0">
+        <a href="https://wa.me/5521998898984" class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-[var(--background-color)] px-4 py-2 text-sm shadow-sm hover:bg-[var(--secondary-color)]">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container-main py-10 space-y-12">
+
+    <!-- Sobre o Studio -->
+    <section id="sobre" class="bg-white rounded-3xl p-6 sm:p-8 shadow-smooth">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--tertiary-color)] mb-3">
+            Escola & atelier de cerâmica contemporânea
+          </h2>
+          <p class="text-[var(--secondary-color)] text-sm sm:text-base mb-3">
+            O <strong>Studio Ceramaker</strong> é dedicado à criação, estudo e experimentação em cerâmica artesanal.
+            Aqui, a prática com as mãos se encontra com o design contemporâneo e a pesquisa estética, criando
+            um ambiente onde tradição e inovação caminham juntas.
+          </p>
+          <p class="text-[var(--secondary-color)] text-sm sm:text-base mb-3">
+            Nosso objetivo é formar criadores e estimular processos autorais, permitindo que cada pessoa desenvolva
+            sua relação com o barro no seu ritmo, com orientação técnica e liberdade criativa. Valorizamos o fazer
+            manual como experiência sensível, terapêutica e intelectual.
+          </p>
+          <p class="text-[var(--secondary-color)] text-sm sm:text-base">
+            Produzimos peças funcionais e escultóricas, conduzimos cursos e workshops para iniciantes e praticantes,
+            e mantemos um estúdio aberto para quem deseja desenvolver seus próprios projetos em cerâmica.
+          </p>
+        </div>
+        <div class="bg-[var(--background-color)] rounded-2xl p-5 border border-[color:rgba(0,0,0,.06)]">
+          <h3 class="text-lg font-semibold text-[var(--secondary-color)] mb-2">
+            O que você encontra no Studio Ceramaker:
+          </h3>
+          <ul class="space-y-2 text-sm text-[var(--secondary-color)]">
+            <li>• Aulas em turmas pequenas, com acompanhamento próximo.</li>
+            <li>• Ambiente acolhedor para iniciantes e praticantes.</li>
+            <li>• Foco em criação autoral, não apenas em reprodução de modelos.</li>
+            <li>• Estrutura com bancadas, ferramentas e queima em forno elétrico.</li>
+            <li>• Conteúdo sobre processos, materiais, queima, engobes e esmaltação.</li>
+          </ul>
+          <div class="mt-4">
+            <a href="https://wa.me/5521998898984?text=Quero%20informações%20sobre%20as%20aulas%20no%20Studio%20Ceramaker"
+               class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-4 py-2 text-sm font-semibold shadow-smooth hover:bg-[var(--secondary-color)]">
+              Falar sobre turmas e vagas
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cursos e oficinas -->
+    <section id="cursos" class="space-y-4">
+      <header class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--tertiary-color)]">
+            Cursos, oficinas e vivências
+          </h2>
+          <p class="text-[var(--secondary-color)] text-sm sm:text-base mt-1 max-w-2xl">
+            Programação pensada para quem está começando do zero ou deseja aprofundar técnica e linguagem pessoal em cerâmica.
+          </p>
+        </div>
+      </header>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+        <!-- Introdução -->
+        <article class="bg-white rounded-2xl p-5 shadow-smooth flex flex-col">
+          <h3 class="text-lg font-semibold text-[var(--secondary-color)] mb-1">
+            Curso de Introdução à Cerâmica (9 encontros)
+          </h3>
+          <p class="text-xs uppercase tracking-wide text-[color:rgba(0,0,0,.55)] mb-2">
+            Iniciantes · Modelagem manual · Queima & esmaltação
+          </p>
+          <p class="text-sm text-[var(--secondary-color)] mb-3">
+            Percurso completo para quem nunca mexeu com barro. Apresenta técnicas de placa, rolagem, beliscão
+            e acordelado, cuidados de secagem, acabamento, biscoito e esmaltação, até a primeira peça pronta.
+          </p>
+          <p class="text-xs text-[color:rgba(0,0,0,.55)]">
+            Ceramaker2025 · Turmas presenciais em Volta Redonda/RJ
+          </p>
+        </article>
+
+        <!-- Xícara + Pires -->
+        <article class="bg-white rounded-2xl p-5 shadow-smooth flex flex-col">
+          <h3 class="text-lg font-semibold text-[var(--secondary-color)] mb-1">
+            Workshop Xícara + Pires
+          </h3>
+          <p class="text-xs uppercase tracking-wide text-[color:rgba(0,0,0,.55)] mb-2">
+            Vivência curta · Ideal para primeiro contato
+          </p>
+          <p class="text-sm text-[var(--secondary-color)] mb-3">
+            Experiência concentrada em poucas aulas: você modela, finaliza e esmalta seu próprio conjunto
+            de xícara e pires, conhecendo o processo de forma prática e guiada.
+          </p>
+          <p class="text-xs text-[color:rgba(0,0,0,.55)]">
+            Ceramaker2025 · Datas sazonais e turmas reduzidas
+          </p>
+        </article>
+
+        <!-- Torno -->
+        <article class="bg-white rounded-2xl p-5 shadow-smooth flex flex-col">
+          <h3 class="text-lg font-semibold text-[var(--secondary-color)] mb-1">
+            Aulas de Torno Elétrico
+          </h3>
+          <p class="text-xs uppercase tracking-wide text-[color:rgba(0,0,0,.55)] mb-2">
+            Torno · Formas cilíndricas · Repetição
+          </p>
+          <p class="text-sm text-[var(--secondary-color)] mb-3">
+            Para quem quer desenvolver controle de centragem, espessura e repetição de peças. Indicado para
+            canecas, copos, bowls e formas funcionais em série.
+          </p>
+          <p class="text-xs text-[color:rgba(0,0,0,.55)]">
+            Ceramaker2025 · Recomendado após contato inicial com cerâmica
+          </p>
+        </article>
+
+        <!-- Aulas avulsas -->
+        <article class="bg-white rounded-2xl p-5 shadow-smooth flex flex-col">
+          <h3 class="text-lg font-semibold text-[var(--secondary-color)] mb-1">
+            Aulas Avulsas / Cerâmica Livre
+          </h3>
+          <p class="text-xs uppercase tracking-wide text-[color:rgba(0,0,0,.55)] mb-2">
+            Flexível · Projetos autorais
+          </p>
+          <p class="text-sm text-[var(--secondary-color)] mb-3">
+            Formato para quem já tem alguma familiaridade com o barro e quer desenvolver projetos próprios
+            com orientação pontual. Ideal para aperfeiçoar técnicas específicas ou finalizar peças em andamento.
+          </p>
+          <p class="text-xs text-[color:rgba(0,0,0,.55)]">
+            Ceramaker2025 · Agendamento conforme disponibilidade de agenda
+          </p>
+        </article>
+
+        <!-- Engobe e esmaltação -->
+        <article class="bg-white rounded-2xl p-5 shadow-smooth flex flex-col">
+          <h3 class="text-lg font-semibold text-[var(--secondary-color)] mb-1">
+            Oficina de Engobe, Pintura & Esmaltação Criativa
+          </h3>
+          <p class="text-xs uppercase tracking-wide text-[color:rgba(0,0,0,.55)] mb-2">
+            Superfícies · Cor · Acabamento
+          </p>
+          <p class="text-sm text-[var(--secondary-color)] mb-3">
+            Foco em cor e superfície: aplicação de engobes, underglaze, intervenções gráficas, testes de esmalte
+            e combinações, sempre com atenção à segurança e comportamento em queima.
+          </p>
+          <p class="text-xs text-[color:rgba(0,0,0,.55)]">
+            Ceramaker2025 · Voltado para quem já tem peças em biscoito
+          </p>
+        </article>
+
+        <!-- Joias -->
+        <article class="bg-white rounded-2xl p-5 shadow-smooth flex flex-col">
+          <h3 class="text-lg font-semibold text-[var(--secondary-color)] mb-1">
+            Joias em Cerâmica & Objetos Pequenos
+          </h3>
+          <p class="text-xs uppercase tracking-wide text-[color:rgba(0,0,0,.55)] mb-2">
+            Brincos · Pingentes · Elementos modulares
+          </p>
+          <p class="text-sm text-[var(--secondary-color)] mb-3">
+            Do desenho à montagem final: criação de joias e pequenos objetos cerâmicos autorais, com modelagem
+            delicada, esmaltação e montagem com ferragens.
+          </p>
+          <p class="text-xs text-[color:rgba(0,0,0,.55)]">
+            Ceramaker2025 · Indicado para quem gosta de detalhes e peças leves
+          </p>
+        </article>
+
+        <!-- Kids -->
+        <article class="bg-white rounded-2xl p-5 shadow-smooth flex flex-col">
+          <h3 class="text-lg font-semibold text-[var(--secondary-color)] mb-1">
+            Cerâmica Kids
+          </h3>
+          <p class="text-xs uppercase tracking-wide text-[color:rgba(0,0,0,.55)] mb-2">
+            Crianças · Atividade lúdica
+          </p>
+          <p class="text-sm text-[var(--secondary-color)] mb-3">
+            Atividade adaptada para o público infantil, com foco em imaginação, exploração sensorial e
+            experimentação segura com o barro.
+          </p>
+          <p class="text-xs text-[color:rgba(0,0,0,.55)]">
+            Ceramaker2025 · Formato ocasional, conforme calendário
+          </p>
+        </article>
+
+        <!-- Workshops especiais -->
+        <article class="bg-white rounded-2xl p-5 shadow-smooth flex flex-col">
+          <h3 class="text-lg font-semibold text-[var(--secondary-color)] mb-1">
+            Workshops Especiais & Temáticos
+          </h3>
+          <p class="text-xs uppercase tracking-wide text-[color:rgba(0,0,0,.55)] mb-2">
+            Luminárias · Esculturas · Tecnologia & 3D
+          </p>
+          <p class="text-sm text-[var(--secondary-color)] mb-3">
+            Encontros pontuais com temas específicos, como pequenas luminárias, esculturas simbólicas, texturas,
+            moldes e o diálogo entre cerâmica e impressão 3D no processo criativo.
+          </p>
+          <p class="text-xs text-[color:rgba(0,0,0,.55)]">
+            Ceramaker2025 · Programação divulgada nas redes sociais
+          </p>
+        </article>
+      </div>
+
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a href="https://wa.me/5521998898984?text=Quero%20saber%20sobre%20os%20cursos%20no%20Studio%20Ceramaker"
+           class="inline-flex items-center rounded-full bg-[var(--tertiary-color)] text-white px-5 py-3 text-sm font-semibold shadow-smooth hover:bg-[var(--secondary-color)]">
+          Ver vagas e próximas turmas no WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- Como funcionam as aulas -->
+    <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-smooth">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--tertiary-color)] mb-3">
+            Como funcionam as aulas no Studio Ceramaker
+          </h2>
+          <p class="text-sm sm:text-base text-[var(--secondary-color)] mb-3">
+            As turmas são presenciais, com número reduzido de alunos para garantir atenção individual. Cada
+            encontro combina demonstração técnica, prática orientada e espaço para experimentação livre.
+          </p>
+          <p class="text-sm sm:text-base text-[var(--secondary-color)]">
+            A agenda de turmas, valores e datas é atualizada periodicamente. As inscrições são feitas
+            diretamente pelo WhatsApp, após envio das informações sobre nível, interesse e disponibilidade de horário.
+          </p>
+        </div>
+        <div class="space-y-2 text-sm text-[var(--secondary-color)]">
+          <h3 class="text-base font-semibold text-[var(--secondary-color)] mb-1">
+            Em resumo:
+          </h3>
+          <ul class="space-y-1">
+            <li>• Turmas pequenas e acompanhamento próximo.</li>
+            <li>• Todos os materiais básicos estão incluídos nos cursos introdutórios.</li>
+            <li>• Queima em forno elétrico, com orientações de segurança.</li>
+            <li>• Foco em processos autorais e construção de repertório.</li>
+            <li>• Ambiente acolhedor para quem busca hobby, estudo ou aprofundamento artístico.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="max-w-3xl mx-auto py-4">
+      <header class="mb-4">
+        <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--tertiary-color)]">Perguntas frequentes</h2>
+        <p class="mt-2 text-[var(--secondary-color)] text-sm sm:text-base">
+          Algumas respostas rápidas sobre as aulas, materiais e perfil das turmas.
+        </p>
+      </header>
+
+      <div class="space-y-3">
+        <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth open:shadow">
+          <summary class="flex cursor-pointer items-center justify-between list-none">
+            <span class="text-base font-medium text-[var(--secondary-color)]">
+              Preciso ter experiência prévia em cerâmica para participar?
+            </span>
+            <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+          </summary>
+          <div class="mt-4 text-[var(--text-color)] text-sm">
+            Não. O curso de introdução e os workshops foram pensados para iniciantes absolutos. Você aprende desde o
+            contato inicial com o barro até a peça que sai do forno.
+          </div>
+        </details>
+
+        <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+          <summary class="flex cursor-pointer items-center justify-between list-none">
+            <span class="text-base font-medium text-[var(--secondary-color)]">
+              Os materiais estão incluídos no valor do curso?
+            </span>
+            <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+          </summary>
+          <div class="mt-4 text-[var(--text-color)] text-sm">
+            Nos cursos introdutórios e em grande parte dos workshops, sim: argila, engobes básicos e queima estão
+            incluídos. Para projetos específicos ou avançados, alguns materiais podem ser combinados à parte.
+          </div>
+        </details>
+
+        <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+          <summary class="flex cursor-pointer items-center justify-between list-none">
+            <span class="text-base font-medium text-[var(--secondary-color)]">
+              O que acontece se eu precisar faltar a uma aula?
+            </span>
+            <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+          </summary>
+          <div class="mt-4 text-[var(--text-color)] text-sm">
+            Há possibilidade de reposição em turmas futuras ou encaixe em outro horário, dependendo da disponibilidade.
+            A política de reposição é explicada no momento da inscrição.
+          </div>
+        </details>
+
+        <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+          <summary class="flex cursor-pointer items-center justify-between list-none">
+            <span class="text-base font-medium text-[var(--secondary-color)]">
+              As aulas geram certificado?
+            </span>
+            <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+          </summary>
+          <div class="mt-4 text-[var(--text-color)] text-sm">
+            Os cursos têm foco em prática de atelier e desenvolvimento artístico. Certificados simples de participação
+            podem ser emitidos quando necessário, mediante solicitação.
+          </div>
+        </details>
+
+        <details class="group bg-white rounded-2xl border border-[color:rgba(0,0,0,.06)] p-5 shadow-smooth">
+          <summary class="flex cursor-pointer items-center justify-between list-none">
+            <span class="text-base font-medium text-[var(--secondary-color)]">
+              Como saber qual curso é mais adequado para mim?
+            </span>
+            <span class="ml-4 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[color:rgba(0,0,0,.15)] text-[color:rgba(0,0,0,.6)] transition group-open:rotate-45">+</span>
+          </summary>
+          <div class="mt-4 text-[var(--text-color)] text-sm">
+            Basta enviar uma mensagem pelo WhatsApp contando seu nível de experiência, objetivo (hobby, estudo,
+            aprofundamento) e disponibilidade. A partir disso, indicamos o melhor ponto de partida.
+          </div>
+        </details>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="https://wa.me/5521998898984?text=Tenho%20d%C3%BAvidas%20sobre%20os%20cursos%20do%20Studio%20Ceramaker"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 rounded-full px-5 py-3 bg-[var(--tertiary-color)] text-white font-semibold hover:bg-[var(--secondary-color)]">
+          Tirar dúvidas no WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12">
+    <div class="container-main">
+      <div class="bg-[var(--text-color)] text-[var(--background-color)] rounded-3xl p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Ceramaker</h3>
+            <p class="text-[0.80rem] opacity-90">Argilas, ferramentas e ensino de cerâmica artesanal.</p>
+            <p class="text-[0.60rem] opacity-70 mt-4">© <span id="year">2025</span> Ceramaker. Todos os direitos reservados.</p>
+          </div>
+
+          <div>
+            <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Links Rápidos</h3>
+            <a href="#cursos" class="text-[0.85rem] hover:underline block">Cursos e oficinas</a>
+            <a href="#sobre" class="text-[0.85rem] hover:underline block">Sobre o Studio</a>
+            <a href="/pages/massa_ceramica.html" class="text-[0.85rem] hover:underline block">Argilas / Massas cerâmicas</a>
+          </div>
+
+          <div>
+            <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Produtos</h3>
+            <a href="/pages/massa_ceramica.html" class="text-[0.80rem] hover:underline block">Argilas / Massas cerâmicas</a>
+            <a href="#" class="text-[0.80rem] hover:underline block">Carimbos</a>
+            <a href="#" class="text-[0.80rem] hover:underline block">Rolos Texturizados</a>
+            <a href="#" class="text-[0.80rem] hover:underline block">Cortadores</a>
+          </div>
+
+          <div id="contato">
+            <h3 class="text-[1.0625rem] font-semibold mb-2 text-[var(--primary-color)]">Contatos</h3>
+            <a href="https://wa.me/5521998898984" class="text-[0.70rem] flex items-center gap-2 hover:underline" target="_blank" rel="noopener">📱 WhatsApp</a>
+            <a href="https://instagram.com/cerammaker" class="text-[0.70rem] flex items-center gap-2 hover:underline" target="_blank" rel="noopener">📷 Instagram @cerammaker</a>
+            <a href="mailto:studioceramaker@gmail.com" class="text-[0.70rem] flex items-center gap-2 hover:underline">studioceramaker@gmail.com</a>
+            <div class="text-[0.70rem] flex items-center gap-2">Volta Redonda/RJ</div>
+          </div>
+        </div>
+
+        <p class="mt-6 text-center text-[1rem] font-semibold text-[var(--primary-color)]">
+          Desenvolvido com ❤️ para ceramistas apaixonados
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Acessibilidade: abrir/fechar FAQ com Enter/Espaço
+    document.querySelectorAll('#faq details > summary').forEach((sum) => {
+      sum.setAttribute('role','button');
+      sum.setAttribute('tabindex','0');
+      sum.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          sum.parentElement.open = !sum.parentElement.open;
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+```
