@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Nossa História | Ceramaker</title>
+
+  <!-- Meta SEO -->
+  <meta name="description" content="Conheça a história da Ceramaker: onde tecnologia e argila se encontram para criar ferramentas e materiais de cerâmica acessíveis e de qualidade."/>
+  <meta name="keywords" content="cerâmica, ferramentas para cerâmica, argila, ceramista, história da marca, ceramaker"/>
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Variáveis de cor do seu projeto -->
+  <style>
+    :root{
+      --primary-color:#ebbd53;
+      --secondary-color:#615b4e;
+      --tertiary-color:#a6492e;
+      --text-color:#692e26;
+      --background-color:#ebe5d9;
+    }
+    body{
+      background:var(--background-color);
+      color:var(--text-color);
+      font-family:'Inter',sans-serif;
+    }
+    h1,h2,h3{font-family:'Poppins',sans-serif;}
+    .container-main{max-width:80rem;margin:auto;padding:1.5rem;}
+  </style>
+</head>
+
+<body class="antialiased">
+
+<!-- Header simples -->
+<header class="bg-[var(--background-color)] border-b border-[var(--secondary-color)]/20 py-5">
+  <div class="container-main flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3">
+      <img src="/Logo.png" alt="Ceramaker" class="h-14 w-auto">
+      <span class="font-semibold text-lg text-[var(--secondary-color)]">Ceramaker</span>
+    </a>
+
+    <!-- Menu -->
+    <nav class="hidden sm:flex gap-6 text-[var(--secondary-color)] font-medium">
+      <a href="/" class="hover:text-[var(--tertiary-color)]">Início</a>
+      <a href="/pages/produtos.html" class="hover:text-[var(--tertiary-color)]">Produtos</a>
+      <a href="/pages/como-comprar.html" class="hover:text-[var(--tertiary-color)]">Como Comprar</a>
+      <a href="/pages/cursos.html" class="hover:text-[var(--tertiary-color)]">Cursos</a>
+      <a href="/pages/sobre.html" class="text-[var(--tertiary-color)] font-semibold underline">Nossa História</a>
+      <a href="/pages/contato.html" class="hover:text-[var(--tertiary-color)]">Contato</a>
+    </nav>
+
+    <a href="https://wa.me/5521998898984" target="_blank"
+       class="px-4 py-2 rounded-full text-white bg-[var(--tertiary-color)] hover:bg-[var(--secondary-color)]">
+       WhatsApp
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="container-main mt-10 text-center">
+  <h1 class="text-3xl sm:text-5xl font-bold text-[var(--secondary-color)] mb-3">Nossa História</h1>
+  <p class="text-[var(--text-color)] max-w-2xl mx-auto text-lg">
+    Onde a argila encontra a tecnologia — e o fazer manual se transforma em ferramenta.
+  </p>
+</section>
+
+<!-- Conteúdo principal -->
+<section class="container-main mt-10">
+  <div class="rounded-3xl bg-[var(--secondary-color)] text-[var(--background-color)]
+              p-8 sm:p-12 shadow-xl space-y-6 text-lg leading-relaxed">
+
+    <p>
+      A Ceramaker nasceu de um encontro improvável entre dois mundos: tecnologia e argila. 
+      Durante anos, vivi entre gestão, pesquisa e telas iluminadas, enquanto o desejo de criar 
+      com as mãos crescia em silêncio. A cerâmica chegou primeiro como curiosidade — depois virou 
+      vício, prática diária, estudo e, por fim, propósito.
+    </p>
+
+    <p>
+      Com o tempo, percebi algo recorrente em ateliês: muitas ferramentas não facilitavam o 
+      processo — atrapalhavam. Cortadores irregulares, texturas pouco definidas, falta de acesso 
+      a materiais de qualidade. Em vez de aceitar o problema, decidi resolver. Protótipo após 
+      protótipo, erro após teste, nasceu a primeira linha de ferramentas Ceramaker.
+    </p>
+
+    <p>
+      Cada carimbo, rolo, textura e ferramenta que oferecemos surge de uma necessidade real dentro do ateliê. 
+      Nada é apenas bonito — é útil, pensado para o cotidiano do ceramista, da bancada ao forno.
+    </p>
+
+    <p class="font-semibold">
+      Nossa missão é democratizar o acesso à cerâmica: tornar materiais e ferramentas de qualidade 
+      acessíveis, funcionais e acolhedoras para quem cria com as mãos, seja iniciante ou profissional.
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="container-main mt-12 text-center">
+  <h2 class="text-2xl font-bold text-[var(--tertiary-color)] mb-2">Quer conhecer mais?</h2>
+  <p class="mb-6 text-[var(--secondary-color)]">Fale com a gente, tire dúvidas e veja nosso catálogo completo.</p>
+
+  <a href="https://wa.me/5521998898984" target="_blank"
+     class="px-7 py-3 bg-[var(--tertiary-color)] text-white rounded-full font-semibold hover:bg-[var(--secondary-color)]">
+     Falar no WhatsApp
+  </a>
+</section>
+
+<!-- Rodapé -->
+<footer class="mt-20 py-10 bg-[var(--text-color)] text-[var(--background-color)] text-center">
+  <p class="text-sm opacity-80">© 2025 Ceramaker — Feito com ❤️ para ceramistas apaixonados.</p>
+</footer>
+
+</body>
+</html>
