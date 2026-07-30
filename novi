@@ -1,0 +1,1374 @@
+from pathlib import Path
+
+html = r'''<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ceramaker — Massas Cerâmicas e Ferramentas para Cerâmica</title>
+
+  <meta name="description" content="Massas cerâmicas Pascoal, carimbos, rolos texturizados, cortadores e ferramentas criativas para ceramistas em Volta Redonda e região.">
+  <meta name="keywords" content="massas cerâmicas, argilas profissionais, ferramentas para cerâmica, carimbos, rolos texturizados, cortadores, Ceramaker, Volta Redonda">
+  <meta name="theme-color" content="#ebe5d9">
+
+  <link rel="canonical" href="https://ceramaker.com.br/">
+  <link rel="icon" href="https://ceramaker.com.br/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://ceramaker.com.br/images/favicon.png">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ceramaker.com.br/">
+  <meta property="og:title" content="Ceramaker — Massas Cerâmicas e Ferramentas Criativas">
+  <meta property="og:description" content="Massas cerâmicas Pascoal e ferramentas desenvolvidas para ceramistas.">
+  <meta property="og:image" content="https://ceramaker.com.br/Logo.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Ceramaker">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ceramaker",
+    "url": "https://ceramaker.com.br",
+    "logo": "https://ceramaker.com.br/Logo.png",
+    "sameAs": [
+      "https://www.instagram.com/cerammaker",
+      "https://www.facebook.com/cerammaker"
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --cream: #ebe5d9;
+      --cream-soft: #f7f3ec;
+      --white: #ffffff;
+      --charcoal: #615b4e;
+      --brown: #692e26;
+      --terracotta: #a6492e;
+      --terracotta-dark: #873922;
+      --ochre: #ebbd53;
+      --border: rgba(97, 91, 78, 0.18);
+      --shadow-sm: 0 10px 30px rgba(60, 42, 30, 0.08);
+      --shadow-lg: 0 22px 60px rgba(60, 42, 30, 0.15);
+      --radius-sm: 18px;
+      --radius-md: 28px;
+      --radius-lg: 38px;
+      --container: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--brown);
+      background: var(--cream);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      color: var(--charcoal);
+      line-height: 1.15;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding-block: clamp(58px, 7vw, 96px);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--terracotta);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--ochre);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -0.035em;
+    }
+
+    .section-description {
+      margin: 18px auto 0;
+      max-width: 680px;
+      color: var(--charcoal);
+      font-size: clamp(1rem, 1.5vw, 1.13rem);
+    }
+
+    .skip-link {
+      position: fixed;
+      top: -80px;
+      left: 20px;
+      z-index: 9999;
+      padding: 12px 18px;
+      border-radius: 12px;
+      color: var(--white);
+      background: var(--terracotta);
+      font-weight: 700;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 20px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+      background: rgba(235, 229, 217, 0.94);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      width: auto;
+      height: 58px;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+    }
+
+    .desktop-nav a {
+      position: relative;
+      padding-block: 10px;
+      color: var(--charcoal);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .desktop-nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+      left: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--terracotta);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+
+    .desktop-nav a:hover::after,
+    .desktop-nav a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .header-cta,
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 22px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .header-cta,
+    .button-primary {
+      color: var(--white);
+      background: var(--terracotta);
+      box-shadow: 0 12px 28px rgba(166, 73, 46, 0.24);
+    }
+
+    .header-cta:hover,
+    .button-primary:hover {
+      background: var(--terracotta-dark);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      color: var(--charcoal);
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(97, 91, 78, 0.22);
+    }
+
+    .button-secondary:hover {
+      background: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--charcoal);
+      background: rgba(255, 255, 255, 0.55);
+      cursor: pointer;
+    }
+
+    .menu-toggle svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    .mobile-nav {
+      display: none;
+      padding: 0 0 18px;
+    }
+
+    .mobile-nav[hidden] {
+      display: none;
+    }
+
+    .mobile-nav-inner {
+      display: grid;
+      gap: 8px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--cream-soft);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mobile-nav a {
+      padding: 12px 14px;
+      border-radius: 12px;
+      color: var(--charcoal);
+      font-weight: 700;
+    }
+
+    .mobile-nav a:hover {
+      background: var(--white);
+    }
+
+    .hero {
+      padding-block: clamp(34px, 5vw, 66px) clamp(66px, 8vw, 108px);
+    }
+
+    .hero-panel {
+      position: relative;
+      isolation: isolate;
+      min-height: clamp(520px, 68vh, 690px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(380px, 0.98fr);
+      align-items: center;
+      gap: clamp(34px, 6vw, 74px);
+      overflow: hidden;
+      padding: clamp(34px, 6vw, 76px);
+      border-radius: var(--radius-lg);
+      color: var(--cream);
+      background: var(--charcoal);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: -140px;
+      right: 26%;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: rgba(235, 189, 83, 0.14);
+      filter: blur(2px);
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: -120px;
+      bottom: -170px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: rgba(166, 73, 46, 0.34);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+    }
+
+    .hero .eyebrow {
+      color: var(--ochre);
+    }
+
+    .hero-title {
+      color: var(--cream-soft);
+      font-size: clamp(2.6rem, 5.8vw, 5.25rem);
+      letter-spacing: -0.055em;
+    }
+
+    .hero-title span {
+      color: var(--ochre);
+    }
+
+    .hero-text {
+      max-width: 590px;
+      margin: 24px 0 0;
+      color: rgba(247, 243, 236, 0.85);
+      font-size: clamp(1.04rem, 1.8vw, 1.22rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .hero-actions .button-secondary {
+      color: var(--cream-soft);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .hero-actions .button-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .hero-note {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      margin-top: 30px;
+      color: rgba(247, 243, 236, 0.74);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .hero-note span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-note span::before {
+      content: "✓";
+      display: grid;
+      width: 21px;
+      height: 21px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--charcoal);
+      background: var(--ochre);
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 470px;
+    }
+
+    .hero-image-main {
+      position: absolute;
+      inset: 0 0 44px 28px;
+      width: calc(100% - 28px);
+      height: calc(100% - 44px);
+      border-radius: 32px;
+      object-fit: cover;
+      box-shadow: 0 28px 68px rgba(22, 16, 12, 0.34);
+    }
+
+    .hero-image-small {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 42%;
+      aspect-ratio: 1 / 1;
+      border: 8px solid var(--charcoal);
+      border-radius: 26px;
+      object-fit: cover;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-stamp {
+      position: absolute;
+      right: -4px;
+      bottom: 14px;
+      max-width: 235px;
+      padding: 15px 18px;
+      border-radius: 18px;
+      color: var(--charcoal);
+      background: var(--ochre);
+      box-shadow: var(--shadow-sm);
+      font-family: "Poppins", sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .benefit-card {
+      min-height: 100%;
+      padding: 30px 24px;
+      border: 1px solid rgba(97, 91, 78, 0.12);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .benefit-icon {
+      display: grid;
+      width: 76px;
+      height: 76px;
+      place-items: center;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: var(--cream);
+      box-shadow: inset 0 0 0 1px var(--border);
+    }
+
+    .benefit-icon img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.08rem;
+      color: var(--terracotta);
+    }
+
+    .benefit-card p {
+      margin: 10px 0 0;
+      color: var(--charcoal);
+      font-size: 0.94rem;
+    }
+
+    .products-section {
+      background: var(--cream-soft);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid rgba(97, 91, 78, 0.12);
+      border-radius: var(--radius-sm);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .product-media {
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: var(--cream);
+    }
+
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .product-card:hover .product-media img {
+      transform: scale(1.045);
+    }
+
+    .product-body {
+      display: flex;
+      min-height: 265px;
+      flex-direction: column;
+      padding: 24px;
+    }
+
+    .product-label {
+      color: var(--ochre);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .product-card h3 {
+      margin-top: 7px;
+      color: var(--terracotta);
+      font-size: 1.25rem;
+    }
+
+    .product-card p {
+      margin: 12px 0 22px;
+      color: var(--charcoal);
+      font-size: 0.94rem;
+    }
+
+    .product-link {
+      display: inline-flex;
+      min-height: 45px;
+      align-items: center;
+      justify-content: center;
+      margin-top: auto;
+      border-radius: 999px;
+      padding: 10px 18px;
+      color: var(--white);
+      background: var(--terracotta);
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition: background-color 0.2s ease;
+    }
+
+    .product-link:hover {
+      background: var(--charcoal);
+    }
+
+    .tips-wrap {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+      align-items: stretch;
+      gap: 26px;
+    }
+
+    .tips-intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(30px, 5vw, 52px);
+      border-radius: var(--radius-md);
+      color: var(--cream-soft);
+      background: var(--terracotta);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .tips-intro h2 {
+      color: var(--cream-soft);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .tips-intro p {
+      margin: 20px 0 0;
+      color: rgba(247, 243, 236, 0.86);
+      font-size: 1.05rem;
+    }
+
+    .tips-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .tip-card {
+      display: grid;
+      grid-template-columns: 66px minmax(0, 1fr);
+      align-items: center;
+      gap: 22px;
+      padding: 23px 26px;
+      border: 1px solid rgba(97, 91, 78, 0.12);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tip-number {
+      display: grid;
+      width: 58px;
+      height: 58px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--charcoal);
+      background: var(--ochre);
+      font-family: "Poppins", sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .tip-card h3 {
+      color: var(--terracotta);
+      font-size: 1.14rem;
+    }
+
+    .tip-card p {
+      margin: 7px 0 0;
+      color: var(--charcoal);
+      font-size: 0.94rem;
+    }
+
+    .cta-section {
+      padding-block: 32px clamp(66px, 8vw, 104px);
+    }
+
+    .cta-panel {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 30px;
+      padding: clamp(34px, 5vw, 58px);
+      border-radius: var(--radius-lg);
+      color: var(--cream-soft);
+      background: var(--charcoal);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta-panel::after {
+      content: "";
+      position: absolute;
+      top: -95px;
+      right: 8%;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(235, 189, 83, 0.12);
+    }
+
+    .cta-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .cta-copy h2 {
+      color: var(--cream-soft);
+      font-size: clamp(1.9rem, 4vw, 3.3rem);
+    }
+
+    .cta-copy p {
+      margin: 16px 0 0;
+      color: rgba(247, 243, 236, 0.82);
+      font-size: 1.05rem;
+    }
+
+    .cta-panel .button {
+      position: relative;
+      z-index: 2;
+      min-width: 190px;
+      color: var(--charcoal);
+      background: var(--ochre);
+      box-shadow: none;
+    }
+
+    .cta-panel .button:hover {
+      background: var(--cream-soft);
+      transform: translateY(-2px);
+    }
+
+    .site-footer {
+      padding-block: 0 38px;
+    }
+
+    .footer-panel {
+      padding: clamp(34px, 5vw, 58px);
+      border-radius: var(--radius-lg);
+      color: var(--cream-soft);
+      background: var(--brown);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr 1.15fr;
+      gap: 36px;
+    }
+
+    .footer-brand img {
+      width: auto;
+      height: 58px;
+      margin-bottom: 18px;
+      filter: brightness(0) invert(1);
+      opacity: 0.94;
+    }
+
+    .footer-panel h3 {
+      margin-bottom: 14px;
+      color: var(--ochre);
+      font-size: 1rem;
+    }
+
+    .footer-panel p,
+    .footer-panel a,
+    .footer-panel address {
+      color: rgba(247, 243, 236, 0.82);
+      font-size: 0.88rem;
+      font-style: normal;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 9px;
+    }
+
+    .footer-links a:hover {
+      color: var(--ochre);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 38px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(247, 243, 236, 0.18);
+      color: rgba(247, 243, 236, 0.68);
+      font-size: 0.78rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: max(20px, env(safe-area-inset-right));
+      bottom: max(20px, env(safe-area-inset-bottom));
+      z-index: 900;
+      display: grid;
+      width: 58px;
+      height: 58px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--terracotta);
+      box-shadow: 0 16px 36px rgba(105, 46, 38, 0.32);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.04);
+      background: var(--terracotta-dark);
+    }
+
+    .whatsapp-float svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--ochre);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 1050px) {
+      .desktop-nav,
+      .header-cta {
+        display: none;
+      }
+
+      .menu-toggle,
+      .mobile-nav {
+        display: flex;
+      }
+
+      .mobile-nav {
+        width: 100%;
+      }
+
+      .hero-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        max-width: 760px;
+      }
+
+      .hero-visual {
+        width: min(100%, 720px);
+        min-height: 460px;
+      }
+
+      .benefits-grid,
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 32px, var(--container));
+      }
+
+      .header-inner {
+        min-height: 72px;
+      }
+
+      .brand img {
+        height: 50px;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+
+      .hero-panel {
+        min-height: auto;
+        padding: 34px 24px 28px;
+        border-radius: 28px;
+      }
+
+      .hero-title {
+        font-size: clamp(2.35rem, 12vw, 3.8rem);
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .hero-note {
+        display: grid;
+      }
+
+      .hero-visual {
+        min-height: 390px;
+      }
+
+      .hero-image-main {
+        inset: 0 0 42px 18px;
+        width: calc(100% - 18px);
+        height: calc(100% - 42px);
+        border-radius: 24px;
+      }
+
+      .hero-image-small {
+        width: 42%;
+        border-width: 6px;
+        border-radius: 20px;
+      }
+
+      .hero-stamp {
+        right: 0;
+        bottom: 4px;
+        max-width: 190px;
+        padding: 12px 14px;
+        font-size: 0.75rem;
+      }
+
+      .benefits-grid,
+      .products-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-body {
+        min-height: 230px;
+      }
+
+      .tips-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .tip-card {
+        grid-template-columns: 54px minmax(0, 1fr);
+        gap: 16px;
+        padding: 20px;
+      }
+
+      .tip-number {
+        width: 50px;
+        height: 50px;
+      }
+
+      .cta-panel {
+        grid-template-columns: 1fr;
+        border-radius: 28px;
+      }
+
+      .cta-panel .button {
+        width: 100%;
+      }
+
+      .footer-panel {
+        border-radius: 28px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-visual {
+        min-height: 330px;
+      }
+
+      .hero-stamp {
+        display: none;
+      }
+
+      .hero-image-small {
+        width: 45%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFT1Q302RD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-CFT1Q302RD");
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="Ceramaker — página inicial">
+          <img src="/Logo.png" alt="Ceramaker" width="220" height="88" loading="eager" decoding="async">
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navegação principal">
+          <a href="/pages/sobre/sobre.html">Sobre</a>
+          <a href="#produtos">Produtos</a>
+          <a href="/pages/comprar/comocomprar.html">Como comprar</a>
+          <a href="/pages/cursos/cursos.html">Cursos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <a class="header-cta" href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Vim%20pelo%20site%20Ceramaker" target="_blank" rel="noopener">
+          Fale pelo WhatsApp
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" id="menu-mobile" aria-label="Navegação móvel" hidden>
+        <div class="mobile-nav-inner">
+          <a href="/pages/sobre/sobre.html">Sobre</a>
+          <a href="#produtos">Produtos</a>
+          <a href="/pages/comprar/comocomprar.html">Como comprar</a>
+          <a href="/pages/cursos/cursos.html">Cursos</a>
+          <a href="#contato">Contato</a>
+          <a href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Vim%20pelo%20site%20Ceramaker" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+    <section class="hero" aria-labelledby="titulo-principal">
+      <div class="container">
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <span class="eyebrow">Cerâmica, técnica e criatividade</span>
+            <h1 class="hero-title" id="titulo-principal">
+              Materiais que acompanham o seu <span>processo criativo.</span>
+            </h1>
+            <p class="hero-text">
+              Massas Cerâmicas Pascoal e ferramentas 3D desenvolvidas para ceramistas que buscam qualidade, precisão e liberdade para criar.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#produtos">Conhecer produtos</a>
+              <a class="button button-secondary" href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20produtos%20Ceramaker" target="_blank" rel="noopener">
+                Solicitar catálogo
+              </a>
+            </div>
+
+            <div class="hero-note" aria-label="Diferenciais Ceramaker">
+              <span>Atendimento em Volta Redonda e região</span>
+              <span>Ferramentas testadas por ceramistas</span>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Produtos Ceramaker">
+            <img class="hero-image-main" src="/images/site/produtos/argilas.png" alt="Massas cerâmicas disponíveis na Ceramaker" width="900" height="1100" loading="eager" decoding="async">
+            <img class="hero-image-small" src="/images/site/produtos/carimbos.png" alt="Carimbos para modelagem cerâmica" width="480" height="480" loading="eager" decoding="async">
+            <div class="hero-stamp">Do ancestral à tecnologia: soluções para o ateliê contemporâneo.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="oferecemos-titulo">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">O que oferecemos</span>
+          <h2 class="section-title" id="oferecemos-titulo">Conhecimento técnico aplicado à prática.</h2>
+          <p class="section-description">
+            Produtos selecionados e desenvolvidos para simplificar etapas, melhorar resultados e ampliar possibilidades na modelagem cerâmica.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon">
+              <img src="/images/ui/oferecemos-inovacao.png" alt="" width="72" height="72" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/Logo.png'">
+            </div>
+            <h3>Inovação aplicada</h3>
+            <p>Tecnologia que facilita seu processo criativo.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">
+              <img src="/images/ui/oferecemos-ceramica.png" alt="" width="72" height="72" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/Logo.png'">
+            </div>
+            <h3>Paixão pela cerâmica</h3>
+            <p>Produtos criados e testados por ceramistas.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">
+              <img src="/images/ui/oferecemos-qualidade.png" alt="" width="72" height="72" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/Logo.png'">
+            </div>
+            <h3>Qualidade consistente</h3>
+            <p>Resultados uniformes que valorizam seu trabalho.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">
+              <img src="/images/ui/oferecemos-personalizacao.png" alt="" width="72" height="72" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/Logo.png'">
+            </div>
+            <h3>Personalização</h3>
+            <p>Ferramentas adaptadas às necessidades do seu projeto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products-section" id="produtos" aria-labelledby="produtos-titulo">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Produtos Ceramaker</span>
+          <h2 class="section-title" id="produtos-titulo">Para cada etapa da sua criação.</h2>
+          <p class="section-description">
+            Massas cerâmicas profissionais e ferramentas criativas para cerâmica utilitária, artística, decorativa e educacional.
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card">
+            <figure class="product-media">
+              <img src="/images/site/produtos/argilas.png" alt="Massas cerâmicas Pascoal comercializadas pela Ceramaker" width="640" height="480" loading="lazy" decoding="async">
+            </figure>
+            <div class="product-body">
+              <span class="product-label">Matéria-prima</span>
+              <h3>Massas cerâmicas</h3>
+              <p>Massas Cerâmicas Pascoal para diferentes técnicas, acabamentos e faixas de queima.</p>
+              <a class="product-link" href="/pages/massa_ceramica.html">Ver tipos de massa</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <figure class="product-media">
+              <img src="/images/site/produtos/carimbos.png" alt="Carimbos Ceramaker para texturizar argila" width="640" height="480" loading="lazy" decoding="async">
+            </figure>
+            <div class="product-body">
+              <span class="product-label">Textura e identidade</span>
+              <h3>Carimbos</h3>
+              <p>Modelos florais, geométricos, temáticos e opções personalizadas para sua produção.</p>
+              <a class="product-link" href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20carimbos%20Ceramaker" target="_blank" rel="noopener">Solicitar catálogo</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <figure class="product-media">
+              <img src="/images/site/produtos/rolos.png" alt="Rolos texturizados Ceramaker para modelagem cerâmica" width="640" height="480" loading="lazy" decoding="async">
+            </figure>
+            <div class="product-body">
+              <span class="product-label">Padrões contínuos</span>
+              <h3>Rolos texturizados</h3>
+              <p>Texturas naturais e temáticas para criar superfícies consistentes de forma prática.</p>
+              <a class="product-link" href="https://wa.me/5521998898984?text=Quero%20ver%20os%20rolos%20texturizados" target="_blank" rel="noopener">Ver modelos</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <figure class="product-media">
+              <img src="/images/site/produtos/cortadores.png" alt="Cortadores Ceramaker para argila" width="640" height="480" loading="lazy" decoding="async">
+            </figure>
+            <div class="product-body">
+              <span class="product-label">Forma e repetição</span>
+              <h3>Cortadores</h3>
+              <p>Formatos essenciais e criativos para cortes precisos, repetíveis e bem definidos.</p>
+              <a class="product-link" href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20cortadores%20Ceramaker" target="_blank" rel="noopener">Conhecer opções</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="como-funciona" aria-labelledby="dicas-titulo">
+      <div class="container">
+        <div class="tips-wrap">
+          <div class="tips-intro">
+            <span class="eyebrow">Uso dos cortadores</span>
+            <h2 id="dicas-titulo">Três cuidados para um corte mais preciso.</h2>
+            <p>Trabalhe com a massa no ponto correto, mantenha a ferramenta limpa e aplique pressão uniforme.</p>
+          </div>
+
+          <ol class="tips-list" aria-label="Passos para uso dos cortadores">
+            <li class="tip-card">
+              <span class="tip-number" aria-hidden="true">1</span>
+              <div>
+                <h3>Escolha</h3>
+                <p>Selecione a ferramenta adequada ao formato, à escala e ao resultado desejado.</p>
+              </div>
+            </li>
+
+            <li class="tip-card">
+              <span class="tip-number" aria-hidden="true">2</span>
+              <div>
+                <h3>Aplique</h3>
+                <p>Use sobre a massa cerâmica úmida, apoiada em uma superfície plana, com pressão uniforme.</p>
+              </div>
+            </li>
+
+            <li class="tip-card">
+              <span class="tip-number" aria-hidden="true">3</span>
+              <div>
+                <h3>Crie</h3>
+                <p>Retire a ferramenta com cuidado e aproveite o padrão para compor peças autorais.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" aria-labelledby="cta-titulo">
+      <div class="container">
+        <div class="cta-panel">
+          <div class="cta-copy">
+            <h2 id="cta-titulo">Encontre o material certo para o seu ateliê.</h2>
+            <p>Fale com a Ceramaker para conhecer massas cerâmicas, ferramentas disponíveis e possibilidades de personalização.</p>
+          </div>
+          <a class="button" href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20produtos%20Ceramaker" target="_blank" rel="noopener">
+            Solicitar catálogo
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contato">
+    <div class="container">
+      <div class="footer-panel">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="/Logo.png" alt="Ceramaker" width="220" height="88" loading="lazy" decoding="async">
+            <p>Massas cerâmicas e ferramentas especiais para ceramistas iniciantes, profissionais e ateliês.</p>
+          </div>
+
+          <div>
+            <h3>Links rápidos</h3>
+            <nav class="footer-links" aria-label="Links rápidos">
+              <a href="#produtos">Produtos</a>
+              <a href="/pages/comprar/comocomprar.html">Como comprar</a>
+              <a href="/pages/sobre/sobre.html">Nossa história</a>
+              <a href="/pages/cursos/cursos.html">Cursos</a>
+            </nav>
+          </div>
+
+          <div>
+            <h3>Produtos</h3>
+            <nav class="footer-links" aria-label="Categorias de produtos">
+              <a href="/pages/massa_ceramica.html">Massas cerâmicas</a>
+              <a href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20carimbos%20Ceramaker" target="_blank" rel="noopener">Carimbos</a>
+              <a href="https://wa.me/5521998898984?text=Quero%20ver%20os%20rolos%20texturizados" target="_blank" rel="noopener">Rolos texturizados</a>
+              <a href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20cortadores%20Ceramaker" target="_blank" rel="noopener">Cortadores</a>
+            </nav>
+          </div>
+
+          <div>
+            <h3>Contato</h3>
+            <address class="footer-links">
+              <a href="https://wa.me/5521998898984" target="_blank" rel="noopener">WhatsApp: (21) 99889-8984</a>
+              <a href="https://instagram.com/cerammaker" target="_blank" rel="noopener">Instagram: @cerammaker</a>
+              <a href="mailto:studioceramaker@gmail.com">studioceramaker@gmail.com</a>
+              <span>Volta Redonda/RJ</span>
+            </address>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© <span id="year"></span> Ceramaker. Todos os direitos reservados.</span>
+          <span>Desenvolvido para ceramistas apaixonados.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Vim%20pelo%20site%20Ceramaker" target="_blank" rel="noopener" aria-label="Abrir conversa com a Ceramaker no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347"></path>
+    </svg>
+  </a>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ceramaker",
+    "image": "https://ceramaker.com.br/Logo.png",
+    "description": "Massas cerâmicas Pascoal e ferramentas criativas para ceramistas.",
+    "url": "https://ceramaker.com.br",
+    "telephone": "+5521998898984",
+    "email": "studioceramaker@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Volta Redonda",
+      "addressRegion": "RJ",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://instagram.com/cerammaker",
+      "https://wa.me/5521998898984"
+    ],
+    "priceRange": "$$"
+  }
+  </script>
+
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const mobileMenu = document.getElementById("menu-mobile");
+
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", () => {
+        const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", String(!isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "Abrir menu" : "Fechar menu");
+        mobileMenu.hidden = isOpen;
+      });
+
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Abrir menu");
+          mobileMenu.hidden = true;
+        });
+      });
+    }
+
+    const year = document.getElementById("year");
+    if (year) {
+      year.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>
+'''
+
+output = Path("/mnt/data/ceramaker-home-adequada.html")
+output.write_text(html, encoding="utf-8")
+
+print(f"Arquivo criado: {output}")
+print(f"Tamanho: {output.stat().st_size:,} bytes")
