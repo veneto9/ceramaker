@@ -1100,6 +1100,367 @@
         border-radius: 22px;
       }
     }
+
+    /* =========================================================
+       AJUSTE FINAL DE PROPORÇÕES — DESKTOP, TABLET E CELULAR
+       ========================================================= */
+
+    :root {
+      --container: 1120px;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+    }
+
+    .site-header .container {
+      width: min(1180px, calc(100% - 40px));
+    }
+
+    .header-inner {
+      min-height: 72px;
+    }
+
+    .brand img {
+      height: 50px;
+    }
+
+    .desktop-nav {
+      gap: 24px;
+    }
+
+    .desktop-nav a {
+      font-size: 0.88rem;
+    }
+
+    .header-cta {
+      min-height: 44px;
+      padding: 10px 20px;
+      font-size: 0.92rem;
+    }
+
+    .hero {
+      padding-block: 28px 42px;
+    }
+
+    .hero-panel-simple {
+      min-height: 360px;
+      grid-template-columns: minmax(0, 1.08fr) minmax(310px, 0.92fr);
+      gap: clamp(28px, 4vw, 48px);
+      padding: clamp(30px, 4vw, 48px);
+      border-radius: 30px;
+    }
+
+    .hero-title-simple {
+      max-width: 620px;
+      font-size: clamp(2rem, 3.3vw, 3.35rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-text-simple {
+      max-width: 520px;
+      margin-top: 16px;
+      font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+    }
+
+    .hero-actions {
+      margin-top: 26px;
+    }
+
+    .hero-visual-simple {
+      min-height: 280px;
+    }
+
+    .hero-image-simple {
+      min-height: 280px;
+      max-height: 320px;
+      border-radius: 24px;
+    }
+
+    .section {
+      padding-block: 50px;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    .eyebrow {
+      margin-bottom: 10px;
+      font-size: 0.72rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 2.65vw, 2.65rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-description {
+      margin-top: 14px;
+      max-width: 640px;
+      font-size: clamp(0.98rem, 1.1vw, 1.06rem);
+    }
+
+    .benefits-grid {
+      gap: 18px;
+    }
+
+    .benefit-card {
+      padding: 24px 20px;
+    }
+
+    .benefit-icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+    }
+
+    .benefit-icon img {
+      width: 46px;
+      height: 46px;
+    }
+
+    .benefit-card h3 {
+      font-size: 1rem;
+    }
+
+    .benefit-card p {
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
+    .products-grid {
+      gap: 20px;
+    }
+
+    .product-body {
+      min-height: 225px;
+      padding: 20px;
+    }
+
+    .product-card h3 {
+      font-size: 1.12rem;
+    }
+
+    .product-card p {
+      margin: 10px 0 18px;
+      font-size: 0.9rem;
+    }
+
+    .product-link {
+      min-height: 42px;
+      padding: 9px 16px;
+      font-size: 0.83rem;
+    }
+
+    .tips-wrap {
+      gap: 22px;
+    }
+
+    .tips-intro {
+      padding: clamp(28px, 4vw, 42px);
+    }
+
+    .tips-intro h2 {
+      font-size: clamp(1.8rem, 2.7vw, 2.6rem);
+    }
+
+    .tips-intro p {
+      margin-top: 16px;
+      font-size: 0.98rem;
+    }
+
+    .tips-list {
+      gap: 14px;
+    }
+
+    .tip-card {
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 18px;
+      padding: 19px 22px;
+    }
+
+    .tip-number {
+      width: 52px;
+      height: 52px;
+      font-size: 1.15rem;
+    }
+
+    .tip-card h3 {
+      font-size: 1.05rem;
+    }
+
+    .tip-card p {
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+
+    .cta-section {
+      padding-block: 18px 58px;
+    }
+
+    .cta-panel {
+      padding: clamp(30px, 4vw, 46px);
+      border-radius: 30px;
+    }
+
+    .cta-copy h2 {
+      font-size: clamp(1.75rem, 2.8vw, 2.65rem);
+    }
+
+    .cta-copy p {
+      margin-top: 12px;
+      font-size: 0.98rem;
+    }
+
+    .footer-panel {
+      padding: clamp(30px, 4vw, 46px);
+      border-radius: 30px;
+    }
+
+    .footer-grid {
+      gap: 28px;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 20px;
+    }
+
+    @media (max-width: 1050px) {
+      .hero-panel-simple {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
+      }
+
+      .benefits-grid,
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 820px) {
+      .container,
+      .site-header .container {
+        width: min(100% - 32px, var(--container));
+      }
+
+      .hero {
+        padding-top: 18px;
+        padding-bottom: 34px;
+      }
+
+      .hero-panel-simple {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding: 30px 24px;
+        border-radius: 26px;
+      }
+
+      .hero-title-simple {
+        max-width: 640px;
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      .hero-visual-simple {
+        min-height: 240px;
+      }
+
+      .hero-image-simple {
+        min-height: 240px;
+        max-height: 340px;
+      }
+
+      .section {
+        padding-block: 42px;
+      }
+
+      .section-heading {
+        margin-bottom: 26px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container,
+      .site-header .container {
+        width: min(100% - 24px, var(--container));
+      }
+
+      .header-inner {
+        min-height: 66px;
+      }
+
+      .brand img {
+        height: 44px;
+      }
+
+      .hero-panel-simple {
+        padding: 26px 20px;
+        border-radius: 22px;
+      }
+
+      .hero-title-simple {
+        font-size: clamp(1.85rem, 10vw, 2.55rem);
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 22px;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .hero-visual-simple {
+        min-height: 210px;
+      }
+
+      .hero-image-simple {
+        min-height: 210px;
+        border-radius: 18px;
+      }
+
+      .section {
+        padding-block: 36px;
+      }
+
+      .benefits-grid,
+      .products-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit-card {
+        padding: 22px 18px;
+      }
+
+      .product-body {
+        min-height: auto;
+      }
+
+      .tip-card {
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 14px;
+        padding: 18px;
+      }
+
+      .tip-number {
+        width: 46px;
+        height: 46px;
+      }
+
+      .cta-section {
+        padding-bottom: 44px;
+      }
+
+      .cta-panel,
+      .footer-panel {
+        border-radius: 22px;
+      }
+    }
 </style>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CFT1Q302RD"></script>
 <script>
