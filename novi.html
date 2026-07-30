@@ -1,35 +1,29 @@
-from pathlib import Path
+<!DOCTYPE html>
 
-html = r'''<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ceramaker — Massas Cerâmicas e Ferramentas para Cerâmica</title>
-
-  <meta name="description" content="Massas cerâmicas Pascoal, carimbos, rolos texturizados, cortadores e ferramentas criativas para ceramistas em Volta Redonda e região.">
-  <meta name="keywords" content="massas cerâmicas, argilas profissionais, ferramentas para cerâmica, carimbos, rolos texturizados, cortadores, Ceramaker, Volta Redonda">
-  <meta name="theme-color" content="#ebe5d9">
-
-  <link rel="canonical" href="https://ceramaker.com.br/">
-  <link rel="icon" href="https://ceramaker.com.br/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://ceramaker.com.br/images/favicon.png">
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ceramaker.com.br/">
-  <meta property="og:title" content="Ceramaker — Massas Cerâmicas e Ferramentas Criativas">
-  <meta property="og:description" content="Massas cerâmicas Pascoal e ferramentas desenvolvidas para ceramistas.">
-  <meta property="og:image" content="https://ceramaker.com.br/Logo.png">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:site_name" content="Ceramaker">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-
-  <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Ceramaker — Massas Cerâmicas e Ferramentas para Cerâmica</title>
+<meta content="Massas cerâmicas Pascoal, carimbos, rolos texturizados, cortadores e ferramentas criativas para ceramistas em Volta Redonda e região." name="description"/>
+<meta content="massas cerâmicas, argilas profissionais, ferramentas para cerâmica, carimbos, rolos texturizados, cortadores, Ceramaker, Volta Redonda" name="keywords"/>
+<meta content="#ebe5d9" name="theme-color"/>
+<link href="https://ceramaker.com.br/" rel="canonical"/>
+<link href="https://ceramaker.com.br/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="https://ceramaker.com.br/images/favicon.png" rel="apple-touch-icon"/>
+<link href="/images/favicon.png" rel="icon" type="image/png"/>
+<meta content="website" property="og:type"/>
+<meta content="https://ceramaker.com.br/" property="og:url"/>
+<meta content="Ceramaker — Massas Cerâmicas e Ferramentas Criativas" property="og:title"/>
+<meta content="Massas cerâmicas Pascoal e ferramentas desenvolvidas para ceramistas." property="og:description"/>
+<meta content="https://ceramaker.com.br/Logo.png" property="og:image"/>
+<meta content="pt_BR" property="og:locale"/>
+<meta content="Ceramaker" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -42,8 +36,7 @@ html = r'''<!DOCTYPE html>
     ]
   }
   </script>
-
-  <style>
+<style>
     :root {
       --cream: #ebe5d9;
       --cream-soft: #f7f3ec;
@@ -117,7 +110,7 @@ html = r'''<!DOCTYPE html>
     }
 
     .section {
-      padding-block: clamp(58px, 7vw, 96px);
+      padding-block: clamp(52px, 6vw, 84px);
     }
 
     .section-heading {
@@ -325,7 +318,7 @@ html = r'''<!DOCTYPE html>
     }
 
     .hero {
-      padding-block: clamp(34px, 5vw, 66px) clamp(66px, 8vw, 108px);
+      padding-block: clamp(30px, 4.5vw, 58px) clamp(54px, 7vw, 88px);
     }
 
     .hero-panel {
@@ -688,7 +681,7 @@ html = r'''<!DOCTYPE html>
     }
 
     .cta-section {
-      padding-block: 32px clamp(66px, 8vw, 104px);
+      padding-block: 24px clamp(58px, 7vw, 88px);
     }
 
     .cta-panel {
@@ -733,6 +726,15 @@ html = r'''<!DOCTYPE html>
       font-size: 1.05rem;
     }
 
+    .cta-actions {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
     .cta-panel .button {
       position: relative;
       z-index: 2;
@@ -740,6 +742,17 @@ html = r'''<!DOCTYPE html>
       color: var(--charcoal);
       background: var(--ochre);
       box-shadow: none;
+    }
+
+    .cta-panel .button-secondary {
+      color: var(--cream-soft);
+      background: transparent;
+      border: 1px solid rgba(247, 243, 236, 0.34);
+    }
+
+    .cta-panel .button-secondary:hover {
+      color: var(--charcoal);
+      background: var(--cream-soft);
     }
 
     .cta-panel .button:hover {
@@ -970,6 +983,12 @@ html = r'''<!DOCTYPE html>
         border-radius: 28px;
       }
 
+      .cta-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
       .cta-panel .button {
         width: 100%;
       }
@@ -1010,310 +1029,348 @@ html = r'''<!DOCTYPE html>
         animation-iteration-count: 1 !important;
       }
     }
-  </style>
+  
+    /* Banner principal simplificado */
+    .hero-panel-simple {
+      min-height: 430px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: clamp(28px, 5vw, 56px);
+      padding: clamp(32px, 5vw, 58px);
+    }
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFT1Q302RD"></script>
-  <script>
+    .hero-title-simple {
+      max-width: 720px;
+      font-size: clamp(2.25rem, 5vw, 4.25rem);
+      line-height: 1.06;
+    }
+
+    .hero-text-simple {
+      max-width: 560px;
+      margin-top: 18px;
+      font-size: clamp(1rem, 1.5vw, 1.12rem);
+    }
+
+    .hero-visual-simple {
+      min-height: 330px;
+    }
+
+    .hero-image-simple {
+      width: 100%;
+      height: 100%;
+      min-height: 330px;
+      border-radius: 28px;
+      object-fit: cover;
+      box-shadow: 0 24px 58px rgba(22, 16, 12, 0.28);
+    }
+
+    .hero-visual-simple.image-unavailable {
+      min-height: 0;
+    }
+
+    @media (max-width: 1050px) {
+      .hero-panel-simple {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual-simple {
+        min-height: 300px;
+      }
+
+      .hero-image-simple {
+        min-height: 300px;
+        max-height: 420px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero-panel-simple {
+        padding: 30px 22px;
+      }
+
+      .hero-title-simple {
+        font-size: clamp(2rem, 10vw, 3rem);
+      }
+
+      .hero-visual-simple {
+        min-height: 240px;
+      }
+
+      .hero-image-simple {
+        min-height: 240px;
+        border-radius: 22px;
+      }
+    }
+</style>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CFT1Q302RD"></script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag("js", new Date());
     gtag("config", "G-CFT1Q302RD");
   </script>
 </head>
-
 <body>
-  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
-
-  <header class="site-header">
-    <div class="container">
-      <div class="header-inner">
-        <a class="brand" href="/" aria-label="Ceramaker — página inicial">
-          <img src="/Logo.png" alt="Ceramaker" width="220" height="88" loading="eager" decoding="async">
-        </a>
-
-        <nav class="desktop-nav" aria-label="Navegação principal">
-          <a href="/pages/sobre/sobre.html">Sobre</a>
-          <a href="#produtos">Produtos</a>
-          <a href="/pages/comprar/comocomprar.html">Como comprar</a>
-          <a href="/pages/cursos/cursos.html">Cursos</a>
-          <a href="#contato">Contato</a>
-        </nav>
-
-        <a class="header-cta" href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Vim%20pelo%20site%20Ceramaker" target="_blank" rel="noopener">
+<a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+<header class="site-header">
+<div class="container">
+<div class="header-inner">
+<a aria-label="Ceramaker — página inicial" class="brand" href="/">
+<img alt="Ceramaker" decoding="async" height="88" loading="eager" src="/Logo.png" width="220"/>
+</a>
+<nav aria-label="Navegação principal" class="desktop-nav">
+<a href="/pages/sobre/sobre.html">Sobre</a>
+<a href="#produtos">Produtos</a>
+<a href="/pages/comprar/comocomprar.html">Como comprar</a>
+<a href="/pages/cursos/cursos.html">Cursos</a>
+<a href="#contato">Contato</a>
+</nav>
+<a class="header-cta" href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Vim%20pelo%20site%20Ceramaker" rel="noopener" target="_blank">
           Fale pelo WhatsApp
         </a>
-
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16"></path>
-          </svg>
-        </button>
-      </div>
-
-      <nav class="mobile-nav" id="menu-mobile" aria-label="Navegação móvel" hidden>
-        <div class="mobile-nav-inner">
-          <a href="/pages/sobre/sobre.html">Sobre</a>
-          <a href="#produtos">Produtos</a>
-          <a href="/pages/comprar/comocomprar.html">Como comprar</a>
-          <a href="/pages/cursos/cursos.html">Cursos</a>
-          <a href="#contato">Contato</a>
-          <a href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Vim%20pelo%20site%20Ceramaker" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <main id="conteudo-principal">
-    <section class="hero" aria-labelledby="titulo-principal">
-      <div class="container">
-        <div class="hero-panel">
-          <div class="hero-copy">
-            <span class="eyebrow">Cerâmica, técnica e criatividade</span>
-            <h1 class="hero-title" id="titulo-principal">
-              Materiais que acompanham o seu <span>processo criativo.</span>
-            </h1>
-            <p class="hero-text">
-              Massas Cerâmicas Pascoal e ferramentas 3D desenvolvidas para ceramistas que buscam qualidade, precisão e liberdade para criar.
-            </p>
-
-            <div class="hero-actions">
-              <a class="button button-primary" href="#produtos">Conhecer produtos</a>
-              <a class="button button-secondary" href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20produtos%20Ceramaker" target="_blank" rel="noopener">
-                Solicitar catálogo
-              </a>
-            </div>
-
-            <div class="hero-note" aria-label="Diferenciais Ceramaker">
-              <span>Atendimento em Volta Redonda e região</span>
-              <span>Ferramentas testadas por ceramistas</span>
-            </div>
-          </div>
-
-          <div class="hero-visual" aria-label="Produtos Ceramaker">
-            <img class="hero-image-main" src="/images/site/produtos/argilas.png" alt="Massas cerâmicas disponíveis na Ceramaker" width="900" height="1100" loading="eager" decoding="async">
-            <img class="hero-image-small" src="/images/site/produtos/carimbos.png" alt="Carimbos para modelagem cerâmica" width="480" height="480" loading="eager" decoding="async">
-            <div class="hero-stamp">Do ancestral à tecnologia: soluções para o ateliê contemporâneo.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="oferecemos-titulo">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">O que oferecemos</span>
-          <h2 class="section-title" id="oferecemos-titulo">Conhecimento técnico aplicado à prática.</h2>
-          <p class="section-description">
+<button aria-controls="menu-mobile" aria-expanded="false" aria-label="Abrir menu" class="menu-toggle" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 7h16M4 12h16M4 17h16"></path>
+</svg>
+</button>
+</div>
+<nav aria-label="Navegação móvel" class="mobile-nav" hidden="" id="menu-mobile">
+<div class="mobile-nav-inner">
+<a href="/pages/sobre/sobre.html">Sobre</a>
+<a href="#produtos">Produtos</a>
+<a href="/pages/comprar/comocomprar.html">Como comprar</a>
+<a href="/pages/cursos/cursos.html">Cursos</a>
+<a href="#contato">Contato</a>
+<a href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Vim%20pelo%20site%20Ceramaker" rel="noopener" target="_blank">WhatsApp</a>
+</div>
+</nav>
+</div>
+</header>
+<main id="conteudo-principal">
+<section aria-labelledby="titulo-principal" class="hero">
+<div class="container">
+<div class="hero-panel hero-panel-simple">
+<div class="hero-copy">
+<h1 class="hero-title hero-title-simple" id="titulo-principal">
+        Massas cerâmicas e ferramentas para o seu ateliê.
+      </h1>
+<p class="hero-text hero-text-simple">
+        Produtos selecionados para ceramistas iniciantes, profissionais e ateliês.
+      </p>
+<div class="hero-actions">
+<a class="button button-primary" href="/pages/comprar/comocomprar.html">
+          Conheça nossa loja
+        </a>
+<a class="button button-secondary" href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Quero%20conhecer%20os%20produtos%20Ceramaker" rel="noopener" target="_blank">
+          Falar no WhatsApp
+        </a>
+</div>
+</div>
+<div class="hero-visual hero-visual-simple">
+<img alt="Massas cerâmicas Ceramaker" class="hero-image-simple" decoding="async" height="700" loading="eager" onerror="this.style.display='none';this.parentElement.classList.add('image-unavailable')" src="/images/site/produtos/argilas.png" width="900"/>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="oferecemos-titulo" class="section">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow">O que oferecemos</span>
+<h2 class="section-title" id="oferecemos-titulo">Conhecimento técnico aplicado à prática.</h2>
+<p class="section-description">
             Produtos selecionados e desenvolvidos para simplificar etapas, melhorar resultados e ampliar possibilidades na modelagem cerâmica.
           </p>
-        </div>
-
-        <div class="benefits-grid">
-          <article class="benefit-card">
-            <div class="benefit-icon">
-              <img src="/images/ui/oferecemos-inovacao.png" alt="" width="72" height="72" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/Logo.png'">
-            </div>
-            <h3>Inovação aplicada</h3>
-            <p>Tecnologia que facilita seu processo criativo.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-icon">
-              <img src="/images/ui/oferecemos-ceramica.png" alt="" width="72" height="72" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/Logo.png'">
-            </div>
-            <h3>Paixão pela cerâmica</h3>
-            <p>Produtos criados e testados por ceramistas.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-icon">
-              <img src="/images/ui/oferecemos-qualidade.png" alt="" width="72" height="72" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/Logo.png'">
-            </div>
-            <h3>Qualidade consistente</h3>
-            <p>Resultados uniformes que valorizam seu trabalho.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-icon">
-              <img src="/images/ui/oferecemos-personalizacao.png" alt="" width="72" height="72" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/Logo.png'">
-            </div>
-            <h3>Personalização</h3>
-            <p>Ferramentas adaptadas às necessidades do seu projeto.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section products-section" id="produtos" aria-labelledby="produtos-titulo">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Produtos Ceramaker</span>
-          <h2 class="section-title" id="produtos-titulo">Para cada etapa da sua criação.</h2>
-          <p class="section-description">
+</div>
+<div class="benefits-grid">
+<article class="benefit-card">
+<div class="benefit-icon">
+<img alt="" decoding="async" height="72" loading="lazy" onerror="this.onerror=null;this.src='/Logo.png'" src="/images/ui/oferecemos-inovacao.png" width="72"/>
+</div>
+<h3>Inovação aplicada</h3>
+<p>Tecnologia que facilita seu processo criativo.</p>
+</article>
+<article class="benefit-card">
+<div class="benefit-icon">
+<img alt="" decoding="async" height="72" loading="lazy" onerror="this.onerror=null;this.src='/Logo.png'" src="/images/ui/oferecemos-ceramica.png" width="72"/>
+</div>
+<h3>Paixão pela cerâmica</h3>
+<p>Produtos criados e testados por ceramistas.</p>
+</article>
+<article class="benefit-card">
+<div class="benefit-icon">
+<img alt="" decoding="async" height="72" loading="lazy" onerror="this.onerror=null;this.src='/Logo.png'" src="/images/ui/oferecemos-qualidade.png" width="72"/>
+</div>
+<h3>Qualidade consistente</h3>
+<p>Resultados uniformes que valorizam seu trabalho.</p>
+</article>
+<article class="benefit-card">
+<div class="benefit-icon">
+<img alt="" decoding="async" height="72" loading="lazy" onerror="this.onerror=null;this.src='/Logo.png'" src="/images/ui/oferecemos-personalizacao.png" width="72"/>
+</div>
+<h3>Personalização</h3>
+<p>Ferramentas adaptadas às necessidades do seu projeto.</p>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="produtos-titulo" class="section products-section" id="produtos">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow">Produtos Ceramaker</span>
+<h2 class="section-title" id="produtos-titulo">Para cada etapa da sua criação.</h2>
+<p class="section-description">
             Massas cerâmicas profissionais e ferramentas criativas para cerâmica utilitária, artística, decorativa e educacional.
           </p>
-        </div>
-
-        <div class="products-grid">
-          <article class="product-card">
-            <figure class="product-media">
-              <img src="/images/site/produtos/argilas.png" alt="Massas cerâmicas Pascoal comercializadas pela Ceramaker" width="640" height="480" loading="lazy" decoding="async">
-            </figure>
-            <div class="product-body">
-              <span class="product-label">Matéria-prima</span>
-              <h3>Massas cerâmicas</h3>
-              <p>Massas Cerâmicas Pascoal para diferentes técnicas, acabamentos e faixas de queima.</p>
-              <a class="product-link" href="/pages/massa_ceramica.html">Ver tipos de massa</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <figure class="product-media">
-              <img src="/images/site/produtos/carimbos.png" alt="Carimbos Ceramaker para texturizar argila" width="640" height="480" loading="lazy" decoding="async">
-            </figure>
-            <div class="product-body">
-              <span class="product-label">Textura e identidade</span>
-              <h3>Carimbos</h3>
-              <p>Modelos florais, geométricos, temáticos e opções personalizadas para sua produção.</p>
-              <a class="product-link" href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20carimbos%20Ceramaker" target="_blank" rel="noopener">Solicitar catálogo</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <figure class="product-media">
-              <img src="/images/site/produtos/rolos.png" alt="Rolos texturizados Ceramaker para modelagem cerâmica" width="640" height="480" loading="lazy" decoding="async">
-            </figure>
-            <div class="product-body">
-              <span class="product-label">Padrões contínuos</span>
-              <h3>Rolos texturizados</h3>
-              <p>Texturas naturais e temáticas para criar superfícies consistentes de forma prática.</p>
-              <a class="product-link" href="https://wa.me/5521998898984?text=Quero%20ver%20os%20rolos%20texturizados" target="_blank" rel="noopener">Ver modelos</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <figure class="product-media">
-              <img src="/images/site/produtos/cortadores.png" alt="Cortadores Ceramaker para argila" width="640" height="480" loading="lazy" decoding="async">
-            </figure>
-            <div class="product-body">
-              <span class="product-label">Forma e repetição</span>
-              <h3>Cortadores</h3>
-              <p>Formatos essenciais e criativos para cortes precisos, repetíveis e bem definidos.</p>
-              <a class="product-link" href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20cortadores%20Ceramaker" target="_blank" rel="noopener">Conhecer opções</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="como-funciona" aria-labelledby="dicas-titulo">
-      <div class="container">
-        <div class="tips-wrap">
-          <div class="tips-intro">
-            <span class="eyebrow">Uso dos cortadores</span>
-            <h2 id="dicas-titulo">Três cuidados para um corte mais preciso.</h2>
-            <p>Trabalhe com a massa no ponto correto, mantenha a ferramenta limpa e aplique pressão uniforme.</p>
-          </div>
-
-          <ol class="tips-list" aria-label="Passos para uso dos cortadores">
-            <li class="tip-card">
-              <span class="tip-number" aria-hidden="true">1</span>
-              <div>
-                <h3>Escolha</h3>
-                <p>Selecione a ferramenta adequada ao formato, à escala e ao resultado desejado.</p>
-              </div>
-            </li>
-
-            <li class="tip-card">
-              <span class="tip-number" aria-hidden="true">2</span>
-              <div>
-                <h3>Aplique</h3>
-                <p>Use sobre a massa cerâmica úmida, apoiada em uma superfície plana, com pressão uniforme.</p>
-              </div>
-            </li>
-
-            <li class="tip-card">
-              <span class="tip-number" aria-hidden="true">3</span>
-              <div>
-                <h3>Crie</h3>
-                <p>Retire a ferramenta com cuidado e aproveite o padrão para compor peças autorais.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section" aria-labelledby="cta-titulo">
-      <div class="container">
-        <div class="cta-panel">
-          <div class="cta-copy">
-            <h2 id="cta-titulo">Encontre o material certo para o seu ateliê.</h2>
-            <p>Fale com a Ceramaker para conhecer massas cerâmicas, ferramentas disponíveis e possibilidades de personalização.</p>
-          </div>
-          <a class="button" href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20produtos%20Ceramaker" target="_blank" rel="noopener">
-            Solicitar catálogo
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer" id="contato">
-    <div class="container">
-      <div class="footer-panel">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <img src="/Logo.png" alt="Ceramaker" width="220" height="88" loading="lazy" decoding="async">
-            <p>Massas cerâmicas e ferramentas especiais para ceramistas iniciantes, profissionais e ateliês.</p>
-          </div>
-
-          <div>
-            <h3>Links rápidos</h3>
-            <nav class="footer-links" aria-label="Links rápidos">
-              <a href="#produtos">Produtos</a>
-              <a href="/pages/comprar/comocomprar.html">Como comprar</a>
-              <a href="/pages/sobre/sobre.html">Nossa história</a>
-              <a href="/pages/cursos/cursos.html">Cursos</a>
-            </nav>
-          </div>
-
-          <div>
-            <h3>Produtos</h3>
-            <nav class="footer-links" aria-label="Categorias de produtos">
-              <a href="/pages/massa_ceramica.html">Massas cerâmicas</a>
-              <a href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20carimbos%20Ceramaker" target="_blank" rel="noopener">Carimbos</a>
-              <a href="https://wa.me/5521998898984?text=Quero%20ver%20os%20rolos%20texturizados" target="_blank" rel="noopener">Rolos texturizados</a>
-              <a href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20cortadores%20Ceramaker" target="_blank" rel="noopener">Cortadores</a>
-            </nav>
-          </div>
-
-          <div>
-            <h3>Contato</h3>
-            <address class="footer-links">
-              <a href="https://wa.me/5521998898984" target="_blank" rel="noopener">WhatsApp: (21) 99889-8984</a>
-              <a href="https://instagram.com/cerammaker" target="_blank" rel="noopener">Instagram: @cerammaker</a>
-              <a href="mailto:studioceramaker@gmail.com">studioceramaker@gmail.com</a>
-              <span>Volta Redonda/RJ</span>
-            </address>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <span>© <span id="year"></span> Ceramaker. Todos os direitos reservados.</span>
-          <span>Desenvolvido para ceramistas apaixonados.</span>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <a class="whatsapp-float" href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Vim%20pelo%20site%20Ceramaker" target="_blank" rel="noopener" aria-label="Abrir conversa com a Ceramaker no WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347"></path>
-    </svg>
-  </a>
-
-  <script type="application/ld+json">
+</div>
+<div class="products-grid">
+<article class="product-card">
+<figure class="product-media">
+<img alt="Massas cerâmicas Pascoal comercializadas pela Ceramaker" decoding="async" height="480" loading="lazy" src="/images/site/produtos/argilas.png" width="640"/>
+</figure>
+<div class="product-body">
+<span class="product-label">Matéria-prima</span>
+<h3>Massas cerâmicas</h3>
+<p>Massas Cerâmicas Pascoal para diferentes técnicas, acabamentos e faixas de queima.</p>
+<a class="product-link" href="/pages/massa_ceramica.html">Ver tipos de massa</a>
+</div>
+</article>
+<article class="product-card">
+<figure class="product-media">
+<img alt="Carimbos Ceramaker para texturizar argila" decoding="async" height="480" loading="lazy" src="/images/site/produtos/carimbos.png" width="640"/>
+</figure>
+<div class="product-body">
+<span class="product-label">Textura e identidade</span>
+<h3>Carimbos</h3>
+<p>Modelos florais, geométricos, temáticos e opções personalizadas para sua produção.</p>
+<a class="product-link" href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20carimbos%20Ceramaker" rel="noopener" target="_blank">Solicitar catálogo</a>
+</div>
+</article>
+<article class="product-card">
+<figure class="product-media">
+<img alt="Rolos texturizados Ceramaker para modelagem cerâmica" decoding="async" height="480" loading="lazy" src="/images/site/produtos/rolos.png" width="640"/>
+</figure>
+<div class="product-body">
+<span class="product-label">Padrões contínuos</span>
+<h3>Rolos texturizados</h3>
+<p>Texturas naturais e temáticas para criar superfícies consistentes de forma prática.</p>
+<a class="product-link" href="https://wa.me/5521998898984?text=Quero%20ver%20os%20rolos%20texturizados" rel="noopener" target="_blank">Ver modelos</a>
+</div>
+</article>
+<article class="product-card">
+<figure class="product-media">
+<img alt="Cortadores Ceramaker para argila" decoding="async" height="480" loading="lazy" src="/images/site/produtos/cortadores.png" width="640"/>
+</figure>
+<div class="product-body">
+<span class="product-label">Forma e repetição</span>
+<h3>Cortadores</h3>
+<p>Formatos essenciais e criativos para cortes precisos, repetíveis e bem definidos.</p>
+<a class="product-link" href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20cortadores%20Ceramaker" rel="noopener" target="_blank">Conhecer opções</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="dicas-titulo" class="section" id="como-funciona">
+<div class="container">
+<div class="tips-wrap">
+<div class="tips-intro">
+<span class="eyebrow">Uso dos cortadores</span>
+<h2 id="dicas-titulo">Três cuidados para um corte mais preciso.</h2>
+<p>Trabalhe com a massa no ponto correto, mantenha a ferramenta limpa e aplique pressão uniforme.</p>
+</div>
+<ol aria-label="Passos para uso dos cortadores" class="tips-list">
+<li class="tip-card">
+<span aria-hidden="true" class="tip-number">1</span>
+<div>
+<h3>Escolha</h3>
+<p>Selecione a ferramenta adequada ao formato, à escala e ao resultado desejado.</p>
+</div>
+</li>
+<li class="tip-card">
+<span aria-hidden="true" class="tip-number">2</span>
+<div>
+<h3>Aplique</h3>
+<p>Use sobre a massa cerâmica úmida, apoiada em uma superfície plana, com pressão uniforme.</p>
+</div>
+</li>
+<li class="tip-card">
+<span aria-hidden="true" class="tip-number">3</span>
+<div>
+<h3>Crie</h3>
+<p>Retire a ferramenta com cuidado e aproveite o padrão para compor peças autorais.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<section aria-labelledby="cta-titulo" class="cta-section">
+<div class="container">
+<div class="cta-panel">
+<div class="cta-copy">
+<h2 id="cta-titulo">Visite nossa loja ou fale diretamente com a Ceramaker.</h2>
+<p>Conheça as massas cerâmicas e ferramentas disponíveis ou tire suas dúvidas pelo WhatsApp.</p>
+</div>
+<div class="cta-actions">
+<a class="button" href="/pages/comprar/comocomprar.html">
+              Acesse nossa loja
+            </a>
+<a class="button button-secondary" href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Quero%20conhecer%20os%20produtos%20Ceramaker" rel="noopener" target="_blank">
+              Falar no WhatsApp
+            </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer" id="contato">
+<div class="container">
+<div class="footer-panel">
+<div class="footer-grid">
+<div class="footer-brand">
+<img alt="Ceramaker" decoding="async" height="88" loading="lazy" src="/Logo.png" width="220"/>
+<p>Massas cerâmicas e ferramentas especiais para ceramistas iniciantes, profissionais e ateliês.</p>
+</div>
+<div>
+<h3>Links rápidos</h3>
+<nav aria-label="Links rápidos" class="footer-links">
+<a href="#produtos">Produtos</a>
+<a href="/pages/comprar/comocomprar.html">Como comprar</a>
+<a href="/pages/sobre/sobre.html">Nossa história</a>
+<a href="/pages/cursos/cursos.html">Cursos</a>
+</nav>
+</div>
+<div>
+<h3>Produtos</h3>
+<nav aria-label="Categorias de produtos" class="footer-links">
+<a href="/pages/massa_ceramica.html">Massas cerâmicas</a>
+<a href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20carimbos%20Ceramaker" rel="noopener" target="_blank">Carimbos</a>
+<a href="https://wa.me/5521998898984?text=Quero%20ver%20os%20rolos%20texturizados" rel="noopener" target="_blank">Rolos texturizados</a>
+<a href="https://wa.me/5521998898984?text=Quero%20conhecer%20os%20cortadores%20Ceramaker" rel="noopener" target="_blank">Cortadores</a>
+</nav>
+</div>
+<div>
+<h3>Contato</h3>
+<address class="footer-links">
+<a href="https://wa.me/5521998898984" rel="noopener" target="_blank">WhatsApp: (21) 99889-8984</a>
+<a href="https://instagram.com/cerammaker" rel="noopener" target="_blank">Instagram: @cerammaker</a>
+<a href="mailto:studioceramaker@gmail.com">studioceramaker@gmail.com</a>
+<span>Volta Redonda/RJ</span>
+</address>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© <span id="year"></span> Ceramaker. Todos os direitos reservados.</span>
+<span>Desenvolvido para ceramistas apaixonados.</span>
+</div>
+</div>
+</div>
+</footer>
+<a aria-label="Abrir conversa com a Ceramaker no WhatsApp" class="whatsapp-float" href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Vim%20pelo%20site%20Ceramaker" rel="noopener" target="_blank">
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347"></path>
+</svg>
+</a>
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -1336,8 +1393,7 @@ html = r'''<!DOCTYPE html>
     "priceRange": "$$"
   }
   </script>
-
-  <script>
+<script>
     const menuButton = document.querySelector(".menu-toggle");
     const mobileMenu = document.getElementById("menu-mobile");
 
@@ -1365,10 +1421,3 @@ html = r'''<!DOCTYPE html>
   </script>
 </body>
 </html>
-'''
-
-output = Path("/mnt/data/ceramaker-home-adequada.html")
-output.write_text(html, encoding="utf-8")
-
-print(f"Arquivo criado: {output}")
-print(f"Tamanho: {output.stat().st_size:,} bytes")
