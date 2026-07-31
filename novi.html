@@ -1461,6 +1461,381 @@
         border-radius: 22px;
       }
     }
+
+    /* =========================================================
+       CALIBRAÇÃO PARA NAVEGADOR EM 100%
+       Visual semelhante ao antigo layout visto em 90%
+       ========================================================= */
+
+    :root {
+      --container: 1080px;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+    }
+
+    .site-header .container {
+      width: min(1120px, calc(100% - 40px));
+    }
+
+    .header-inner {
+      min-height: 66px;
+    }
+
+    .brand img {
+      height: 44px;
+    }
+
+    .desktop-nav {
+      gap: 22px;
+    }
+
+    .desktop-nav a {
+      font-size: 0.84rem;
+    }
+
+    .header-cta {
+      min-height: 42px;
+      padding: 9px 18px;
+      font-size: 0.88rem;
+    }
+
+    .hero {
+      padding-block: 24px 36px;
+    }
+
+    .hero-panel-simple {
+      min-height: 330px;
+      grid-template-columns: minmax(0, 1.08fr) minmax(290px, 0.92fr);
+      gap: 36px;
+      padding: 36px 40px;
+      border-radius: 26px;
+    }
+
+    .hero-title-simple {
+      max-width: 560px;
+      font-size: clamp(2rem, 2.8vw, 2.9rem);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    .hero-text-simple {
+      max-width: 490px;
+      margin-top: 14px;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .hero-actions {
+      margin-top: 22px;
+      gap: 12px;
+    }
+
+    .hero-actions .button {
+      min-height: 44px;
+      padding: 10px 18px;
+      font-size: 0.88rem;
+    }
+
+    .hero-visual-simple {
+      min-height: 250px;
+    }
+
+    .hero-image-simple {
+      min-height: 250px;
+      max-height: 285px;
+      border-radius: 20px;
+    }
+
+    .section {
+      padding-block: 42px;
+    }
+
+    .section-heading {
+      max-width: 660px;
+      margin-bottom: 26px;
+    }
+
+    .eyebrow {
+      margin-bottom: 8px;
+      font-size: 0.68rem;
+      letter-spacing: 0.11em;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 2.1vw, 2.25rem);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+    }
+
+    .section-description {
+      margin-top: 12px;
+      max-width: 600px;
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .benefits-grid {
+      gap: 16px;
+    }
+
+    .benefit-card {
+      padding: 22px 18px;
+      border-radius: 16px;
+    }
+
+    .benefit-icon {
+      width: 58px;
+      height: 58px;
+      margin-bottom: 14px;
+    }
+
+    .benefit-icon img {
+      width: 42px;
+      height: 42px;
+    }
+
+    .benefit-card h3 {
+      font-size: 0.96rem;
+    }
+
+    .benefit-card p {
+      margin-top: 7px;
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .products-grid {
+      gap: 18px;
+    }
+
+    .product-card {
+      border-radius: 16px;
+    }
+
+    .product-body {
+      min-height: 205px;
+      padding: 18px;
+    }
+
+    .product-label {
+      font-size: 0.66rem;
+    }
+
+    .product-card h3 {
+      font-size: 1.05rem;
+    }
+
+    .product-card p {
+      margin: 9px 0 16px;
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .product-link {
+      min-height: 40px;
+      padding: 8px 15px;
+      font-size: 0.8rem;
+    }
+
+    .tips-wrap {
+      gap: 20px;
+    }
+
+    .tips-intro {
+      padding: 34px;
+      border-radius: 24px;
+    }
+
+    .tips-intro h2 {
+      font-size: clamp(1.8rem, 2.25vw, 2.35rem);
+      line-height: 1.18;
+    }
+
+    .tips-intro p {
+      margin-top: 14px;
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    .tips-list {
+      gap: 12px;
+    }
+
+    .tip-card {
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 16px;
+      padding: 17px 20px;
+      border-radius: 16px;
+    }
+
+    .tip-number {
+      width: 48px;
+      height: 48px;
+      font-size: 1.05rem;
+    }
+
+    .tip-card h3 {
+      font-size: 1rem;
+    }
+
+    .tip-card p {
+      margin-top: 4px;
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .cta-section {
+      padding-block: 14px 48px;
+    }
+
+    .cta-panel {
+      padding: 34px 38px;
+      border-radius: 26px;
+    }
+
+    .cta-copy h2 {
+      font-size: clamp(1.65rem, 2.1vw, 2.2rem);
+    }
+
+    .cta-copy p {
+      margin-top: 10px;
+      font-size: 0.94rem;
+    }
+
+    .footer-panel {
+      padding: 34px 38px;
+      border-radius: 26px;
+    }
+
+    .footer-grid {
+      gap: 24px;
+    }
+
+    .footer-panel h3 {
+      font-size: 0.94rem;
+    }
+
+    .footer-panel p,
+    .footer-panel a,
+    .footer-panel address {
+      font-size: 0.82rem;
+    }
+
+    .footer-bottom {
+      margin-top: 26px;
+      padding-top: 18px;
+      font-size: 0.72rem;
+    }
+
+    .whatsapp-float {
+      width: 54px;
+      height: 54px;
+    }
+
+    .whatsapp-float svg {
+      width: 27px;
+      height: 27px;
+    }
+
+    @media (max-width: 1050px) {
+      .hero-panel-simple {
+        grid-template-columns: minmax(0, 1fr) minmax(270px, 0.82fr);
+      }
+    }
+
+    @media (max-width: 820px) {
+      .container,
+      .site-header .container {
+        width: min(100% - 30px, var(--container));
+      }
+
+      .hero-panel-simple {
+        grid-template-columns: 1fr;
+        padding: 30px 24px;
+      }
+
+      .hero-title-simple {
+        max-width: 600px;
+        font-size: clamp(2rem, 7vw, 2.8rem);
+      }
+
+      .hero-visual-simple,
+      .hero-image-simple {
+        min-height: 230px;
+      }
+
+      .section {
+        padding-block: 38px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container,
+      .site-header .container {
+        width: min(100% - 22px, var(--container));
+      }
+
+      .header-inner {
+        min-height: 62px;
+      }
+
+      .brand img {
+        height: 40px;
+      }
+
+      .hero {
+        padding-top: 14px;
+        padding-bottom: 30px;
+      }
+
+      .hero-panel-simple {
+        padding: 24px 18px;
+        border-radius: 20px;
+      }
+
+      .hero-title-simple {
+        font-size: clamp(1.8rem, 9vw, 2.4rem);
+      }
+
+      .hero-text-simple {
+        font-size: 0.94rem;
+      }
+
+      .hero-visual-simple,
+      .hero-image-simple {
+        min-height: 195px;
+      }
+
+      .section {
+        padding-block: 32px;
+      }
+
+      .section-title {
+        font-size: clamp(1.55rem, 7vw, 2rem);
+      }
+
+      .benefits-grid,
+      .products-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tips-intro {
+        padding: 28px 24px;
+      }
+
+      .tips-intro h2 {
+        font-size: clamp(1.65rem, 7vw, 2rem);
+      }
+
+      .cta-panel,
+      .footer-panel {
+        padding: 28px 24px;
+        border-radius: 20px;
+      }
+    }
 </style>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CFT1Q302RD"></script>
 <script>
