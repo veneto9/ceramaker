@@ -938,24 +938,29 @@
   .blog-heading .eyebrow {
     margin-bottom: 12px;
   }
+.blog-placeholder {
+  grid-column: 1 / -1;
+  display: flex;
+  width: 100%;
+  max-width: 760px;
+  min-height: 130px;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  padding: 28px 30px;
+  border: 1px solid rgba(97, 91, 78, 0.12);
+  border-radius: var(--radius-sm);
+  color: var(--charcoal);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
 
-  .blog-placeholder {
-    max-width: 760px;
-    margin-inline: auto;
-    padding: 28px 30px;
-    border: 1px solid rgba(97, 91, 78, 0.12);
-    border-radius: var(--radius-sm);
-    color: var(--charcoal);
-    background: rgba(255, 255, 255, 0.78);
-    box-shadow: var(--shadow-sm);
-    text-align: center;
-  }
-
-  .blog-placeholder p {
-    margin: 0;
-    font-size: 1rem;
-    text-align: center;
-  }
+.blog-placeholder p {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
 
   .blog-grid {
     display: grid;
