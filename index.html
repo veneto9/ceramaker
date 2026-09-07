@@ -1,5 +1,3 @@
-
-
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
@@ -1532,6 +1530,183 @@
     }
 
   }
+  /* Ajuste visual exclusivo do banner principal */
+  .hero-panel-simple {
+    min-height: 340px;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, .86fr);
+    gap: 42px;
+    padding: 38px 44px;
+    border-radius: 26px;
+    background: #f7f3ec;
+    color: #692e26;
+    box-shadow: 0 16px 36px rgba(60, 42, 30, .10);
+  }
+
+  /* Espaçamento uniforme acima e abaixo do banner */
+  .hero {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .hero + .section {
+    padding-top: 32px !important;
+  }
+
+  .site-footer {
+    padding-top: 32px !important;
+  }
+
+  .hero-panel-simple::before,
+  .hero-panel-simple::after {
+    display: none;
+  }
+
+  .hero-panel-simple .hero-title-simple {
+    max-width: 520px;
+    color: #615b4e;
+    font-size: clamp(2rem, 3.2vw, 3.15rem);
+    line-height: 1.08;
+    letter-spacing: -.035em;
+  }
+
+  .hero-panel-simple .hero-text-simple {
+    max-width: 480px;
+    color: #692e26;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .hero-panel-simple .hero-visual-simple {
+    display: flex;
+    min-height: 250px;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 22px;
+    background: #ebe5d9;
+  }
+
+  .hero-panel-simple .hero-image-simple {
+    width: 100%;
+    max-height: 270px;
+    border-radius: 16px;
+    object-fit: contain;
+    box-shadow: none;
+  }
+
+  .hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #ebe5d9;
+  }
+
+  .hero-carousel-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .45s ease;
+  }
+
+  .hero-carousel-slide.is-active {
+    opacity: 1;
+  }
+
+  .hero-carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .hero-carousel-arrow {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    color: #692e26;
+    background: rgba(255, 255, 255, .82);
+    box-shadow: 0 4px 12px rgba(60, 42, 30, .14);
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+
+  .hero-carousel-arrow:hover {
+    background: #fff;
+  }
+
+  .hero-carousel-arrow.prev { left: 12px; }
+  .hero-carousel-arrow.next { right: 12px; }
+
+  .hero-carousel-dots {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 12px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+  }
+
+  .hero-carousel-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(105, 46, 38, .3);
+    cursor: pointer;
+  }
+
+  .hero-carousel-dot.is-active {
+    background: #a6492e;
+    transform: scale(1.2);
+  }
+
+  .hero-panel-simple .button-primary {
+    color: #fff;
+    background: #a6492e;
+    box-shadow: 0 8px 18px rgba(166, 73, 46, .18);
+  }
+
+  .hero-panel-simple .button-secondary {
+    color: #692e26;
+    border: 1px solid rgba(105, 46, 38, .28);
+    background: transparent;
+  }
+
+  .hero-panel-simple .button-secondary:hover {
+    color: #fff;
+    background: #692e26;
+  }
+
+  @media (max-width: 760px) {
+    .hero-panel-simple {
+      min-height: auto;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 30px 24px;
+    }
+
+    .hero-panel-simple .hero-title-simple {
+      font-size: clamp(1.9rem, 8vw, 2.55rem);
+    }
+
+    .hero-panel-simple .hero-visual-simple {
+      min-height: 210px;
+    }
+  }
 </style>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CFT1Q302RD"></script>
 <script>
@@ -1577,27 +1752,6 @@
 </div>
 </header>
 <main id="conteudo-principal">
-<section aria-labelledby="titulo-principal" class="hero">
-<div class="container">
-<div class="hero-panel hero-panel-simple">
-<div class="hero-copy">
-<h1 class="hero-title hero-title-simple" id="titulo-principal">
-        Visite nossa loja ou fale diretamente com a Ceramaker.
-      </h1>
-<p class="hero-text hero-text-simple">
-        Conheça as massas cerâmicas e ferramentas disponíveis ou tire suas dúvidas pelo WhatsApp.
-      </p>
-<div class="hero-actions">
-<a class="button button-primary" href="https://ceramaker.lojavirtualnuvem.com.br/produtos/" rel="noopener" target="_blank">Acesse nossa loja</a>
-<a class="button button-secondary" href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Quero%20conhecer%20os%20produtos%20Ceramaker" rel="noopener" target="_blank">Falar no WhatsApp</a>
-</div>
-</div>
-<div class="hero-visual hero-visual-simple">
-<img alt="Massas cerâmicas Ceramaker" class="hero-image-simple" decoding="async" height="700" loading="eager" onerror="this.style.display='none';this.parentElement.classList.add('image-unavailable')" src="/images/site/produtos/argilas.png" width="900"/>
-</div>
-</div>
-</div>
-</section>
 <section aria-labelledby="oferecemos-titulo" class="section">
 <div class="container">
 <div class="section-heading">
@@ -1639,77 +1793,38 @@
 </div>
 </div>
 </section>
-<section aria-labelledby="produtos-titulo" class="section products-section" id="produtos">
+<section aria-labelledby="titulo-principal" class="hero">
 <div class="container">
-<div class="section-heading">
-<span class="eyebrow">Produtos Ceramaker</span>
-<h2 class="section-title" id="produtos-titulo">Para cada etapa da sua criação.</h2>
-<p class="section-description">
-            Massas cerâmicas profissionais e ferramentas criativas para cerâmica utilitária, artística, decorativa e educacional.
-          </p>
+<div class="hero-panel hero-panel-simple">
+<div class="hero-copy">
+<h1 class="hero-title hero-title-simple" id="titulo-principal">
+        Visite nossa loja ou fale diretamente com a Ceramaker.
+      </h1>
+<p class="hero-text hero-text-simple">
+        Conheça as massas cerâmicas e ferramentas disponíveis ou tire suas dúvidas pelo WhatsApp.
+      </p>
+<div class="hero-actions">
+<a class="button button-primary" href="https://ceramaker.lojavirtualnuvem.com.br/produtos/" rel="noopener" target="_blank">Acesse nossa loja</a>
+<a class="button button-secondary" href="https://wa.me/5521998898984?text=Ol%C3%A1!%20Quero%20conhecer%20os%20produtos%20Ceramaker" rel="noopener" target="_blank">Falar no WhatsApp</a>
 </div>
-      <div class="products-grid">
-        <article class="product-card">
-          <figure class="product-media">
-            <img src="/images/site/produtos/argilas.png" width="640" height="480" loading="lazy" decoding="async" alt="Argilas e massas cerâmicas para diferentes técnicas e temperaturas de queima" />
-          </figure>
-          <div class="product-body">
-            <span class="product-label">Matéria-prima</span>
-            <h3>Argilas e massas cerâmicas</h3>
-            <p>Massas cerâmicas para diferentes técnicas, acabamentos e temperaturas de queima.</p>
-            <a class="product-link" href="https://ceramaker.lojavirtualnuvem.com.br/produtos/" rel="noopener" target="_blank">Ver produtos</a>
-          </div>
-        </article>
-        <article class="product-card">
-          <figure class="product-media">
-            <img src="/images/site/produtos/argilas.png" width="640" height="480" loading="lazy" decoding="async" alt="Cerâmica fria DAS para modelagem e artesanato" />
-          </figure>
-          <div class="product-body">
-            <span class="product-label">Modelagem criativa</span>
-            <h3>Cerâmica fria DAS</h3>
-            <p>Massas de cerâmica fria para modelagem, artesanato e projetos criativos.</p>
-            <a class="product-link" href="https://ceramaker.lojavirtualnuvem.com.br/produtos/" rel="noopener" target="_blank">Ver produtos</a>
-          </div>
-        </article>
-        <article class="product-card">
-          <figure class="product-media">
-            <img src="/images/site/produtos/rolos.png" width="640" height="480" loading="lazy" decoding="async" alt="Ferramentas para modelagem de argila e cerâmica" />
-          </figure>
-          <div class="product-body">
-            <span class="product-label">Ferramentas</span>
-            <h3>Ferramentas para modelagem</h3>
-            <p>Estecas, batedores, fios cortadores, esponjas e outros acessórios para trabalhar com argila.</p>
-            <a class="product-link" href="https://ceramaker.lojavirtualnuvem.com.br/produtos/" rel="noopener" target="_blank">Ver produtos</a>
-          </div>
-        </article>
-        <article class="product-card">
-          <figure class="product-media">
-            <img src="/images/site/produtos/cortadores.png" width="640" height="480" loading="lazy" decoding="async" alt="Kits de massas e ferramentas para modelagem" />
-          </figure>
-          <div class="product-body">
-            <span class="product-label">Combinações</span>
-            <h3>Kits para modelagem</h3>
-            <p>Combinações de massas e ferramentas para iniciantes, estudantes e ateliês.</p>
-            <a class="product-link" href="https://ceramaker.lojavirtualnuvem.com.br/produtos/" rel="noopener" target="_blank">Ver produtos</a>
-          </div>
-        </article>
-      </div>
+</div>
+<div class="hero-visual hero-visual-simple">
+<div aria-label="Galeria de argilas Ceramaker" class="hero-carousel" role="region">
+<div class="hero-carousel-slide is-active"><img alt="Argila Bianca Ceramaker" src="https://raw.githubusercontent.com/veneto9/ceramaker/main/images/argilas/04.png"/></div>
+<div class="hero-carousel-slide"><img alt="Ceramaker" src="https://raw.githubusercontent.com/veneto9/ceramaker/main/images/03.png" loading="lazy"/></div>
+<div class="hero-carousel-slide"><img alt="Ceramaker" src="https://raw.githubusercontent.com/veneto9/ceramaker/main/images/02.png" loading="lazy"/></div>
+<div class="hero-carousel-slide"><img alt="Ceramaker" src="https://raw.githubusercontent.com/veneto9/ceramaker/main/images/01.png" loading="lazy"/></div>
+<div class="hero-carousel-slide"><img alt="Ceramaker" src="https://raw.githubusercontent.com/veneto9/ceramaker/main/images/05.png" loading="lazy"/></div>
+<div class="hero-carousel-slide"><img alt="Ceramaker" src="https://raw.githubusercontent.com/veneto9/ceramaker/main/images/06.png" loading="lazy"/></div>
+<div class="hero-carousel-slide"><img alt="Ceramaker" src="https://raw.githubusercontent.com/veneto9/ceramaker/main/images/07.png" loading="lazy"/></div>
+<button aria-label="Imagem anterior" class="hero-carousel-arrow prev" type="button">‹</button>
+<button aria-label="Próxima imagem" class="hero-carousel-arrow next" type="button">›</button>
+<div class="hero-carousel-dots" role="tablist" aria-label="Selecionar imagem"></div>
+</div>
+</div>
+</div>
 </div>
 </section>
-<section aria-labelledby="blog-titulo" class="section blog-section" id="blog">
-<div class="container">
-<div class="section-heading blog-heading">
-<span class="eyebrow">Blog Ceramaker</span>
-<h2 class="section-title" id="blog-titulo">Conteúdo para quem vive a cerâmica.</h2>
-<p class="section-description">
-        Técnicas, materiais, ferramentas e ideias para apoiar sua prática no ateliê.
-      </p>
-</div>
-<div class="blog-grid">
-        <div class="blog-placeholder" role="status">
-          <p>Novos conteúdos sobre técnicas, materiais e ferramentas para cerâmica serão publicados em breve.</p>
-        </div>
-</div>
 </div>
 </section>
 
@@ -1812,6 +1927,43 @@
           mobileMenu.hidden = true;
         });
       });
+    }
+
+    const carousel = document.querySelector(".hero-carousel");
+    if (carousel) {
+      const slides = Array.from(carousel.querySelectorAll(".hero-carousel-slide"));
+      const dots = carousel.querySelector(".hero-carousel-dots");
+      let current = 0;
+      let timer;
+
+      slides.forEach((_, index) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "hero-carousel-dot";
+        dot.setAttribute("aria-label", `Mostrar imagem ${index + 1}`);
+        dot.addEventListener("click", () => showSlide(index));
+        dots.appendChild(dot);
+      });
+
+      const updateDots = () => {
+        dots.querySelectorAll(".hero-carousel-dot").forEach((dot, index) => {
+          dot.classList.toggle("is-active", index === current);
+        });
+      };
+
+      function showSlide(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle("is-active", slideIndex === current);
+        });
+        updateDots();
+        clearInterval(timer);
+        timer = setInterval(() => showSlide(current + 1), 5000);
+      }
+
+      carousel.querySelector(".hero-carousel-arrow.prev").addEventListener("click", () => showSlide(current - 1));
+      carousel.querySelector(".hero-carousel-arrow.next").addEventListener("click", () => showSlide(current + 1));
+      showSlide(0);
     }
 
     const year = document.getElementById("year");
