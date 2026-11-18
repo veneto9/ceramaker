@@ -703,13 +703,19 @@
   }
 
   .brand img {
+    display: block;
     width: auto;
-    height: 54px;
+    height: 70px;
+    max-width: 100%;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   .footer-brand img {
     width: auto;
     height: 64px;
+    max-width: 100%;
+    object-fit: contain;
     margin-bottom: 18px;
     filter: none;
     opacity: 1;
@@ -1725,7 +1731,17 @@
 <header class="site-header">
 <div class="container">
 <div class="header-inner">
-<img alt="Ceramaker" decoding="async" height="88" loading="eager" src="/Logo.png" width="220"/>
+<a class="brand" href="/" aria-label="Ceramaker — página inicial">
+  <img
+    class="logo-img"
+    src="/Logo.png"
+    alt="Ceramaker"
+    width="3200"
+    height="1831"
+    decoding="async"
+    loading="eager"
+    fetchpriority="high"
+  />
 </a>
 <nav aria-label="Navegação principal" class="desktop-nav">
 <a href="/pages/sobre/sobre.html">Sobre</a>
@@ -1837,7 +1853,7 @@
 <div class="footer-panel">
 <div class="footer-grid">
 <div class="footer-brand">
-<img alt="Ceramaker" decoding="async" height="88" loading="lazy" src="/logonegativo.png" width="220"/>
+<img alt="Ceramaker" decoding="async" loading="lazy" src="/logonegativo.png"/>
 <p>Massas cerâmicas e ferramentas especiais para ceramistas iniciantes, profissionais e ateliês.</p>
 </div>
 <div>
