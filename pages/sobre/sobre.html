@@ -10,7 +10,7 @@
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:wght@400;700;900&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -68,6 +68,144 @@
       border-radius:9999px;
       background:var(--tertiary-color);
     }
+
+    /* Cabeçalho padronizado com index.html. Regras restritas ao cabeçalho. */
+    .cm-site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(97, 91, 78, 0.18);
+      background: rgba(235, 229, 217, 0.94);
+      backdrop-filter: blur(18px);
+    }
+    .cm-header-container {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+    .cm-header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .cm-brand {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .cm-brand img {
+      display: block;
+      width: auto;
+      height: 78px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .cm-desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex: 1;
+    }
+    .cm-desktop-nav a {
+      position: relative;
+      padding-block: 10px;
+      color: #615b4e;
+      font-family: "Lato", Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.65;
+      text-decoration: none;
+    }
+    .cm-desktop-nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+      left: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: #a6492e;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .2s ease;
+    }
+    .cm-desktop-nav a:hover::after,
+    .cm-desktop-nav a:focus-visible::after { transform: scaleX(1); }
+    .cm-header-cta {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: 999px;
+      color: #fff;
+      background: #a6492e;
+      box-shadow: 0 12px 28px rgba(166, 73, 46, .24);
+      font-family: "Lato", Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.65;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform .2s ease, background-color .2s ease;
+    }
+    .cm-header-cta:hover {
+      color: #fff;
+      background: #873922;
+      transform: translateY(-2px);
+    }
+    .cm-menu-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(97, 91, 78, .18);
+      border-radius: 14px;
+      color: #615b4e;
+      background: rgba(255, 255, 255, .55);
+      cursor: pointer;
+    }
+    .cm-menu-toggle svg { width: 25px; height: 25px; }
+    .cm-mobile-nav { display: none; padding: 0 0 18px; }
+    .cm-mobile-nav[hidden] { display: none; }
+    .cm-mobile-nav-inner {
+      width: 100%;
+      display: grid;
+      gap: 8px;
+      padding: 16px;
+      border: 1px solid rgba(97, 91, 78, .18);
+      border-radius: 20px;
+      background: #f7f3ec;
+      box-shadow: 0 10px 30px rgba(60, 42, 30, .08);
+    }
+    .cm-mobile-nav-inner a {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 12px;
+      color: #615b4e;
+      font-family: "Lato", Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+    .cm-mobile-nav-inner a:hover { background: #fff; }
+    @media (max-width: 1050px) {
+      .cm-desktop-nav, .cm-header-cta { display: none; }
+      .cm-menu-toggle, .cm-mobile-nav:not([hidden]) { display: flex; }
+      .cm-mobile-nav { width: 100%; }
+    }
+    @media (max-width: 820px) {
+      .cm-header-container { width: min(100% - 30px, 1120px); }
+      .cm-brand img { height: 50px; }
+    }
+    @media (max-width: 620px) {
+      .cm-header-container { width: min(100% - 22px, 1120px); }
+      .cm-header-inner { min-height: 62px; }
+      .cm-brand img { height: 54px; }
+    }
   </style>
 
   <!-- Schema.org -->
@@ -96,31 +234,37 @@
 </head>
 <body class="antialiased">
 
-<!-- HEADER -->
-<header class="bg-[var(--background-color)] border-b border-[var(--secondary-color)]/20 py-4">
-  <div class="container-main flex items-center justify-between gap-4">
-    <!-- Logo + nome -->
-    <a href="/" class="flex items-center gap-3">
-      <img src="/Logo.png" alt="Logotipo Ceramaker" class="h-12 w-auto" loading="eager" decoding="async">
-      <span class="text-lg sm:text-xl font-semibold text-[var(--secondary-color)]">Ceramaker</span>
-    </a>
-
-    <!-- Navegação -->
-    <nav class="hidden md:flex items-center gap-6 text-[var(--secondary-color)] text-[0.95rem] font-medium">
-      <a href="/" class="link-nav">Início</a>
-      <a href="/pages/massa_ceramica.html" class="link-nav">Produtos</a>
-      <a href="/pages/como-comprar.html" class="link-nav">Como Comprar</a>
-      <a href="/pages/cursos.html" class="link-nav">Cursos</a>
-      <a href="/pages/sobre/sobre.html" class="link-nav link-nav-active">Nossa História</a>
-      <a href="/contato" class="link-nav">Contato</a>
+<!-- HEADER — mesmo padrão visual da página inicial -->
+<header class="cm-site-header">
+  <div class="cm-header-container">
+    <div class="cm-header-inner">
+      <a class="cm-brand" href="/" aria-label="Ceramaker — página inicial">
+        <img src="/Logo.png" alt="Ceramaker" width="3200" height="1831" loading="eager" decoding="async" fetchpriority="high">
+      </a>
+      <nav aria-label="Navegação principal" class="cm-desktop-nav">
+        <a href="/pages/sobre/sobre.html" aria-current="page">Sobre</a>
+        <a href="/#produtos">Produtos</a>
+        <a href="/pages/comprar/comocomprar.html">Como comprar</a>
+        <a href="/pages/cursos/cursos.html">Cursos</a>
+        <a href="/#contato">Contato</a>
+      </nav>
+      <a class="cm-header-cta" href="https://ceramaker.lojavirtualnuvem.com.br/produtos/" rel="noopener" target="_blank">Nossa loja</a>
+      <button aria-controls="cm-menu-mobile" aria-expanded="false" aria-label="Abrir menu" class="cm-menu-toggle" type="button">
+        <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+    <nav aria-label="Navegação móvel" class="cm-mobile-nav" hidden id="cm-menu-mobile">
+      <div class="cm-mobile-nav-inner">
+        <a href="/pages/sobre/sobre.html" aria-current="page">Sobre</a>
+        <a href="/#produtos">Produtos</a>
+        <a href="/pages/comprar/comocomprar.html">Como comprar</a>
+        <a href="/pages/cursos/cursos.html">Cursos</a>
+        <a href="/#contato">Contato</a>
+        <a href="https://ceramaker.lojavirtualnuvem.com.br/produtos/" rel="noopener" target="_blank">Nossa loja</a>
+      </div>
     </nav>
-
-    <!-- Botão WhatsApp -->
-    <a href="https://wa.me/5521998898984"
-       class="px-4 py-2 rounded-full text-white bg-[var(--tertiary-color)] hover:bg-[var(--secondary-color)] text-sm font-semibold shadow-smooth"
-       target="_blank" rel="noopener">
-      WhatsApp
-    </a>
   </div>
 </header>
 
@@ -281,6 +425,30 @@
   const spanYear = document.getElementById('year');
   if (spanYear) {
     spanYear.textContent = new Date().getFullYear();
+  }
+
+  // Menu móvel do cabeçalho, no mesmo comportamento do index.html.
+  const cmMenuButton = document.querySelector('.cm-menu-toggle');
+  const cmMobileMenu = document.getElementById('cm-menu-mobile');
+  if (cmMenuButton && cmMobileMenu) {
+    const closeCmMenu = () => {
+      cmMobileMenu.hidden = true;
+      cmMenuButton.setAttribute('aria-expanded', 'false');
+      cmMenuButton.setAttribute('aria-label', 'Abrir menu');
+    };
+    cmMenuButton.addEventListener('click', () => {
+      const opening = cmMenuButton.getAttribute('aria-expanded') !== 'true';
+      cmMobileMenu.hidden = !opening;
+      cmMenuButton.setAttribute('aria-expanded', String(opening));
+      cmMenuButton.setAttribute('aria-label', opening ? 'Fechar menu' : 'Abrir menu');
+    });
+    cmMobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeCmMenu));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !cmMobileMenu.hidden) {
+        closeCmMenu();
+        cmMenuButton.focus();
+      }
+    });
   }
 </script>
 
